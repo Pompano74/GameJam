@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://d3gvh5rqqcudu"]
+[gd_scene load_steps=4 format=3 uid="uid://d3gvh5rqqcudu"]
 
 [ext_resource type="PackedScene" uid="uid://dynw8drhp8bjg" path="res://Level/Player/Player.tscn" id="1_ky5d2"]
+[ext_resource type="PackedScene" uid="uid://7j41jpon30lu" path="res://Level/Object/kill_zone.tscn" id="2_cjdev"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ky5d2"]
 
@@ -41,3 +42,7 @@ shape = SubResource("WorldBoundaryShape2D_ky5d2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collisions/floor"]
 shape = SubResource("WorldBoundaryShape2D_ky5d2")
+
+[node name="KillZone" parent="." instance=ExtResource("2_cjdev")]
+position = Vector2(398, 0)
+scale = Vector2(1.02133, 1.47452)
