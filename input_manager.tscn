@@ -1,6 +1,69 @@
-[gd_scene load_steps=2 format=3 uid="uid://sv3ow0lvdrg4"]
+[gd_scene load_steps=3 format=3 uid="uid://sv3ow0lvdrg4"]
 
 [ext_resource type="Script" uid="uid://b170ohgyeoao0" path="res://Script/input_manager.gd" id="1_5aitx"]
+[ext_resource type="Script" uid="uid://ccmel6eobo4ti" path="res://Script/button_select.gd" id="2_qy6v6"]
 
-[node name="InputManager" type="Node"]
+[node name="InputManager" type="Node" node_paths=PackedStringArray("drumRolls")]
 script = ExtResource("1_5aitx")
+drumRolls = [NodePath("ButtonSelect"), NodePath("ButtonSelect2"), NodePath("ButtonSelect3"), NodePath("ButtonSelect4"), NodePath("ButtonSelect5"), NodePath("ButtonSelect6"), NodePath("ButtonSelect7"), NodePath("ButtonSelect8")]
+
+[node name="ButtonSelect" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("2_qy6v6")
+metadata/_custom_type_script = "uid://ccmel6eobo4ti"
+
+[node name="ButtonSelect2" type="Button" parent="."]
+offset_left = 155.0
+offset_right = 163.0
+offset_bottom = 8.0
+script = ExtResource("2_qy6v6")
+metadata/_custom_type_script = "uid://ccmel6eobo4ti"
+
+[node name="ButtonSelect3" type="Button" parent="."]
+offset_left = 281.0
+offset_top = 4.0
+offset_right = 289.0
+offset_bottom = 12.0
+script = ExtResource("2_qy6v6")
+metadata/_custom_type_script = "uid://ccmel6eobo4ti"
+
+[node name="ButtonSelect4" type="Button" parent="."]
+offset_left = 410.0
+offset_top = 4.0
+offset_right = 418.0
+offset_bottom = 12.0
+script = ExtResource("2_qy6v6")
+metadata/_custom_type_script = "uid://ccmel6eobo4ti"
+
+[node name="ButtonSelect5" type="Button" parent="."]
+offset_left = 541.0
+offset_top = 3.0
+offset_right = 549.0
+offset_bottom = 11.0
+script = ExtResource("2_qy6v6")
+metadata/_custom_type_script = "uid://ccmel6eobo4ti"
+
+[node name="ButtonSelect6" type="Button" parent="."]
+offset_left = 660.0
+offset_top = 1.0
+offset_right = 668.0
+offset_bottom = 9.0
+script = ExtResource("2_qy6v6")
+metadata/_custom_type_script = "uid://ccmel6eobo4ti"
+
+[node name="ButtonSelect7" type="Button" parent="."]
+offset_left = 768.0
+offset_top = -1.0
+offset_right = 776.0
+offset_bottom = 7.0
+script = ExtResource("2_qy6v6")
+metadata/_custom_type_script = "uid://ccmel6eobo4ti"
+
+[node name="ButtonSelect8" type="Button" parent="."]
+offset_left = 885.0
+offset_top = 1.0
+offset_right = 893.0
+offset_bottom = 9.0
+script = ExtResource("2_qy6v6")
+metadata/_custom_type_script = "uid://ccmel6eobo4ti"

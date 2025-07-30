@@ -3,7 +3,7 @@ extends Node
 var actions: Array[String] = ["Nothing", "Jump", "Dash", "Attack"]
 
 var currentAction: String
-var drumRolls: Array[Button]
+@export var drumRolls: Array[ButtonSelect]
 var maxRolls: int = 8
 
 # Called when the node enters the scene tree for the first time.
@@ -17,4 +17,4 @@ func _process(delta: float) -> void:
 	currentAction = actions[0]
 	
 	for drumRoll in drumRolls: 
-	pass
+		drumRoll.text = actions[drumRoll.currentActionIndex]

@@ -1,3 +1,4 @@
+class_name ButtonSelect
 extends Button
 
 var currentActionIndex: int = 0
