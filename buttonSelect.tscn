@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ccmel6eobo4ti" path="res://Script/button_select.gd" id="1_u6ju8"]
 
-[node name="Button" type="Button"]
+[node name="ButtonSelect" type="Button"]
 offset_left = 3.0
 offset_top = 1.0
 offset_right = 11.0
