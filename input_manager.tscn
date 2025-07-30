@@ -10,6 +10,7 @@ drumRolls = [NodePath("ButtonSelect"), NodePath("ButtonSelect2"), NodePath("Butt
 [node name="ButtonSelect" type="Button" parent="."]
 offset_right = 8.0
 offset_bottom = 8.0
+action_mode = 0
 script = ExtResource("2_qy6v6")
 metadata/_custom_type_script = "uid://ccmel6eobo4ti"
 
@@ -17,6 +18,7 @@ metadata/_custom_type_script = "uid://ccmel6eobo4ti"
 offset_left = 155.0
 offset_right = 163.0
 offset_bottom = 8.0
+action_mode = 0
 script = ExtResource("2_qy6v6")
 metadata/_custom_type_script = "uid://ccmel6eobo4ti"
 
@@ -25,6 +27,7 @@ offset_left = 281.0
 offset_top = 4.0
 offset_right = 289.0
 offset_bottom = 12.0
+action_mode = 0
 script = ExtResource("2_qy6v6")
 metadata/_custom_type_script = "uid://ccmel6eobo4ti"
 
@@ -33,6 +36,7 @@ offset_left = 410.0
 offset_top = 4.0
 offset_right = 418.0
 offset_bottom = 12.0
+action_mode = 0
 script = ExtResource("2_qy6v6")
 metadata/_custom_type_script = "uid://ccmel6eobo4ti"
 
@@ -41,6 +45,7 @@ offset_left = 541.0
 offset_top = 3.0
 offset_right = 549.0
 offset_bottom = 11.0
+action_mode = 0
 script = ExtResource("2_qy6v6")
 metadata/_custom_type_script = "uid://ccmel6eobo4ti"
 
@@ -49,6 +54,7 @@ offset_left = 660.0
 offset_top = 1.0
 offset_right = 668.0
 offset_bottom = 9.0
+action_mode = 0
 script = ExtResource("2_qy6v6")
 metadata/_custom_type_script = "uid://ccmel6eobo4ti"
 
@@ -57,6 +63,7 @@ offset_left = 768.0
 offset_top = -1.0
 offset_right = 776.0
 offset_bottom = 7.0
+action_mode = 0
 script = ExtResource("2_qy6v6")
 metadata/_custom_type_script = "uid://ccmel6eobo4ti"
 
@@ -65,5 +72,6 @@ offset_left = 885.0
 offset_top = 1.0
 offset_right = 893.0
 offset_bottom = 9.0
+action_mode = 0
 script = ExtResource("2_qy6v6")
 metadata/_custom_type_script = "uid://ccmel6eobo4ti"

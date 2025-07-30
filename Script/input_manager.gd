@@ -8,7 +8,7 @@ var maxRolls: int = 8
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	drumRolls
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,5 +16,8 @@ func _process(delta: float) -> void:
 	drumRolls.slice(0, maxRolls)
 	currentAction = actions[0]
 	
-	for drumRoll in drumRolls: 
-		drumRoll.text = actions[drumRoll.currentActionIndex]
+	for drumRoll in drumRolls:
+		if drumRoll and drumRoll.has_method("do_something"):  # ou une méthode propre à ton script
+			var index = drumRoll.currentActionIndex
+			if index >= 0:
+				drumRoll.text = actions[index]
