@@ -45,4 +45,4 @@ shape = SubResource("WorldBoundaryShape2D_ky5d2")
 
 [node name="KillZone" parent="." instance=ExtResource("2_cjdev")]
 position = Vector2(398, 0)
-scale = Vector2(1.02133, 1.47452)
+scale = Vector2(4.50666, 6.30329)
