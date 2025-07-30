@@ -2,8 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dynw8drhp8bjg" path="res://Level/Player/Player.tscn" id="1_ky5d2"]
 
-[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_cjdev"]
-distance = 64.0
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ky5d2"]
 
 [node name="TestLevelPlayer" type="Node2D"]
 
@@ -11,12 +10,34 @@ distance = 64.0
 position = Vector2(1.00002, 0)
 scale = Vector2(0.3, 0.3)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Player"]
-position = Vector2(0, -584)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/StaticBody2D"]
-position = Vector2(0, 648)
-shape = SubResource("WorldBoundaryShape2D_cjdev")
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(480, -270)
+
+[node name="collisions" type="Node" parent="."]
+
+[node name="wall_right" type="StaticBody2D" parent="collisions"]
+position = Vector2(962, -288)
+rotation = -1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collisions/wall_right"]
+shape = SubResource("WorldBoundaryShape2D_ky5d2")
+
+[node name="wall_left" type="StaticBody2D" parent="collisions"]
+position = Vector2(0, -288)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collisions/wall_left"]
+position = Vector2(-2, 0)
+rotation = 1.5708
+shape = SubResource("WorldBoundaryShape2D_ky5d2")
+
+[node name="ceilling" type="StaticBody2D" parent="collisions"]
+position = Vector2(0, -542)
+rotation = -3.14159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collisions/ceilling"]
+shape = SubResource("WorldBoundaryShape2D_ky5d2")
+
+[node name="floor" type="StaticBody2D" parent="collisions"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collisions/floor"]
+shape = SubResource("WorldBoundaryShape2D_ky5d2")
