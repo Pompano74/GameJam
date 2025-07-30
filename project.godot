@@ -14,3 +14,8 @@ config/name="GameJam (gmtk 2025)"
 run/main_scene="uid://d3gvh5rqqcudu"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=540
