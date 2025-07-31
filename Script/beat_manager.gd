@@ -8,21 +8,9 @@ var powersIndex: int = 0
 @onready var player: CharacterBody2D = get_node("../Player/CharacterBody2D")
 
 func _ready() -> void:
-	print("------ TREE --------")
-	get_tree().get_root().print_tree_pretty()
-	print("--------------------")
 	beatDuration = 60.0 / bpm
 	timer.wait_time = beatDuration
 	timer.start()
-	if input_manager:
-		print("InputManager trouvé :", input_manager)
-	else:
-		print("⚠️ InputManager introuvable !")
-	
-	if player:
-		print("✅ Player trouvé :", player)
-	else:
-		print("❌ Erreur : Player non trouvé !")
 
 func _process(_delta: float) -> void:
 	var newBeatDuration = 60.0 / bpm

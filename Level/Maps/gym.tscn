@@ -49,55 +49,59 @@ position = Vector2(248, 0)
 
 [node name="InputManager" parent="BeatManager" instance=ExtResource("5_sv14r")]
 
-[node name="ButtonSelect" parent="BeatManager/InputManager" index="0"]
-offset_left = 123.0
-offset_top = -230.0
-offset_right = 131.0
-offset_bottom = -222.0
+[node name="ButtonSelect" parent="BeatManager/InputManager/CanvasLayer" index="0"]
+offset_left = -126.0
+offset_top = 458.0
+offset_right = -118.0
+offset_bottom = 466.0
 
-[node name="ButtonSelect2" parent="BeatManager/InputManager" index="1"]
-offset_left = 159.0
-offset_top = -231.0
-offset_right = 167.0
-offset_bottom = -223.0
+[node name="ButtonSelect2" parent="BeatManager/InputManager/CanvasLayer" index="1"]
+offset_left = 29.0
+offset_top = 458.0
+offset_right = 37.0
+offset_bottom = 466.0
 
-[node name="ButtonSelect3" parent="BeatManager/InputManager" index="2"]
-offset_left = 201.0
-offset_top = -231.0
-offset_right = 209.0
-offset_bottom = -223.0
+[node name="ButtonSelect3" parent="BeatManager/InputManager/CanvasLayer" index="2"]
+offset_left = 155.0
+offset_top = 462.0
+offset_right = 163.0
+offset_bottom = 470.0
 
-[node name="ButtonSelect4" parent="BeatManager/InputManager" index="3"]
-offset_left = 269.0
-offset_top = -232.0
-offset_right = 277.0
-offset_bottom = -224.0
+[node name="ButtonSelect4" parent="BeatManager/InputManager/CanvasLayer" index="3"]
+offset_left = 284.0
+offset_top = 462.0
+offset_right = 292.0
+offset_bottom = 470.0
 
-[node name="ButtonSelect5" parent="BeatManager/InputManager" index="4"]
-offset_left = 363.0
-offset_top = -233.0
-offset_right = 371.0
-offset_bottom = -225.0
+[node name="ButtonSelect5" parent="BeatManager/InputManager/CanvasLayer" index="4"]
+offset_left = 415.0
+offset_top = 461.0
+offset_right = 423.0
+offset_bottom = 469.0
 
-[node name="ButtonSelect6" parent="BeatManager/InputManager" index="5"]
-offset_left = 433.0
-offset_top = -233.0
-offset_right = 441.0
-offset_bottom = -225.0
+[node name="ButtonSelect6" parent="BeatManager/InputManager/CanvasLayer" index="5"]
+offset_left = 534.0
+offset_top = 459.0
+offset_right = 542.0
+offset_bottom = 467.0
 
-[node name="ButtonSelect7" parent="BeatManager/InputManager" index="6"]
-offset_left = 506.0
-offset_top = -234.0
-offset_right = 514.0
-offset_bottom = -226.0
+[node name="ButtonSelect7" parent="BeatManager/InputManager/CanvasLayer" index="6"]
+offset_left = 642.0
+offset_top = 457.0
+offset_right = 650.0
+offset_bottom = 465.0
 
-[node name="ButtonSelect8" parent="BeatManager/InputManager" index="7"]
-offset_left = 583.0
-offset_top = -235.0
-offset_right = 591.0
-offset_bottom = -227.0
+[node name="ButtonSelect8" parent="BeatManager/InputManager/CanvasLayer" index="7"]
+offset_left = 759.0
+offset_top = 459.0
+offset_right = 767.0
+offset_bottom = 467.0
 
 [node name="PauseMenu" parent="BeatManager" instance=ExtResource("6_sv14r")]
+offset_left = -200.0
+offset_top = -298.0
+offset_right = -200.0
+offset_bottom = -298.0
 
 [editable path="BeatManager/InputManager"]
 [editable path="BeatManager/PauseMenu"]
