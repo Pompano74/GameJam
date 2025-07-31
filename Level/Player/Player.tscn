@@ -1,32 +1,63 @@
-[gd_scene load_steps=4 format=3 uid="uid://dynw8drhp8bjg"]
+[gd_scene load_steps=7 format=3 uid="uid://dynw8drhp8bjg"]
 
-[ext_resource type="Texture2D" uid="uid://fwpmt2vknkyx" path="res://icon.svg" id="1_k2a0k"]
 [ext_resource type="Script" uid="uid://dsytqkfnho75u" path="res://Level/Player/character_body_2d.gd" id="1_w7old"]
+[ext_resource type="Texture2D" uid="uid://b1raoryae4dvt" path="res://Assets/Placeholder/CharBase.png" id="2_xmy7u"]
+[ext_resource type="Texture2D" uid="uid://dntfbd53nuq8s" path="res://Assets/Placeholder/ScreenExample.png" id="3_xmy7u"]
+[ext_resource type="Texture2D" uid="uid://bmh1f33dy5kfs" path="res://Assets/Placeholder/Jukebox.png" id="4_ngpfc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8op4e"]
+size = Vector2(31.9999, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7old"]
-size = Vector2(128, 256)
+size = Vector2(16, 16)
 
 [node name="Player" type="Node2D"]
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+scale = Vector2(2, 2)
 collision_layer = 2
 script = ExtResource("1_w7old")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(64, -128)
-scale = Vector2(1, 2)
-texture = ExtResource("1_k2a0k")
+[node name="Attack" type="Node2D" parent="CharacterBody2D"]
+visible = false
+position = Vector2(8, -8)
+scale = Vector2(0.5, 0.5)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(64, -128)
-shape = SubResource("RectangleShape2D_w7old")
+[node name="Attack_Sprite" type="Sprite2D" parent="CharacterBody2D/Attack"]
+modulate = Color(1, 1, 0, 0.52549)
+self_modulate = Color(1, 1, 0, 1)
+show_behind_parent = true
+position = Vector2(32, 0)
+rotation = 1.57079
+scale = Vector2(2, 2)
+texture = ExtResource("4_ngpfc")
+
+[node name="Area2D" type="Area2D" parent="CharacterBody2D/Attack/Attack_Sprite"]
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Attack/Attack_Sprite/Area2D"]
+position = Vector2(0, 1.99998)
+shape = SubResource("RectangleShape2D_8op4e")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(960, 440)
-zoom = Vector2(0.25, 0.25)
-limit_top = -2000
-limit_bottom = -2000
+position = Vector2(56, -52)
+scale = Vector2(0.5, 0.5)
 limit_smoothed = true
-drag_horizontal_enabled = true
+drag_left_margin = 0.05
 drag_top_margin = 0.0
+drag_right_margin = 0.05
 drag_bottom_margin = 0.0
+
+[node name="Sprite2D2" type="Sprite2D" parent="CharacterBody2D/Camera2D"]
+texture = ExtResource("3_xmy7u")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(8, -8)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_xmy7u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(8, -8)
+shape = SubResource("RectangleShape2D_w7old")
+
+[connection signal="body_entered" from="CharacterBody2D/Attack/Attack_Sprite/Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]
