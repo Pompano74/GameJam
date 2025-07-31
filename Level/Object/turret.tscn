@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://b70umu2t7uipk"]
+
+[ext_resource type="Script" uid="uid://8r12oytstglm" path="res://Level/Object/turret.gd" id="1_aefag"]
+[ext_resource type="Texture2D" uid="uid://bmh1f33dy5kfs" path="res://Assets/Placeholder/Jukebox.png" id="1_rgrsc"]
+[ext_resource type="Texture2D" uid="uid://fwpmt2vknkyx" path="res://icon.svg" id="2_2qdbv"]
+
+[node name="Turret" type="Node2D"]
+script = ExtResource("1_aefag")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("1_rgrsc")
+
+[node name="pivot" type="Node2D" parent="."]
+position = Vector2(0, -16)
+
+[node name="Sprite2D" type="Sprite2D" parent="pivot"]
+position = Vector2(15.9625, 1.78535e-05)
+rotation = 1.57079
+scale = Vector2(0.02, 0.124414)
+texture = ExtResource("2_2qdbv")
+
+[node name="RayCast2D" type="RayCast2D" parent="pivot"]
+rotation = 0.00189797
+target_position = Vector2(24, 0)
