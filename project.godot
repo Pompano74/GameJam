@@ -19,7 +19,6 @@ config/icon="res://icon.svg"
 
 window/size/viewport_width=960
 window/size/viewport_height=540
-window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [input]
@@ -115,6 +114,8 @@ dash={
 [layer_names]
 
 2d_physics/layer_2="Player"
+2d_physics/layer_3="Player invincibility Phase"
+2d_physics/layer_4="Enemies"
 
 [rendering]
 

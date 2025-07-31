@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dntfbd53nuq8s"
-path="res://.godot/imported/ScreenExample.png-e235e0d5381bb414cccb422ca4f1c9ea.ctex"
+uid="uid://bmh1f33dy5kfs"
+path="res://.godot/imported/Jukebox.png-f36f637e5227c7b203f6cccb9c3b1761.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Placeholder/ScreenExample.png"
-dest_files=["res://.godot/imported/ScreenExample.png-e235e0d5381bb414cccb422ca4f1c9ea.ctex"]
+source_file="res://Assets/Placeholder/Jukebox.png"
+dest_files=["res://.godot/imported/Jukebox.png-f36f637e5227c7b203f6cccb9c3b1761.ctex"]
 
 [params]
 

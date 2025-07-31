@@ -8,9 +8,6 @@
 
 [node name="Gym" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_2fu8g")]
-position = Vector2(248, 0)
-
 [node name="KillZone" parent="." instance=ExtResource("3_ugxir")]
 position = Vector2(1472, 0)
 rotation = 3.14159
@@ -41,3 +38,6 @@ texture = ExtResource("2_g0ig2")
 position = Vector2(544, 0)
 shape = SubResource("WorldBoundaryShape2D_g0ig2")
 one_way_collision_margin = 0.0
+
+[node name="Player" parent="." instance=ExtResource("1_2fu8g")]
+position = Vector2(248, 0)
