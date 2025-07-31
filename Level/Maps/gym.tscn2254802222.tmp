@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=3 uid="uid://d1arv34psbsf6"]
+
+[ext_resource type="PackedScene" uid="uid://dynw8drhp8bjg" path="res://Level/Player/Player.tscn" id="1_2fu8g"]
+[ext_resource type="Texture2D" uid="uid://fwpmt2vknkyx" path="res://icon.svg" id="2_g0ig2"]
+[ext_resource type="PackedScene" uid="uid://7j41jpon30lu" path="res://Level/Object/kill_zone.tscn" id="3_ugxir"]
+[ext_resource type="PackedScene" uid="uid://cxughnlvb3f14" path="res://BeatManager.tscn" id="4_ao0ft"]
+[ext_resource type="PackedScene" uid="uid://sv3ow0lvdrg4" path="res://input_manager.tscn" id="5_sv14r"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g0ig2"]
+
+[node name="Gym" type="Node2D"]
+
+[node name="KillZone" parent="." instance=ExtResource("3_ugxir")]
+position = Vector2(1472, 0)
+rotation = 3.14159
+scale = Vector2(4, 20.88)
+
+[node name="ceilling" type="StaticBody2D" parent="."]
+position = Vector2(0, -448)
+rotation = 3.14159
+
+[node name="Icon" type="Sprite2D" parent="ceilling"]
+position = Vector2(-1920, 1648)
+scale = Vector2(29.9984, 2.00071)
+texture = ExtResource("2_g0ig2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ceilling"]
+position = Vector2(-1840, 1520)
+shape = SubResource("WorldBoundaryShape2D_g0ig2")
+one_way_collision_margin = 0.0
+
+[node name="floor" type="StaticBody2D" parent="."]
+
+[node name="Icon" type="Sprite2D" parent="floor"]
+position = Vector2(1920, 96)
+scale = Vector2(30, 1.5)
+texture = ExtResource("2_g0ig2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
+position = Vector2(544, 0)
+shape = SubResource("WorldBoundaryShape2D_g0ig2")
+one_way_collision_margin = 0.0
+
+[node name="Player" parent="." instance=ExtResource("1_2fu8g")]
+position = Vector2(248, 0)
+
+[node name="BeatManager" parent="." instance=ExtResource("4_ao0ft")]
+
+[node name="InputManager" parent="BeatManager" instance=ExtResource("5_sv14r")]
+
+[node name="ButtonSelect" parent="BeatManager/InputManager" index="0"]
+offset_left = 123.0
+offset_top = -230.0
+offset_right = 131.0
+offset_bottom = -222.0
+
+[node name="ButtonSelect2" parent="BeatManager/InputManager" index="1"]
+offset_left = 159.0
+offset_top = -231.0
+offset_right = 167.0
+offset_bottom = -223.0
+
+[node name="ButtonSelect3" parent="BeatManager/InputManager" index="2"]
+offset_left = 201.0
+offset_top = -231.0
+offset_right = 209.0
+offset_bottom = -223.0
+
+[node name="ButtonSelect4" parent="BeatManager/InputManager" index="3"]
+offset_left = 269.0
+offset_top = -232.0
+offset_right = 277.0
+offset_bottom = -224.0
+
+[node name="ButtonSelect5" parent="BeatManager/InputManager" index="4"]
+offset_left = 363.0
+offset_top = -233.0
+offset_right = 371.0
+offset_bottom = -225.0
+
+[node name="ButtonSelect6" parent="BeatManager/InputManager" index="5"]
+offset_left = 433.0
+offset_top = -233.0
+offset_right = 441.0
+offset_bottom = -225.0
+
+[node name="ButtonSelect7" parent="BeatManager/InputManager" index="6"]
+offset_left = 506.0
+offset_top = -234.0
+offset_right = 514.0
+offset_bottom = -226.0
+
+[node name="ButtonSelect8" parent="BeatManager/InputManager" index="7"]
+offset_left = 583.0
+offset_top = -235.0
+offset_right = 591.0
+offset_bottom = -227.0
+
+[editable path="BeatManager/InputManager"]
