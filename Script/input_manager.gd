@@ -1,23 +1,17 @@
 extends Node
 
-var actions: Array[String] = ["Nothing", "Jump", "Dash", "Attack"]
+@export var actions: Array[String] = ["Nothing", "Jump", "Dash", "Attack"]
 
-var currentAction: String
 @export var drumRolls: Array[ButtonSelect]
 var maxRolls: int = 8
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	drumRolls.slice(0, maxRolls)
-	currentAction = actions[0]
+func _process(_delta: float) -> void:
+	var limitedDrumRolls = drumRolls.slice(0, maxRolls)
 	
-	for drumRoll in drumRolls:
-		if drumRoll and drumRoll.has_method("do_something"):  # ou une méthode propre à ton script
+	for drumRoll in limitedDrumRolls:
+		if drumRoll:  # vérifie que le bouton existe
 			var index = drumRoll.currentActionIndex
-			if index >= 0:
+			if index >= 0 and index < actions.size():
 				drumRoll.text = actions[index]
+			else:
+				drumRoll.text = "Invalid"
