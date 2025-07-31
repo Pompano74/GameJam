@@ -5,6 +5,7 @@ var delta_time
 @onready var player_sprite_2d = $Sprite2D
 @onready var attack_object = $Attack
 @onready var attack_area_2d = $Attack/Attack_Sprite/Area2D
+@onready var Player_collision = $CollisionShape2D
 
 var Dev_mode = false
 
@@ -24,6 +25,8 @@ var dash_timer = 0.0
 var is_attack = false
 var attack_duration = 0.4
 var attack_timer = 0.0
+
+var is_in_killzone = false
 	
 func _process(delta):
 	delta_time = delta
@@ -43,7 +46,7 @@ func _process(delta):
 		attack()
 	if Input.is_action_just_pressed("debug_6"):
 		gravity()
-	
+		
 func _physics_process(delta):
 	
 	var direction = Input.get_axis("move_left", "move_right")
@@ -80,7 +83,6 @@ func _physics_process(delta):
 		
 		if Input.is_action_just_pressed("dash"):
 			is_dashing = true
-			collision_layer = 3
 			player_sprite_2d.modulate = Color(0,50,1,1)
 			dash_timer = dash_duration
 			velocity.x = dash_direction * dash_force
@@ -91,9 +93,10 @@ func _physics_process(delta):
 			dash_timer -= delta
 			if dash_timer <= 0:
 				is_dashing = false
-				collision_layer = 2
 				player_sprite_2d.modulate = Color(1,1,1,1)
 				print("vulnerable")
+				if is_in_killzone == true:
+					die()
 		
 		#attack
 		if Input.is_action_just_pressed("attack"):
@@ -139,9 +142,10 @@ func _physics_process(delta):
 		dash_timer -= delta_time
 		if dash_timer <= 0:
 			is_dashing = false
-			collision_layer = 2
 			player_sprite_2d.modulate = Color(1,1,1,1)
 			print("vulnerable")
+			if is_in_killzone == true:
+				die()
 	
 	#attack timer
 	if is_attack:
@@ -156,7 +160,6 @@ func jump():
 	velocity.y = player_jump_strength * jump_direction
 func dash():
 	is_dashing = true
-	collision_layer = 3
 	player_sprite_2d.modulate = Color(0,50,1,1)
 	dash_timer = dash_duration
 	velocity.x = dash_direction * dash_force
@@ -181,3 +184,13 @@ func gravity():
 func _on_area_2d_body_entered(body):
 	body.queue_free()
 	print("enemie killed")
+
+func on_killzone_enter():
+	is_in_killzone = true
+func on_killzone_exit():
+	is_in_killzone = false
+	print("body exited")
+
+func die():
+	print("die func called")
+	queue_free()
