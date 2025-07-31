@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://d1arv34psbsf6"]
+[gd_scene load_steps=8 format=3 uid="uid://d1arv34psbsf6"]
 
 [ext_resource type="PackedScene" uid="uid://dynw8drhp8bjg" path="res://Level/Player/Player.tscn" id="1_2fu8g"]
 [ext_resource type="Texture2D" uid="uid://fwpmt2vknkyx" path="res://icon.svg" id="2_g0ig2"]
 [ext_resource type="PackedScene" uid="uid://7j41jpon30lu" path="res://Level/Object/kill_zone.tscn" id="3_ugxir"]
 [ext_resource type="PackedScene" uid="uid://cxughnlvb3f14" path="res://BeatManager.tscn" id="4_ao0ft"]
 [ext_resource type="PackedScene" uid="uid://sv3ow0lvdrg4" path="res://input_manager.tscn" id="5_sv14r"]
+[ext_resource type="PackedScene" uid="uid://bnc2hwby0cjai" path="res://pause_menu.tscn" id="6_sv14r"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g0ig2"]
 
@@ -96,4 +97,7 @@ offset_top = -235.0
 offset_right = 591.0
 offset_bottom = -227.0
 
+[node name="PauseMenu" parent="BeatManager" instance=ExtResource("6_sv14r")]
+
 [editable path="BeatManager/InputManager"]
+[editable path="BeatManager/PauseMenu"]

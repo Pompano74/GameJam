@@ -5,10 +5,12 @@ var beatDuration: float
 @onready var timer: Timer = $Timer
 var powersIndex: int = 0
 @onready var input_manager: Node = get_node("InputManager")
-@onready var player: Player = $"../Player" as Player
-
+@onready var player: CharacterBody2D = get_node("../Player/CharacterBody2D")
 
 func _ready() -> void:
+	print("------ TREE --------")
+	get_tree().get_root().print_tree_pretty()
+	print("--------------------")
 	beatDuration = 60.0 / bpm
 	timer.wait_time = beatDuration
 	timer.start()
@@ -22,33 +24,47 @@ func _ready() -> void:
 	else:
 		print("❌ Erreur : Player non trouvé !")
 
-
 func _process(_delta: float) -> void:
 	var newBeatDuration = 60.0 / bpm
 	if newBeatDuration != beatDuration:
 		beatDuration = newBeatDuration
 		timer.wait_time = beatDuration
 
-	# Mise à jour d’un seul bouton : celui de powersIndex
+	# Optionally update the text display each frame for the active drumRoll
 	if powersIndex >= 0 and powersIndex < input_manager.drumRolls.size():
 		var drumRoll = input_manager.drumRolls[powersIndex]
 		if drumRoll:
 			var index = drumRoll.currentActionIndex
 			if index >= 0 and index < input_manager.actions.size():
 				drumRoll.text = input_manager.actions[index]
-				print("Bouton", powersIndex, "→", input_manager.actions[index])
-				if drumRoll.text == "Nothing":
-					pass
-				if drumRoll.text == "Jump":
-					player.jump()
-				if drumRoll.text == "Dash":
-					player.dash()
-				if drumRoll.text == "Attack":
-					pass
 			else:
 				drumRoll.text = "Invalid"
+
 func _on_timer_timeout() -> void:
-	powersIndex += 1
+	# Reset powersIndex if it goes past the limit
 	if powersIndex >= 8:
 		powersIndex = 0
-	print(powersIndex)
+
+	# Update and trigger the action for the current powersIndex
+	if powersIndex >= 0 and powersIndex < input_manager.drumRolls.size():
+		var drumRoll = input_manager.drumRolls[powersIndex]
+		if drumRoll:
+			var index = drumRoll.currentActionIndex
+			if index >= 0 and index < input_manager.actions.size():
+				drumRoll.text = input_manager.actions[index]
+				print("Bouton", powersIndex, "→", drumRoll.text)
+
+				match drumRoll.text:
+					"Nothing":
+						pass
+					"Jump":
+						player.jump()
+					"Dash":
+						player.dash()
+					"Gravity":
+						player.gravity()
+			else:
+				drumRoll.text = "Invalid"
+
+	powersIndex += 1
+	#print("Nouveau powersIndex :", powersIndex)

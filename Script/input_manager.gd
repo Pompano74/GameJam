@@ -1,6 +1,6 @@
 extends Node
 
-@export var actions: Array[String] = ["Nothing", "Jump", "Dash", "Attack"]
+@export var actions: Array[String] = ["Nothing", "Jump", "Dash", "Gravity"]
 
 @export var drumRolls: Array[ButtonSelect]
 var maxRolls: int = 8
