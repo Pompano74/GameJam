@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dydebt40v6v0"]
+
+[ext_resource type="Script" uid="uid://c327lqq4k4eq0" path="res://Level/Object/kill_zone.gd" id="1_xahef"]
+[ext_resource type="Texture2D" uid="uid://btju6eqtuylq0" path="res://Assets/Tile_Sprites/Spikes_Sheet.png" id="2_vjr8y"]
+
+[node name="Spikes" type="Node2D"]
+script = ExtResource("1_xahef")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+texture = ExtResource("2_vjr8y")
+region_enabled = true
+region_rect = Rect2(64, 0, 32, 32)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+rotation = 1.5708
+polygon = PackedVector2Array(-16, 16, -8, 3.49691e-07, 0, 16, 7, -3.0598e-07, 16, 16)

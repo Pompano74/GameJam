@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://jqdb73rg6fls"]
+
+[ext_resource type="PackedScene" uid="uid://10jru5xi5lki" path="res://Level/Object/spikes1.tscn" id="1_v62ip"]
+[ext_resource type="PackedScene" uid="uid://mr2f24yv76p0" path="res://Level/Object/spikes2.tscn" id="2_sqct0"]
+[ext_resource type="PackedScene" uid="uid://dydebt40v6v0" path="res://Level/Object/spikes3.tscn" id="3_guiko"]
+[ext_resource type="PackedScene" uid="uid://dtd8gyhmx6w5v" path="res://Level/Object/spikes4.tscn" id="4_orjat"]
+[ext_resource type="Texture2D" uid="uid://igjcflgyw31e" path="res://Assets/Tile_Sprites/Prototyping_Tileset.png" id="5_0naa1"]
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_7nwc4"]
+resource_name = "Spikes"
+scenes/1/scene = ExtResource("1_v62ip")
+scenes/2/scene = ExtResource("2_sqct0")
+scenes/3/scene = ExtResource("3_guiko")
+scenes/4/scene = ExtResource("4_orjat")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_81veo"]
+texture = ExtResource("5_0naa1")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_v5ldq"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/7 = SubResource("TileSetAtlasSource_81veo")
+sources/12 = SubResource("TileSetScenesCollectionSource_7nwc4")
+tile_proxies/coords_level = [[0, Vector2i(0, 0)], [3, Vector2i(0, 0)], [0, Vector2i(1, 0)], [3, Vector2i(1, 0)], [0, Vector2i(2, 0)], [3, Vector2i(2, 0)], [0, Vector2i(3, 0)], [3, Vector2i(3, 0)], [1, Vector2i(0, 0)], [3, Vector2i(4, 0)], [1, Vector2i(1, 0)], [3, Vector2i(5, 0)], [1, Vector2i(2, 0)], [3, Vector2i(6, 0)], [1, Vector2i(3, 0)], [3, Vector2i(7, 0)], [1, Vector2i(4, 0)], [3, Vector2i(8, 0)], [1, Vector2i(5, 0)], [3, Vector2i(9, 0)], [2, Vector2i(0, 0)], [3, Vector2i(10, 0)], [2, Vector2i(1, 0)], [3, Vector2i(11, 0)], [2, Vector2i(2, 0)], [3, Vector2i(12, 0)], [2, Vector2i(3, 0)], [3, Vector2i(13, 0)], [2, Vector2i(4, 0)], [3, Vector2i(14, 0)], [2, Vector2i(5, 0)], [3, Vector2i(15, 0)], [5, Vector2i(0, 0)], [7, Vector2i(0, 0)], [5, Vector2i(1, 0)], [7, Vector2i(1, 0)], [5, Vector2i(2, 0)], [7, Vector2i(2, 0)], [5, Vector2i(3, 0)], [7, Vector2i(3, 0)], [5, Vector2i(4, 0)], [7, Vector2i(4, 0)], [5, Vector2i(5, 0)], [7, Vector2i(5, 0)], [6, Vector2i(0, 0)], [7, Vector2i(6, 0)], [6, Vector2i(1, 0)], [7, Vector2i(7, 0)], [6, Vector2i(2, 0)], [7, Vector2i(8, 0)], [6, Vector2i(3, 0)], [7, Vector2i(9, 0)], [6, Vector2i(4, 0)], [7, Vector2i(10, 0)], [6, Vector2i(5, 0)], [7, Vector2i(11, 0)]]
+
+[node name="TileMap" type="TileMap"]
+tile_set = SubResource("TileSet_v5ldq")
+format = 2
