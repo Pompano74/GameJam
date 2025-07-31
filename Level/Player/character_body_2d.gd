@@ -1,8 +1,6 @@
 class_name Player
 extends CharacterBody2D
 
-var fps = Engine.get_frames_per_second()
-
 var origin_point = null
 var target_rotation = 0.0
 var rotation_amount = 45
@@ -35,7 +33,6 @@ func _ready():
 	add_to_group("player")
 
 func _process(delta):
-	print(fps)
 	if Input.is_action_just_pressed("debug_2") && Dev_mode == false:
 		Dev_mode = true
 		print("dev_mode TRUE")

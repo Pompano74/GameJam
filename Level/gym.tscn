@@ -44,57 +44,9 @@ one_way_collision_margin = 0.0
 [node name="Player" parent="." instance=ExtResource("3_37kek")]
 position = Vector2(248, 0)
 
-[node name="BeatManager" parent="Player/CharacterBody2D/Camera2D" index="1" instance=ExtResource("4_esi1o")]
+[node name="BeatManager2" parent="Player/CharacterBody2D/Camera2D" index="1" instance=ExtResource("4_esi1o")]
 
-[node name="ButtonSelect" parent="Player/CharacterBody2D/Camera2D/BeatManager/CanvasLayer" index="0"]
-offset_left = -102.0
-offset_top = 436.0
-offset_right = -94.0
-offset_bottom = 444.0
-
-[node name="ButtonSelect2" parent="Player/CharacterBody2D/Camera2D/BeatManager/CanvasLayer" index="1"]
-offset_left = 53.0
-offset_top = 436.0
-offset_right = 61.0
-offset_bottom = 444.0
-
-[node name="ButtonSelect3" parent="Player/CharacterBody2D/Camera2D/BeatManager/CanvasLayer" index="2"]
-offset_left = 179.0
-offset_top = 440.0
-offset_right = 187.0
-offset_bottom = 448.0
-
-[node name="ButtonSelect4" parent="Player/CharacterBody2D/Camera2D/BeatManager/CanvasLayer" index="3"]
-offset_left = 308.0
-offset_top = 440.0
-offset_right = 316.0
-offset_bottom = 448.0
-
-[node name="ButtonSelect5" parent="Player/CharacterBody2D/Camera2D/BeatManager/CanvasLayer" index="4"]
-offset_left = 439.0
-offset_top = 439.0
-offset_right = 447.0
-offset_bottom = 447.0
-
-[node name="ButtonSelect6" parent="Player/CharacterBody2D/Camera2D/BeatManager/CanvasLayer" index="5"]
-offset_left = 558.0
-offset_top = 437.0
-offset_right = 566.0
-offset_bottom = 445.0
-
-[node name="ButtonSelect7" parent="Player/CharacterBody2D/Camera2D/BeatManager/CanvasLayer" index="6"]
-offset_left = 666.0
-offset_top = 435.0
-offset_right = 674.0
-offset_bottom = 443.0
-
-[node name="ButtonSelect8" parent="Player/CharacterBody2D/Camera2D/BeatManager/CanvasLayer" index="7"]
-offset_left = 783.0
-offset_top = 437.0
-offset_right = 791.0
-offset_bottom = 445.0
-
-[node name="PauseMenu" parent="Player/CharacterBody2D/Camera2D/BeatManager" instance=ExtResource("5_d3145")]
+[node name="PauseMenu2" parent="Player/CharacterBody2D/Camera2D/BeatManager" index="3" instance=ExtResource("5_d3145")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -105,32 +57,6 @@ offset_top = -535.0
 offset_right = -679.0
 offset_bottom = -535.0
 
-[node name="ColorRect" parent="Player/CharacterBody2D/Camera2D/BeatManager/PauseMenu" index="0"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = 216.0
-offset_top = 104.0
-offset_right = 256.0
-offset_bottom = 144.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(12.5229, 7.5548)
-
-[node name="CanvasLayer" parent="Player/CharacterBody2D/Camera2D/BeatManager/PauseMenu" index="1"]
-layer = 0
-
-[node name="TextureButton" parent="Player/CharacterBody2D/Camera2D/BeatManager/PauseMenu/CanvasLayer" index="1"]
-offset_left = 208.0
-offset_top = -159.0
-offset_right = 248.0
-offset_bottom = -119.0
-
 [editable path="Player"]
 [editable path="Player/CharacterBody2D/Camera2D/BeatManager"]
 [editable path="Player/CharacterBody2D/Camera2D/BeatManager/PauseMenu"]
-[editable path="Player/CharacterBody2D/BeatManager"]
-[editable path="Player/CharacterBody2D/BeatManager/PauseMenu"]

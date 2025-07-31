@@ -1,6 +1,6 @@
 extends Node
 
-var bpm: int = 30
+var bpm: int = 120
 var beatDuration: float
 @onready var timer: Timer = $Timer
 var powersIndex: int = 0
@@ -10,10 +10,13 @@ var powersIndex: int = 0
 var maxRolls: int = 8
 @onready var player = get_parent().get_parent()
 
+@onready var audio_stream_player_2d = $AudioStreamPlayer2D
+@onready var label = $"../../Label"
 
 
 
 func _ready() -> void:
+	label.text = "bpm: " + str(bpm)
 	print("------ Arbre de la scène ------")
 	get_tree().get_root().print_tree_pretty()
 	print("-------------------------------")
@@ -65,12 +68,16 @@ func _on_timer_timeout() -> void:
 
 				match drumRoll.text:
 					"Nothing":
+						audio_stream_player_2d.play()
 						pass
 					"Jump":
+						audio_stream_player_2d.play()
 						player.jump()
 					"Dash":
+						audio_stream_player_2d.play()
 						player.dash()
 					"Gravity":
+						audio_stream_player_2d.play()
 						player.gravity()
 			else:
 				drumRoll.text = "Invalid"
