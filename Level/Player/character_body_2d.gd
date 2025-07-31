@@ -1,6 +1,8 @@
 class_name Player
 extends CharacterBody2D
 
+var fps = Engine.get_frames_per_second()
+
 var origin_point = null
 var target_rotation = 0.0
 var rotation_amount = 45
@@ -33,6 +35,7 @@ func _ready():
 	add_to_group("player")
 
 func _process(delta):
+	print(fps)
 	if Input.is_action_just_pressed("debug_2") && Dev_mode == false:
 		Dev_mode = true
 		print("dev_mode TRUE")
@@ -94,6 +97,7 @@ func _physics_process(delta):
 		velocity.x = lerp(velocity.x, direction * player_speed, 2 * delta)
 	# dash timer
 	if is_dashing:
+		dash_timer -= delta
 		if dash_timer <= 0:
 			particles.emitting = false
 			is_dashing = false

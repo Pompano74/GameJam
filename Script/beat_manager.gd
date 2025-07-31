@@ -76,4 +76,3 @@ func _on_timer_timeout() -> void:
 				drumRoll.text = "Invalid"
 
 	powersIndex += 1
-	#print("Nouveau powersIndex :", powersIndex)
