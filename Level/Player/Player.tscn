@@ -1,34 +1,84 @@
-[gd_scene load_steps=7 format=3 uid="uid://dynw8drhp8bjg"]
+[gd_scene load_steps=12 format=3 uid="uid://dynw8drhp8bjg"]
 
 [ext_resource type="Script" uid="uid://dsytqkfnho75u" path="res://Level/Player/character_body_2d.gd" id="1_w7old"]
 [ext_resource type="Texture2D" uid="uid://b1raoryae4dvt" path="res://Assets/Placeholder/CharBase.png" id="2_xmy7u"]
-[ext_resource type="Texture2D" uid="uid://dntfbd53nuq8s" path="res://Assets/Placeholder/ScreenExample.png" id="3_xmy7u"]
+[ext_resource type="Texture2D" uid="uid://d3n5gmkhnqbi5" path="res://Assets/Placeholder/FullscreenBackgroundV2.png" id="3_ngpfc"]
 [ext_resource type="Texture2D" uid="uid://bmh1f33dy5kfs" path="res://Assets/Placeholder/Jukebox.png" id="4_ngpfc"]
 
+[sub_resource type="GDScript" id="GDScript_ngpfc"]
+script/source = "extends Sprite2D
+
+
+func _ready():
+	ghosting()
+
+func set_property(tx_pos, tx_scale):
+	position = tx_pos
+	scale = tx_scale
+
+func ghosting():
+	var tween_fade = get_tree().create_tween()
+	
+	tween_fade.tween_property(self,\"self_modulate\",Color(1, 1, 1, 0),0.75)
+	await tween_fade.finished
+	queue_free()
+"
+
+[sub_resource type="PackedScene" id="PackedScene_8op4e"]
+_bundled = {
+"conn_count": 0,
+"conns": PackedInt32Array(),
+"editable_instances": [],
+"names": PackedStringArray("DashGhost", "modulate", "show_behind_parent", "position", "texture", "script", "Sprite2D"),
+"node_count": 1,
+"node_paths": [],
+"nodes": PackedInt32Array(-1, -1, 6, 0, -1, 5, 1, 0, 2, 1, 3, 2, 4, 3, 5, 4, 0),
+"variants": [Color(0, 1, 1, 1), true, Vector2(16, -16), ExtResource("2_xmy7u"), SubResource("GDScript_ngpfc")],
+"version": 3
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ngpfc"]
-size = Vector2(8, 16)
+size = Vector2(13.5, 14.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8op4e"]
 size = Vector2(31.9999, 36)
 
+[sub_resource type="Gradient" id="Gradient_4a08e"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6dkl6"]
+gradient = SubResource("Gradient_4a08e")
+width = 5
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8op4e"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 10.4
+direction = Vector3(7.375, 0, 0)
+spread = 180.0
+initial_velocity_max = 2.0
+gravity = Vector3(-75, 0, 0)
+linear_accel_min = -89.48
+linear_accel_max = 2.82
+radial_accel_min = -64.9
+radial_accel_max = -12.59
+damping_max = 6.185
+scale_min = 3.0
+scale_max = 5.0
+hue_variation_min = -0.32
+hue_variation_max = -2.23517e-08
+
 [node name="Player" type="Node2D" groups=["player"]]
+position = Vector2(-8, 0)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 scale = Vector2(2, 2)
 collision_layer = 2
 script = ExtResource("1_w7old")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(8, -8)
-shape = SubResource("RectangleShape2D_ngpfc")
-
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-position = Vector2(8, -8)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_xmy7u")
+ghost_node = SubResource("PackedScene_8op4e")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(56, -52)
+position = Vector2(8, -8)
 scale = Vector2(0.5, 0.5)
 limit_smoothed = true
 drag_left_margin = 0.05
@@ -37,7 +87,16 @@ drag_right_margin = 0.05
 drag_bottom_margin = 0.0
 
 [node name="Sprite2D2" type="Sprite2D" parent="CharacterBody2D/Camera2D"]
-texture = ExtResource("3_xmy7u")
+texture = ExtResource("3_ngpfc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(7.75, -7.25)
+shape = SubResource("RectangleShape2D_ngpfc")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+position = Vector2(8, -8)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_xmy7u")
 
 [node name="Attack" type="Node2D" parent="CharacterBody2D"]
 visible = false
@@ -59,5 +118,13 @@ collision_mask = 8
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Attack/Attack_Sprite/Area2D"]
 position = Vector2(0, 1.99998)
 shape = SubResource("RectangleShape2D_8op4e")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="CharacterBody2D"]
+show_behind_parent = true
+position = Vector2(8, -8)
+emitting = false
+amount = 55
+texture = SubResource("GradientTexture1D_6dkl6")
+process_material = SubResource("ParticleProcessMaterial_8op4e")
 
 [connection signal="body_entered" from="CharacterBody2D/Attack/Attack_Sprite/Area2D" to="CharacterBody2D" method="_on_area_2d_body_entered"]

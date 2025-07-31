@@ -1,21 +1,31 @@
 extends Control
 
-@onready var texture_button: TextureButton = $TextureButton
+@onready var texture_button: TextureButton = $CanvasLayer/TextureButton
 
+var pausePosition: Vector2 
+var gamePosition: Vector2 
+var pauseScale: Vector2 
+var gameScale: Vector2 
+@export var unpause: Sprite2D
+@export var reload: Sprite2D
 func _ready() -> void:
 	Engine.time_scale = 0
-
-	texture_button.pressed.connect(_on_texture_button_pressed)
+	pausePosition = Vector2(395, 170)
+	gamePosition = Vector2(840, 0)
+	pauseScale = Vector2(1,1)
+	gameScale = Vector2(0.3, 0.3)
 
 func _process(delta: float) -> void:
 	if Engine.time_scale == 0:
-		texture_button.position = Vector2(395, 170)
+		texture_button.position = pausePosition
+		texture_button.scale = pauseScale
 	elif Engine.time_scale == 1:
-		texture_button.position = Vector2(840, 0)
-
+		texture_button.position = gamePosition
+		texture_button.scale = gameScale
+	
 func _on_texture_button_pressed() -> void:
 	if Engine.time_scale == 0:
 		Engine.time_scale = 1
 	else:
-		Engine.time_scale = 0
+		get_tree().reload_current_scene()
 	print("Paused:", Engine.time_scale)

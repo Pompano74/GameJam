@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://cv1m0gtjpoqa7"]
+[gd_scene load_steps=12 format=3 uid="uid://cv1m0gtjpoqa7"]
 
 [ext_resource type="Texture2D" uid="uid://1t1q5g1n637p" path="res://Assets/Placeholder/Yellow_Sheet.png" id="1_j18oy"]
 [ext_resource type="Texture2D" uid="uid://exehte7lltoh" path="res://Assets/Placeholder/Gray_Sheet.png" id="2_qw1wd"]
 [ext_resource type="Texture2D" uid="uid://btju6eqtuylq0" path="res://Assets/Tile_Sprites/Spikes_Sheet.png" id="3_qw1wd"]
+[ext_resource type="Texture2D" uid="uid://c0lr0vbspxgxs" path="res://Assets/Placeholder/GrayFull_Sheet.png" id="4_ttd86"]
+[ext_resource type="Texture2D" uid="uid://cjss2ltt74th1" path="res://Assets/Placeholder/Yellow_SheetFull.png" id="5_h2if3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ri2ul"]
 texture = ExtResource("1_j18oy")
@@ -44,12 +46,34 @@ texture_region_size = Vector2i(32, 32)
 2:0/0 = 0
 3:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vhu1w"]
+texture = ExtResource("4_ttd86")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u4rrk"]
+texture = ExtResource("5_h2if3")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_h2if3"]
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_ri2ul")
 sources/1 = SubResource("TileSetAtlasSource_ttd86")
 sources/2 = SubResource("TileSetAtlasSource_h2if3")
+sources/3 = SubResource("TileSetAtlasSource_vhu1w")
+sources/4 = SubResource("TileSetAtlasSource_u4rrk")
 
 [node name="TileMap" type="TileMap"]
 tile_set = SubResource("TileSet_h2if3")
