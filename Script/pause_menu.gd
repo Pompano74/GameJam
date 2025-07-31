@@ -1,6 +1,7 @@
 extends Control
 
 @onready var texture_button: TextureButton = $CanvasLayer/TextureButton
+@onready var animation_player: AnimationPlayer = $CanvasLayer/AnimationPlayer
 
 var pausePosition: Vector2 
 var gamePosition: Vector2 
@@ -10,6 +11,7 @@ var gameScale: Vector2
 @export var reload: Sprite2D
 func _ready() -> void:
 	Engine.time_scale = 0
+	animation_player.play("basic")
 	pausePosition = Vector2(440, 170)
 	gamePosition = Vector2(900, 25)
 	pauseScale = Vector2(2,2)
@@ -26,6 +28,7 @@ func _process(delta: float) -> void:
 func _on_texture_button_pressed() -> void:
 	if Engine.time_scale == 0:
 		Engine.time_scale = 1
+		animation_player.play_backwards("blur")
 	else:
 		get_tree().reload_current_scene()
 	print("Paused:", Engine.time_scale)

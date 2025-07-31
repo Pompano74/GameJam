@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bnc2hwby0cjai"]
+[gd_scene load_steps=9 format=3 uid="uid://bnc2hwby0cjai"]
 
 [ext_resource type="Script" uid="uid://cpml1f1q2weqm" path="res://Script/pause_menu.gd" id="1_05uyy"]
 [ext_resource type="Shader" uid="uid://3ygvpe0acts6" path="res://pause_menu.gdshader" id="1_hdmo1"]
@@ -13,7 +13,7 @@ length = 0.001
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/ColorRect:material:shader_parameter/lod")
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -28,7 +28,7 @@ length = 0.3
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/ColorRect:material:shader_parameter/lod")
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -37,9 +37,24 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3)
 }
 
+[sub_resource type="Animation" id="Animation_05uyy"]
+resource_name = "basic"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.8, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_05uyy"]
 _data = {
 &"RESET": SubResource("Animation_nwcfo"),
+&"basic": SubResource("Animation_05uyy"),
 &"blur": SubResource("Animation_hdmo1")
 }
 
@@ -52,13 +67,13 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_05uyy")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_nwcfo")
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(23.9629, 13.5148)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
 root_node = NodePath("../..")
