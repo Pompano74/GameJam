@@ -10,10 +10,10 @@ var gameScale: Vector2
 @export var reload: Sprite2D
 func _ready() -> void:
 	Engine.time_scale = 0
-	pausePosition = Vector2(395, 170)
-	gamePosition = Vector2(840, 0)
-	pauseScale = Vector2(1,1)
-	gameScale = Vector2(0.3, 0.3)
+	pausePosition = Vector2(440, 170)
+	gamePosition = Vector2(900, 25)
+	pauseScale = Vector2(2,2)
+	gameScale = Vector2(1, 1)
 
 func _process(delta: float) -> void:
 	if Engine.time_scale == 0:

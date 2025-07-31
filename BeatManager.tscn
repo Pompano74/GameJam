@@ -1,11 +1,100 @@
-[gd_scene load_steps=2 format=3 uid="uid://cxughnlvb3f14"]
+[gd_scene load_steps=3 format=3 uid="uid://cxughnlvb3f14"]
 
 [ext_resource type="Script" uid="uid://0dqun7yphstw" path="res://Script/beat_manager.gd" id="1_2jfyb"]
+[ext_resource type="Script" uid="uid://ccmel6eobo4ti" path="res://Script/button_select.gd" id="2_gdq6i"]
 
-[node name="BeatManager" type="Node"]
+[node name="BeatManager" type="Node" node_paths=PackedStringArray("drumRolls")]
 script = ExtResource("1_2jfyb")
+drumRolls = [NodePath("CanvasLayer/ButtonSelect"), NodePath("CanvasLayer/ButtonSelect2"), NodePath("CanvasLayer/ButtonSelect3"), NodePath("CanvasLayer/ButtonSelect4"), NodePath("CanvasLayer/ButtonSelect5"), NodePath("CanvasLayer/ButtonSelect6"), NodePath("CanvasLayer/ButtonSelect7"), NodePath("CanvasLayer/ButtonSelect8")]
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ButtonSelect" type="Button" parent="CanvasLayer"]
+offset_right = 8.0
+offset_bottom = 8.0
+action_mode = 0
+script = ExtResource("2_gdq6i")
+canChange = true
+metadata/_custom_type_script = "uid://ccmel6eobo4ti"
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonSelect2" type="Button" parent="CanvasLayer"]
+offset_left = 155.0
+offset_right = 163.0
+offset_bottom = 8.0
+action_mode = 0
+script = ExtResource("2_gdq6i")
+canChange = true
+metadata/_custom_type_script = "uid://ccmel6eobo4ti"
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonSelect3" type="Button" parent="CanvasLayer"]
+offset_left = 281.0
+offset_top = 4.0
+offset_right = 289.0
+offset_bottom = 12.0
+action_mode = 0
+script = ExtResource("2_gdq6i")
+canChange = true
+metadata/_custom_type_script = "uid://ccmel6eobo4ti"
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonSelect4" type="Button" parent="CanvasLayer"]
+offset_left = 410.0
+offset_top = 4.0
+offset_right = 418.0
+offset_bottom = 12.0
+action_mode = 0
+script = ExtResource("2_gdq6i")
+canChange = true
+metadata/_custom_type_script = "uid://ccmel6eobo4ti"
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonSelect5" type="Button" parent="CanvasLayer"]
+offset_left = 541.0
+offset_top = 3.0
+offset_right = 549.0
+offset_bottom = 11.0
+action_mode = 0
+script = ExtResource("2_gdq6i")
+canChange = true
+metadata/_custom_type_script = "uid://ccmel6eobo4ti"
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonSelect6" type="Button" parent="CanvasLayer"]
+offset_left = 660.0
+offset_top = 1.0
+offset_right = 668.0
+offset_bottom = 9.0
+action_mode = 0
+script = ExtResource("2_gdq6i")
+canChange = true
+metadata/_custom_type_script = "uid://ccmel6eobo4ti"
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonSelect7" type="Button" parent="CanvasLayer"]
+offset_left = 768.0
+offset_top = -1.0
+offset_right = 776.0
+offset_bottom = 7.0
+action_mode = 0
+script = ExtResource("2_gdq6i")
+canChange = true
+metadata/_custom_type_script = "uid://ccmel6eobo4ti"
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonSelect8" type="Button" parent="CanvasLayer"]
+offset_left = 885.0
+offset_top = 1.0
+offset_right = 893.0
+offset_bottom = 9.0
+action_mode = 0
+script = ExtResource("2_gdq6i")
+canChange = true
+metadata/_custom_type_script = "uid://ccmel6eobo4ti"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
