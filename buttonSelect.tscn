@@ -8,6 +8,7 @@ offset_bottom = 8.0
 action_mode = 0
 icon_alignment = 1
 script = ExtResource("1_u6ju8")
+canChange = true
 metadata/_custom_type_script = "uid://ccmel6eobo4ti"
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]
