@@ -7,6 +7,7 @@ var powersIndex: int = 0
 @onready var input_manager: Node = get_node("InputManager")
 @onready var player: CharacterBody2D = get_node("../Player/CharacterBody2D")
 
+
 func _ready() -> void:
 	beatDuration = 60.0 / bpm
 	timer.wait_time = beatDuration
