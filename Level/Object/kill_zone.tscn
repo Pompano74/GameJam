@@ -1,6 +1,5 @@
-[gd_scene load_steps=4 format=3 uid="uid://7j41jpon30lu"]
+[gd_scene load_steps=3 format=3 uid="uid://7j41jpon30lu"]
 
-[ext_resource type="Texture2D" uid="uid://fwpmt2vknkyx" path="res://icon.svg" id="1_s7g0p"]
 [ext_resource type="Script" uid="uid://c327lqq4k4eq0" path="res://Level/Object/kill_zone.gd" id="1_ylfg6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fxx3n"]
@@ -13,11 +12,6 @@ script = ExtResource("1_ylfg6")
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(16, 16)
 collision_mask = 2
-
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
-modulate = Color(0.980392, 0, 0, 1)
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_s7g0p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_fxx3n")
