@@ -5,7 +5,6 @@ var delta_time
 @onready var player_sprite_2d = $Sprite2D
 @onready var attack_object = $Attack
 @onready var attack_area_2d = $Attack/Attack_Sprite/Area2D
-@onready var Player_collision = $CollisionShape2D
 
 var Dev_mode = false
 
@@ -19,7 +18,7 @@ var player_jump_strength = -700
 var dash_force = 1000
 var dash_direction = 1
 var is_dashing = false
-var dash_duration = 0.4
+var dash_duration = 0.8
 var dash_timer = 0.0
 
 var is_attack = false
@@ -28,6 +27,9 @@ var attack_timer = 0.0
 
 var is_in_killzone = false
 	
+func _ready():
+	add_to_group("player")
+
 func _process(delta):
 	delta_time = delta
 	if Input.is_action_just_pressed("debug_2") && Dev_mode == false:
@@ -186,11 +188,13 @@ func _on_area_2d_body_entered(body):
 	print("enemie killed")
 
 func on_killzone_enter():
+	print("body entered")
 	is_in_killzone = true
 func on_killzone_exit():
 	is_in_killzone = false
 	print("body exited")
 
 func die():
-	print("die func called")
-	queue_free()
+	if is_dashing == false:
+		print("die func called")
+		queue_free()
