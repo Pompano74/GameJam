@@ -38,7 +38,7 @@ _bundled = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ngpfc"]
-size = Vector2(8, 14.5)
+size = Vector2(13.5, 14.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8op4e"]
 size = Vector2(31.9999, 36)
@@ -78,7 +78,7 @@ script = ExtResource("1_w7old")
 ghost_node = SubResource("PackedScene_8op4e")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-position = Vector2(12, -36)
+position = Vector2(8, -8)
 scale = Vector2(0.5, 0.5)
 limit_smoothed = true
 drag_left_margin = 0.05
@@ -90,7 +90,7 @@ drag_bottom_margin = 0.0
 texture = ExtResource("3_ngpfc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(8, -7.25)
+position = Vector2(7.75, -7.25)
 shape = SubResource("RectangleShape2D_ngpfc")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]

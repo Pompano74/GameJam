@@ -162,4 +162,4 @@ func on_killzone_exit():
 func die():
 	if is_dashing == false:
 		print("die func called")
-		queue_free()
+		get_tree().reload_current_scene()

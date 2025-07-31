@@ -30,4 +30,3 @@ func next_level():
 	var next_level_number = current_scene_file.to_int() + 1
 	var next_level_path = "res://Level/MainLevel/level_" + str(next_level_number) + ".tscn"
 	get_tree().change_scene_to_file(next_level_path)
-	
