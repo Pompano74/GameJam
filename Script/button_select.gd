@@ -3,21 +3,15 @@ extends Button
 
 @export var currentActionIndex: int = 0
 @export var maxActionIndex: int = 4
-# Called when the node enters the scene tree for the first time.
+
 func _ready() -> void:
-	pass # Replace with function body.
+	self.pressed.connect(_on_button_pressed)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(_delta: float) -> void:
-	print("Au moins t'a click")
-	currentActionIndex = currentActionIndex + 1
+func _on_button_pressed() -> void:
+	currentActionIndex += 1
+	print("Au moins t'as cliqué")
 	print(currentActionIndex)
 
 	if currentActionIndex >= maxActionIndex:
 		currentActionIndex = 0
 		print("oui")
-
-
-
-	

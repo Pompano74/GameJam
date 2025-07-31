@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bscoarurbrwh2"]
+
+[ext_resource type="Texture2D" uid="uid://bb26hjd00hofs" path="res://Assets/Placeholder/Note1.png" id="1_usrwm"]
+[ext_resource type="PackedScene" uid="uid://7j41jpon30lu" path="res://Level/Object/kill_zone.tscn" id="2_agbxv"]
+
+[node name="Sprite2D" type="Sprite2D"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_usrwm")
+
+[node name="KillZone" parent="." instance=ExtResource("2_agbxv")]
+position = Vector2(-2, -8)
+rotation = 0.250937
+scale = Vector2(0.25, 0.5)
