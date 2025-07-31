@@ -22,6 +22,20 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0)
 }
 
+[sub_resource type="Animation" id="Animation_05uyy"]
+resource_name = "basic"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0.8, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
 [sub_resource type="Animation" id="Animation_hdmo1"]
 resource_name = "blur"
 length = 0.3
@@ -35,20 +49,6 @@ tracks/0/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(0, -0.15, 0, 0.15, 0, 0.8, -0.15, 0, 0.15, 0),
 "times": PackedFloat32Array(0, 0.3)
-}
-
-[sub_resource type="Animation" id="Animation_05uyy"]
-resource_name = "basic"
-tracks/0/type = "bezier"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ColorRect:material:shader_parameter/lod")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"handle_modes": PackedInt32Array(0),
-"points": PackedFloat32Array(0.8, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0)
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_05uyy"]
@@ -69,6 +69,7 @@ script = ExtResource("1_05uyy")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_nwcfo")
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 scale = Vector2(23.9629, 13.5148)
