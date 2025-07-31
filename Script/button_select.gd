@@ -6,6 +6,7 @@ extends Button
 @export var canChange: bool
 func _ready() -> void:
 	self.pressed.connect(_on_button_pressed)
+	Engine.time_scale = 0
 
 func _process(delta: float) -> void:
 	if Engine.time_scale == 0:

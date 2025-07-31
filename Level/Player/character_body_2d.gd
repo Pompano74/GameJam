@@ -1,14 +1,11 @@
 class_name Player
 extends CharacterBody2D
 
-var delta_time
-
-@export var ghost_node : PackedScene
+var origin_point = null
+var target_rotation = 0.0
+var rotation_amount = 45
 
 @onready var player_sprite_2d = $Sprite2D
-@onready var attack_object = $Attack
-@onready var attack_area_2d = $Attack/Attack_Sprite/Area2D
-@onready var ghost_timer = $GhostTimer
 @onready var particles = $GPUParticles2D
 
 var Dev_mode = false
@@ -26,17 +23,16 @@ var is_dashing = false
 var dash_duration = 0.8
 var dash_timer = 0.0
 
-var is_attack = false
-var attack_duration = 0.4
-var attack_timer = 0.0
-
 var is_in_killzone = false
 	
 func _ready():
+	var origin_nodes = get_tree().get_nodes_in_group("origin_point")
+	if origin_nodes.size() > 0:
+		origin_point = origin_nodes[0] as Node2D
+	print(origin_point)
 	add_to_group("player")
 
 func _process(delta):
-	delta_time = delta
 	if Input.is_action_just_pressed("debug_2") && Dev_mode == false:
 		Dev_mode = true
 		print("dev_mode TRUE")
@@ -50,7 +46,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("debug_8"):
 		dash()
 	if Input.is_action_just_pressed("debug_7"):
-		attack()
+		rotate_world()
 	if Input.is_action_just_pressed("debug_6"):
 		gravity()
 		
@@ -58,16 +54,13 @@ func _physics_process(delta):
 	
 	#variables
 	var direction = Input.get_axis("move_left", "move_right")
-	attack_area_2d.monitoring = false
 	#player direction
 	if Input.is_action_just_pressed("move_left"):
 			dash_direction = -1
 			player_sprite_2d.flip_h = true
-			attack_object.rotation = deg_to_rad(180)
 	elif Input.is_action_just_pressed("move_right"):
 		dash_direction = 1
 		player_sprite_2d.flip_h = false
-		attack_object.rotation = deg_to_rad(0)
 	#free movement
 	if Dev_mode == true:
 			# change gravity direction
@@ -78,7 +71,7 @@ func _physics_process(delta):
 			dash()
 		
 		if Input.is_action_just_pressed("attack"):
-			attack()
+			rotate_world()
 				
 		if Input.is_action_just_pressed("jump"):
 			jump()
@@ -101,7 +94,6 @@ func _physics_process(delta):
 		velocity.x = lerp(velocity.x, direction * player_speed, 2 * delta)
 	# dash timer
 	if is_dashing:
-		dash_timer -= delta_time
 		if dash_timer <= 0:
 			particles.emitting = false
 			is_dashing = false
@@ -109,13 +101,9 @@ func _physics_process(delta):
 			print("vulnerable")
 			if is_in_killzone == true:
 				die()
-	#attack timer
-	if is_attack:
-		attack_timer -= delta_time
-		if attack_timer <= 0:
-			is_attack = false
-			attack_object.visible = false
-			attack_area_2d.monitoring = false		
+	
+	if origin_point != null:
+		origin_point.rotation = lerp_angle(origin_point.rotation, target_rotation, delta * 10)
 	move_and_slide()
 
 #Capacité joueur
@@ -129,12 +117,11 @@ func dash():
 	velocity.y = -200 * jump_direction
 	velocity.x = dash_direction * dash_force
 	print("invicible")
-func attack():
-	is_attack = true
-	attack_object.visible = true
-	attack_area_2d.monitoring = true
-	print("attacking")
-	attack_timer = attack_duration
+func rotate_world():
+	if origin_point != null:
+		target_rotation += deg_to_rad(rotation_amount)
+	else:
+		print("no origin point")
 func gravity():
 		if gravity_direction == Vector2.DOWN:
 			velocity.y = player_jump_strength * jump_direction
