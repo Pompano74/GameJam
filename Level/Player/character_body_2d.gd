@@ -5,7 +5,7 @@ extends CharacterBody2D
 var target_rotation = 0.0
 var rotation_amount = 45
 
-@onready var origin_point = $origin_point
+@onready var origin_point = null
 @onready var player_sprite_2d = $Sprite2D
 @onready var particles = $GPUParticles2D
 
@@ -27,7 +27,7 @@ var dash_timer = 0.0
 var is_in_killzone = false
 	
 func _ready():
-	var origin_nodes = get_tree().get_nodes_in_group("origin_point")
+	var origin_nodes = get_tree().get_nodes_in_group("room")
 	if origin_nodes.size() > 0:
 		origin_point = origin_nodes[0] as Node2D
 	print(origin_point)
