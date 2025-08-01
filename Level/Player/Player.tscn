@@ -14,6 +14,33 @@
 [ext_resource type="Texture2D" uid="uid://irpgv250trsr" path="res://Assets/Placeholder/white-border-white-rectangle-white-page.svg.hi.png" id="9_r27eg"]
 [ext_resource type="PackedScene" uid="uid://1mc6byd07rbk" path="res://pause_camera.tscn" id="11_uv1qq"]
 
+[sub_resource type="Animation" id="Animation_r27eg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/alpha_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(259, 487)]
+}
+
 [sub_resource type="Animation" id="Animation_qx4tn"]
 resource_name = "blink"
 length = 8.0
@@ -41,33 +68,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(259, 487), Vector2(321.291, 487), Vector2(384.409, 487), Vector2(448.232, 487), Vector2(510.983, 487), Vector2(573.831, 487), Vector2(636.495, 487), Vector2(700, 487)]
-}
-
-[sub_resource type="Animation" id="Animation_r27eg"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:material:shader_parameter/alpha_color")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [1.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(259, 487)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4wa72"]
@@ -431,6 +431,10 @@ scale = Vector2(0.5, 0.5)
 stream = ExtResource("4_4a08e")
 
 [node name="pause_camera" parent="." instance=ExtResource("11_uv1qq")]
+
+[connection signal="inputs_disabled" from="CharacterBody2D" to="pause_camera" method="_on_character_body_2d_inputs_disabled"]
+[connection signal="game_pause" from="CharacterBody2D/Camera2D/BeatManager/PauseMenu" to="CharacterBody2D" method="_on_pause_menu_game_pause"]
+[connection signal="switch_to_player_cam" from="pause_camera" to="CharacterBody2D" method="_on_pause_camera_switch_to_player_cam"]
 
 [editable path="CharacterBody2D/Camera2D/BeatManager"]
 [editable path="CharacterBody2D/Camera2D/BeatManager/PauseMenu"]
