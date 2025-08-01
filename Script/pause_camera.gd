@@ -47,16 +47,30 @@ func _process(delta: float) -> void:
 	
 	#controles camera
 	if camera_controls == true:
+		var move_direction = Vector2.ZERO
 		if Input.is_action_pressed("move_left"):
-			pass
-		elif Input.is_action_pressed("move_right"):
-			pass
-		#if move up
-		#if move down
-		#if zoom in
-		#if zoom out
+			move_direction.x -= 1
+		if Input.is_action_pressed("move_right"):
+			move_direction.x += 1
+		if Input.is_action_pressed("move_up"):
+			move_direction.y -= 1
+		if Input.is_action_pressed("move_down"):
+			move_direction.y += 1
 		
-
+		if move_direction != Vector2.ZERO:
+			move_direction = move_direction.normalized()
+			camera_position += move_direction * move_speed * delta
+		
+		if Input.is_action_pressed("zoom_in"):
+			camera_zoom -= Vector2.ONE * zoom_speed * delta
+		if Input.is_action_pressed("zoom_out"):
+			camera_zoom += Vector2.ONE * zoom_speed * delta
+		
+		camera_zoom.x = clamp(camera_zoom.x, max_zoom.x, min_zoom.x)
+		camera_zoom.y = clamp(camera_zoom.y, max_zoom.y, min_zoom.y)
+		
+		pause_cam.position = pause_cam.position.lerp(camera_position, delta * move_speed)
+		pause_cam.zoom = pause_cam.zoom.lerp(camera_zoom, delta * zoom_speed)
 
 func _on_character_body_2d_inputs_disabled(is_input_disabled: bool, player_cam_global_position: Vector2, player_cam_zoom: Vector2) -> void:
 	if is_input_disabled == true:
