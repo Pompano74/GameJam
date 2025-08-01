@@ -1,6 +1,6 @@
 extends Node
 
-var bpm: int = 120
+var bpm: float
 var beatDuration: float
 @onready var timer: Timer = $Timer
 var powersIndex: int = 0
@@ -9,25 +9,28 @@ var powersIndex: int = 0
 
 @export var drumRolls: Array[ButtonSelect]
 var maxRolls: int = 8
-@onready var player = get_parent().get_parent()
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D
 @onready var label = $"../../Label"
+@onready var player: Player = $"../.."
 
 
 
 func _ready() -> void:
+	bpm = player.modifyBpm
 	label.text = "bpm: " + str(bpm)
 	print("------ Arbre de la scène ------")
 	get_tree().get_root().print_tree_pretty()
 	print("-------------------------------")
 
 	Engine.time_scale = 0
+	
 	beatDuration = 60.0 / bpm
 	timer.wait_time = beatDuration
 	timer.start()
 	
 
 func _process(_delta: float) -> void:
+	bpm = player.modifyBpm
 	var limitedDrumRolls = drumRolls.slice(0, maxRolls)
 	
 	for drumRoll in limitedDrumRolls:

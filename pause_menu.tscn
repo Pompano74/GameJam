@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://bnc2hwby0cjai"]
+[gd_scene load_steps=11 format=3 uid="uid://bnc2hwby0cjai"]
 
 [ext_resource type="Script" uid="uid://cpml1f1q2weqm" path="res://Script/pause_menu.gd" id="1_05uyy"]
 [ext_resource type="Shader" uid="uid://3ygvpe0acts6" path="res://pause_menu.gdshader" id="1_hdmo1"]
+[ext_resource type="Texture2D" uid="uid://corvde5dqo4ed" path="res://Assets/Placeholder/Case_Play.png" id="2_2nc7s"]
 [ext_resource type="Texture2D" uid="uid://docqupbfxsay1" path="res://Assets/PlayButton.png" id="3_05uyy"]
+[ext_resource type="Texture2D" uid="uid://cacayaykjkvk4" path="res://Assets/Placeholder/Case_Stop.png" id="3_d3xb4"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nwcfo"]
 shader = ExtResource("1_hdmo1")
@@ -66,6 +68,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_05uyy")
+pause = ExtResource("2_2nc7s")
+reload = ExtResource("3_d3xb4")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_nwcfo")
@@ -90,7 +94,7 @@ offset_bottom = 180.0
 scale = Vector2(3, 3)
 action_mode = 0
 
-[node name="Png-clipart-computer-icons-symbol-button-pause-button-miscellaneous-angle" type="Sprite2D" parent="CanvasLayer/TextureButton"]
+[node name="Png" type="Sprite2D" parent="CanvasLayer/TextureButton"]
 position = Vector2(20.0851, 20.6959)
 texture = ExtResource("3_05uyy")
 

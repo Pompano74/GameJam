@@ -5,6 +5,7 @@ extends CharacterBody2D
 @onready var player_sprite_2d = $Sprite2D
 @onready var particles = $GPUParticles2D
 
+@export var modifyBpm: float = 60.0
 var Dev_mode = false
 
 # Mouvement joueur
