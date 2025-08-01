@@ -7,6 +7,14 @@ extends CharacterBody2D
 
 var Dev_mode = false
 
+var disable_player_input = false
+signal inputs_disabled
+
+#variables pour la camera
+@onready var player_cam: Camera2D = $Camera2D
+var player_cam_global_position: Vector2
+var player_cam_zoom: Vector2
+
 # Mouvement joueur
 var gravity_direction = Vector2.DOWN
 var gravity_force = 3
@@ -126,23 +134,32 @@ func _physics_process(delta):
 
 # Capacité joueur
 func jump():
-	velocity.y = player_jump_strength * jump_direction
+	if not disable_player_input:
+		velocity.y = player_jump_strength * jump_direction
+	else:
+		pass
 
 func dash():
-	particles.emitting = true
-	is_dashing = true
-	player_sprite_2d.modulate = Color(0,50,1,1)
-	dash_timer = dash_duration
-	velocity.y = -200 * jump_direction
-	velocity.x = dash_direction * dash_force
-	print("invicible")
+	if not disable_player_input:
+		particles.emitting = true
+		is_dashing = true
+		player_sprite_2d.modulate = Color(0,50,1,1)
+		dash_timer = dash_duration
+		velocity.y = -200 * jump_direction
+		velocity.x = dash_direction * dash_force
+		print("invicible")
+	else:
+		pass
 
 func rotate_world():
-	if origin_point != null and not rotating:
-		remaining_rotations = 2  # Two 45-degree steps = 90 degrees
-		start_rotation_step()
+	if not disable_player_input:
+		if origin_point != null and not rotating:
+			remaining_rotations = 2  # Two 45-degree steps = 90 degrees
+			start_rotation_step()
+		else:
+			print("no origin point or already rotating")
 	else:
-		print("no origin point or already rotating")
+		pass
 
 func start_rotation_step():
 	rotating = true
@@ -153,16 +170,19 @@ func start_rotation_step():
 	rotation_direction = 1
 
 func gravity():
-	if gravity_direction == Vector2.DOWN:
-		velocity.y = player_jump_strength * jump_direction
-		gravity_direction = Vector2.UP
-		jump_direction = -1
-		print("GRAVITY UP")
+	if not disable_player_input:
+		if gravity_direction == Vector2.DOWN:
+			velocity.y = player_jump_strength * jump_direction
+			gravity_direction = Vector2.UP
+			jump_direction = -1
+			print("GRAVITY UP")
+		else:
+			velocity.y = player_jump_strength * jump_direction
+			gravity_direction = Vector2.DOWN
+			jump_direction = 1
+			print("GRAVITY DOWN")
 	else:
-		velocity.y = player_jump_strength * jump_direction
-		gravity_direction = Vector2.DOWN
-		jump_direction = 1
-		print("GRAVITY DOWN")
+		pass
 
 func rotate_around(pivot: Vector2, point: Vector2, angle: float) -> Vector2:
 	var relative = point - pivot
@@ -190,3 +210,15 @@ func die():
 	if not is_dashing:
 		print("die func called")
 		get_tree().reload_current_scene()
+
+# Quand le jeu est mis sur pause a partir de la node PauseMenu
+func _on_pause_menu_pause() -> void:
+	disable_player_input = true
+	player_cam_global_position = player_cam.global_position
+	player_cam_zoom = player_cam.zoom
+	inputs_disabled.emit(disable_player_input, player_cam_global_position, player_cam_zoom) #vers pause_camera
+
+# Passer de la camera mode camera a la camera joueur
+func _on_pause_camera_switch_to_player_cam() -> void:
+	player_cam.make_current()
+	disable_player_input = false

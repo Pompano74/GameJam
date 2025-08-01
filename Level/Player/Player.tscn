@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dynw8drhp8bjg"]
+[gd_scene load_steps=12 format=3 uid="uid://dynw8drhp8bjg"]
 
 [ext_resource type="Script" uid="uid://dsytqkfnho75u" path="res://Level/Player/character_body_2d.gd" id="1_w7old"]
 [ext_resource type="Texture2D" uid="uid://b1raoryae4dvt" path="res://Assets/Placeholder/CharBase.png" id="2_xmy7u"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://7gytyod0k7qm" path="res://Assets/Placeholder/son_tempo_placeholder.wav" id="4_4a08e"]
 [ext_resource type="PackedScene" uid="uid://cxughnlvb3f14" path="res://BeatManager.tscn" id="4_8op4e"]
 [ext_resource type="PackedScene" uid="uid://bnc2hwby0cjai" path="res://pause_menu.tscn" id="5_4a08e"]
+[ext_resource type="PackedScene" uid="uid://1mc6byd07rbk" path="res://pause_camera.tscn" id="7_6dkl6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4a08e"]
 size = Vector2(8, 14)
@@ -172,6 +173,12 @@ vertical_alignment = 1
 
 [node name="origin_point" type="Node2D" parent="CharacterBody2D"]
 position = Vector2(8, -8)
+
+[node name="pause_camera" parent="." instance=ExtResource("7_6dkl6")]
+
+[connection signal="inputs_disabled" from="CharacterBody2D" to="pause_camera" method="_on_character_body_2d_inputs_disabled" binds= [false]]
+[connection signal="pause" from="CharacterBody2D/Camera2D/BeatManager/PauseMenu" to="CharacterBody2D" method="_on_pause_menu_pause"]
+[connection signal="switch_to_player_cam" from="pause_camera" to="CharacterBody2D" method="_on_pause_camera_switch_to_player_cam"]
 
 [editable path="CharacterBody2D/Camera2D/BeatManager"]
 [editable path="CharacterBody2D/Camera2D/BeatManager/PauseMenu"]
