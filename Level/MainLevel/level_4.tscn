@@ -40,10 +40,10 @@ rotation = -1.57079
 scale = Vector2(0.5, 9)
 
 [node name="Player" parent="." instance=ExtResource("4_yc3u2")]
-position = Vector2(-576, 56)
+position = Vector2(-1064, -232)
 
 [node name="CharacterBody2D" parent="Player" index="0"]
-position = Vector2(-49, -22)
+modifyBpm = 140.0
 
 [editable path="Player"]
 [editable path="Player/CharacterBody2D/Camera2D/BeatManager"]
