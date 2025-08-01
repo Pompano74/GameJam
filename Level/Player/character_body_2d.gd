@@ -104,7 +104,7 @@ func _physics_process(delta):
 				die()
 	
 	if origin_point != null:
-		origin_point.rotation = lerp_angle(origin_point.rotation, target_rotation, delta * 10)
+		origin_point.rotation = lerp_angle(origin_point.rotation, target_rotation, delta * 5)
 	move_and_slide()
 
 #Capacité joueur
@@ -119,6 +119,7 @@ func dash():
 	velocity.x = dash_direction * dash_force
 	print("invicible")
 func rotate_world():
+	velocity.y = player_jump_strength * jump_direction * 0.05
 	if origin_point != null:
 		target_rotation += deg_to_rad(rotation_amount)
 	else:

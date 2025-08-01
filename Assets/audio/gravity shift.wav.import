@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://0mebnawym0eo"
+path="res://.godot/imported/gravity shift.wav-c99afa0b29902085cb6a1b2322bbfdc2.sample"
+
+[deps]
+
+source_file="res://Assets/audio/gravity shift.wav"
+dest_files=["res://.godot/imported/gravity shift.wav-c99afa0b29902085cb6a1b2322bbfdc2.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
