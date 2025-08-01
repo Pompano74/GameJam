@@ -1,19 +1,13 @@
 class_name Player
 extends CharacterBody2D
 
-var delta_time
-
-@export var ghost_node : PackedScene
-
+@onready var origin_point = null
 @onready var player_sprite_2d = $Sprite2D
-@onready var attack_object = $Attack
-@onready var attack_area_2d = $Attack/Attack_Sprite/Area2D
-@onready var ghost_timer = $GhostTimer
 @onready var particles = $GPUParticles2D
 
 var Dev_mode = false
 
-#player movement
+# Mouvement joueur
 var gravity_direction = Vector2.DOWN
 var gravity_force = 3
 var jump_direction = 1
@@ -26,63 +20,81 @@ var is_dashing = false
 var dash_duration = 0.8
 var dash_timer = 0.0
 
-var is_attack = false
-var attack_duration = 0.4
-var attack_timer = 0.0
-
 var is_in_killzone = false
-	
+
+# Rotation autour du joueur
+var rotation_amount_deg = 45
+var rotating = false
+var rotation_duration = 0.15
+var rotation_timer = 0.0
+var origin_start_pos = Vector2.ZERO
+var origin_start_rot = 0.0
+var rotation_direction = 1
+var angle_rotate = 0.0
+
+# New: Counter to manage consecutive rotations
+var remaining_rotations = 0
+
 func _ready():
+	var origin_nodes = get_tree().get_nodes_in_group("room")
+	if origin_nodes.size() > 0:
+		origin_point = origin_nodes[0] as Node2D
+	print(origin_point)
 	add_to_group("player")
 
 func _process(delta):
-	delta_time = delta
-	if Input.is_action_just_pressed("debug_2") && Dev_mode == false:
-		Dev_mode = true
-		print("dev_mode TRUE")
-	elif Input.is_action_just_pressed("debug_2") && Dev_mode == true:
-		Dev_mode = false
-		print("dev_mode TRUE")
-		
-	#capacité debug
+	if rotating:
+		rotation_timer += delta
+		var t = clamp(rotation_timer / rotation_duration, 0, 1)
+		var angle = lerp(0.0, deg_to_rad(rotation_amount_deg * rotation_direction), t)
+
+		var pivot = player_sprite_2d.global_position
+		var new_position = rotate_around(pivot, origin_start_pos, angle)
+
+		origin_point.global_position = new_position
+		origin_point.rotation = origin_start_rot + angle
+
+		if t >= 1.0:
+			rotating = false
+			remaining_rotations -= 1
+
+			if remaining_rotations > 0:
+				# Set up the next rotation
+				start_rotation_step()
+	
+	if Input.is_action_just_pressed("debug_2"):
+		Dev_mode = !Dev_mode
+		print("dev_mode", Dev_mode)
+
 	if Input.is_action_just_pressed("debug_9"):
 		jump()
 	if Input.is_action_just_pressed("debug_8"):
 		dash()
 	if Input.is_action_just_pressed("debug_7"):
-		attack()
+		rotate_world()
 	if Input.is_action_just_pressed("debug_6"):
 		gravity()
-		
+
 func _physics_process(delta):
-	
-	#variables
 	var direction = Input.get_axis("move_left", "move_right")
-	attack_area_2d.monitoring = false
-	#player direction
+
 	if Input.is_action_just_pressed("move_left"):
-			dash_direction = -1
-			player_sprite_2d.flip_h = true
-			attack_object.rotation = deg_to_rad(180)
+		dash_direction = -1
+		player_sprite_2d.flip_h = true
 	elif Input.is_action_just_pressed("move_right"):
 		dash_direction = 1
 		player_sprite_2d.flip_h = false
-		attack_object.rotation = deg_to_rad(0)
-	#free movement
-	if Dev_mode == true:
-			# change gravity direction
+
+	if Dev_mode:
 		if Input.is_action_just_pressed("debug_1"):
 			gravity()
-		# dash
 		if Input.is_action_just_pressed("dash"):
 			dash()
-		
 		if Input.is_action_just_pressed("attack"):
-			attack()
-				
+			rotate_world()
 		if Input.is_action_just_pressed("jump"):
 			jump()
-	#gravity
+
 	if gravity_direction == Vector2.DOWN:
 		if not is_on_floor():
 			velocity += get_gravity() * gravity_direction * delta * gravity_force
@@ -91,7 +103,7 @@ func _physics_process(delta):
 		if not is_on_ceiling():
 			velocity += get_gravity() * gravity_direction * delta * gravity_force
 			player_sprite_2d.flip_v = true
-	#side movement
+
 	if not is_dashing:
 		if direction:
 			velocity.x = direction * player_speed
@@ -99,28 +111,23 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, player_speed)
 	else:
 		velocity.x = lerp(velocity.x, direction * player_speed, 2 * delta)
-	# dash timer
+
 	if is_dashing:
-		dash_timer -= delta_time
+		dash_timer -= delta
 		if dash_timer <= 0:
 			particles.emitting = false
 			is_dashing = false
 			player_sprite_2d.modulate = Color(1,1,1,1)
 			print("vulnerable")
-			if is_in_killzone == true:
+			if is_in_killzone:
 				die()
-	#attack timer
-	if is_attack:
-		attack_timer -= delta_time
-		if attack_timer <= 0:
-			is_attack = false
-			attack_object.visible = false
-			attack_area_2d.monitoring = false		
+
 	move_and_slide()
 
-#Capacité joueur
+# Capacité joueur
 func jump():
 	velocity.y = player_jump_strength * jump_direction
+
 func dash():
 	particles.emitting = true
 	is_dashing = true
@@ -129,37 +136,57 @@ func dash():
 	velocity.y = -200 * jump_direction
 	velocity.x = dash_direction * dash_force
 	print("invicible")
-func attack():
-	is_attack = true
-	attack_object.visible = true
-	attack_area_2d.monitoring = true
-	print("attacking")
-	attack_timer = attack_duration
-func gravity():
-		if gravity_direction == Vector2.DOWN:
-			velocity.y = player_jump_strength * jump_direction
-			gravity_direction = Vector2.UP
-			jump_direction = -1
-			print("GRAVITY UP")
-		else:
-			velocity.y = player_jump_strength * jump_direction
-			gravity_direction = Vector2.DOWN
-			jump_direction = 1
-			print("GRAVITY DOWN")
 
-#attack kill
+func rotate_world():
+	if origin_point != null and not rotating:
+		remaining_rotations = 2  # Two 45-degree steps = 90 degrees
+		start_rotation_step()
+	else:
+		print("no origin point or already rotating")
+
+func start_rotation_step():
+	rotating = true
+	rotation_timer = 0.0
+	origin_start_pos = origin_point.global_position
+	origin_start_rot = origin_point.rotation
+	# You could randomize or invert direction if desired
+	rotation_direction = 1
+
+func gravity():
+	if gravity_direction == Vector2.DOWN:
+		velocity.y = player_jump_strength * jump_direction
+		gravity_direction = Vector2.UP
+		jump_direction = -1
+		print("GRAVITY UP")
+	else:
+		velocity.y = player_jump_strength * jump_direction
+		gravity_direction = Vector2.DOWN
+		jump_direction = 1
+		print("GRAVITY DOWN")
+
+func rotate_around(pivot: Vector2, point: Vector2, angle: float) -> Vector2:
+	var relative = point - pivot
+	var rotated = Vector2(
+		relative.x * cos(angle) - relative.y * sin(angle),
+		relative.x * sin(angle) + relative.y * cos(angle)
+	)
+	return pivot + rotated
+
+# Ennemis
 func _on_area_2d_body_entered(body):
 	body.queue_free()
 	print("enemie killed")
 
-#player fail condition
+# Zone de mort
 func on_killzone_enter():
-	print("body entered")
 	is_in_killzone = true
+	print("body entered")
+
 func on_killzone_exit():
 	is_in_killzone = false
 	print("body exited")
+
 func die():
-	if is_dashing == false:
+	if not is_dashing:
 		print("die func called")
 		get_tree().reload_current_scene()
