@@ -8,6 +8,7 @@ extends Control
 @export var reload: Texture
 
 signal game_pause
+signal game_resume
 
 func _ready() -> void:
 	Engine.time_scale = 0
@@ -28,6 +29,7 @@ func _on_texture_button_pressed() -> void:
 	if Engine.time_scale == 0:
 		Engine.time_scale = 1
 		animation_player.play_backwards("blur")
+		game_resume.emit()
 	
 	else:
 		get_tree().reload_current_scene()

@@ -39,6 +39,7 @@ var angle_rotate = 0.0
 
 var disable_player_input = false
 signal inputs_disabled
+signal game_resume
 
 #variables pour la camera
 @onready var player_cam: Camera2D = $Camera2D
@@ -226,7 +227,11 @@ func _on_pause_menu_game_pause() -> void:
 	player_cam_zoom = player_cam.zoom
 	inputs_disabled.emit(disable_player_input, player_cam_global_position, player_cam_zoom) #vers pause_camera
 
-
 func _on_pause_camera_switch_to_player_cam() -> void:
 	player_cam.make_current()
 	disable_player_input = false
+
+func _on_pause_menu_game_resume() -> void:
+	player_cam_global_position = player_cam.global_position
+	player_cam_zoom = player_cam.zoom
+	game_resume.emit(player_cam_global_position, player_cam_zoom)

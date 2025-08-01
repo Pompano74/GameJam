@@ -88,3 +88,7 @@ func reset_cam(player_cam_global_position: Vector2, player_cam_zoom: Vector2):
 	player_camera_position = player_cam_global_position
 	camera_zoom = lerp (camera_zoom, player_camera_zoom, get_process_delta_time() * zoom_in_speed)
 	camera_position = lerp (camera_position, player_camera_position, get_process_delta_time() * zoom_in_speed)
+
+
+func _on_character_body_2d_game_resume(player_cam_global_position: Vector2, player_cam_zoom: Vector2) -> void:
+	reset_cam(player_cam_global_position, player_cam_zoom)
