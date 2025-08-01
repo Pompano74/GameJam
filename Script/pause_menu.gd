@@ -6,9 +6,13 @@ extends Control
 
 @export var pause: Texture
 @export var reload: Texture
+
+signal game_pause
+
 func _ready() -> void:
 	Engine.time_scale = 0
 	animation_player.play("basic")
+	game_pause.emit() #vers characterbody2d
 
 
 

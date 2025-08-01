@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dynw8drhp8bjg"]
+[gd_scene load_steps=16 format=3 uid="uid://dynw8drhp8bjg"]
 
 [ext_resource type="Script" uid="uid://dsytqkfnho75u" path="res://Level/Player/character_body_2d.gd" id="1_w7old"]
 [ext_resource type="Texture2D" uid="uid://eokojipc802j" path="res://Assets/Placeholder/FullscreenBackgroundV6.png" id="2_4a08e"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cibagvne3fshn" path="res://Assets/Placeholder/Icon_Dash.png" id="5_57mxj"]
 [ext_resource type="Texture2D" uid="uid://bkbhwvx66e7r5" path="res://Assets/Placeholder/Icon_Gravite.png" id="6_uv1qq"]
 [ext_resource type="Texture2D" uid="uid://7d3ldgn4y0d2" path="res://Assets/Placeholder/Icon_RotateRoom.png" id="7_t8ja0"]
+[ext_resource type="PackedScene" uid="uid://1mc6byd07rbk" path="res://pause_camera.tscn" id="11_uv1qq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4a08e"]
 size = Vector2(8, 14)
@@ -352,6 +353,8 @@ vertical_alignment = 1
 
 [node name="origin_point" type="Node2D" parent="CharacterBody2D"]
 position = Vector2(8, -8)
+
+[node name="pause_camera" parent="." instance=ExtResource("11_uv1qq")]
 
 [editable path="CharacterBody2D/Camera2D/BeatManager"]
 [editable path="CharacterBody2D/Camera2D/BeatManager/PauseMenu"]
