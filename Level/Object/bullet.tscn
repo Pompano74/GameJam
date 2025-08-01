@@ -1,13 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://bscoarurbrwh2"]
+[gd_scene load_steps=4 format=3 uid="uid://bscoarurbrwh2"]
 
 [ext_resource type="Texture2D" uid="uid://bb26hjd00hofs" path="res://Assets/Placeholder/Note1.png" id="1_usrwm"]
-[ext_resource type="PackedScene" uid="uid://7j41jpon30lu" path="res://Level/Object/kill_zone.tscn" id="2_agbxv"]
+[ext_resource type="Script" uid="uid://b5i0bax734wj7" path="res://Level/Object/bullet.gd" id="2_agbxv"]
 
-[node name="Sprite2D" type="Sprite2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_usrwm"]
+size = Vector2(8, 20)
+
+[node name="Bullet" type="Sprite2D"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_usrwm")
+script = ExtResource("2_agbxv")
 
-[node name="KillZone" parent="." instance=ExtResource("2_agbxv")]
-position = Vector2(-2, -8)
-rotation = 0.250937
-scale = Vector2(0.25, 0.5)
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_usrwm")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="Area2D"]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="screen_exited" from="Area2D/VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
