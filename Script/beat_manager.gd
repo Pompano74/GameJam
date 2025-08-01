@@ -5,11 +5,11 @@ var beatDuration: float
 @onready var timer: Timer = $Timer
 var powersIndex: int = 0
 @export var actions: Array[String] = ["Nothing", "Jump", "Dash", "Gravity"]
+@onready var animated_sprite: AnimatedSprite2D = $CanvasLayer/AnimatedSprite2D
 
 @export var drumRolls: Array[ButtonSelect]
 var maxRolls: int = 8
 @onready var player = get_parent().get_parent()
-
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D
 @onready var label = $"../../Label"
 
@@ -64,6 +64,8 @@ func _on_timer_timeout() -> void:
 			var index = drumRoll.currentActionIndex
 			if index >= 0 and index < actions.size():
 				drumRoll.text = actions[index]
+				
+				Blink()
 				print("Bouton", powersIndex, "→", drumRoll.text)
 
 				match drumRoll.text:
@@ -83,3 +85,10 @@ func _on_timer_timeout() -> void:
 				drumRoll.text = "Invalid"
 
 	powersIndex += 1
+	
+func Blink():
+	var tween = get_tree().create_tween()
+	tween.tween_method(SetShader, 1.0, 0.0, 0.5)
+	
+func SetShader(newValue: float):
+	animated_sprite.material.set_shader_parameter("alpha_color", newValue)
