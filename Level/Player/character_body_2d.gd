@@ -1,6 +1,10 @@
 class_name Player
 extends CharacterBody2D
 
+@export var maxJump: int = 1
+@export var maxDash: int = 1
+@export var maxGravity: int = 1
+@export var maxRotate: int = 1
 @onready var origin_point = null
 @onready var player_sprite_2d = $Sprite2D
 @onready var particles = $GPUParticles2D

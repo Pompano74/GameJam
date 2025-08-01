@@ -12,7 +12,7 @@ var maxRolls: int = 8
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D
 @onready var label = $"../../Label"
 @onready var player: Player = $"../.."
-
+@export var conditionMet: bool = false
 
 
 func _ready() -> void:
@@ -57,8 +57,29 @@ func _process(_delta: float) -> void:
 				image.texture = spriteList[index]
 				drumRoll.text = actions[index]
 				
+
 			else:
 				print("Invalid")
+				
+	if count_action_in_drumrolls("Jump") > player.maxJump:
+		conditionMet = false
+	else :
+		conditionMet = true
+
+	if count_action_in_drumrolls("Dash") > player.maxDash:
+		conditionMet = false
+	else :
+		conditionMet = true
+		
+	if count_action_in_drumrolls("Gravity") > player.maxGravity:
+		conditionMet = false
+	else :
+		conditionMet = true
+
+	if count_action_in_drumrolls("Rotate") > player.maxRotate:
+		conditionMet = false
+	else :
+		conditionMet = true
 
 func _on_timer_timeout() -> void:
 	# Reset powersIndex if it goes past the limit
@@ -106,3 +127,6 @@ func Blink():
 	
 func SetShader(newValue: float):
 	animated_sprite.material.set_shader_parameter("alpha_color", newValue)
+	
+func count_action_in_drumrolls(target_action: String) -> int:
+	return drumRolls.filter(func(d): return d and d.text == target_action).size()
