@@ -9,6 +9,7 @@
 [node name="Level_6" type="Node"]
 
 [node name="room" type="Node2D" parent="." groups=["room"]]
+position = Vector2(-1144, -608)
 
 [node name="TileMapBackground" parent="room" instance=ExtResource("1_811l7")]
 position = Vector2(-424, 256)
@@ -65,7 +66,7 @@ rotation = -3.14159
 scale = Vector2(8, 0.5)
 
 [node name="Player" parent="." instance=ExtResource("4_libbo")]
-position = Vector2(-904, -96)
+position = Vector2(-2048, -704)
 
 [node name="CharacterBody2D" parent="Player" index="0"]
 modifyBpm = 230.0
