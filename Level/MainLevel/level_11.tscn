@@ -8,7 +8,7 @@
 
 [node name="level_11" type="Node"]
 
-[node name="room" type="Node2D" parent="."]
+[node name="room" type="Node2D" parent="." groups=["room"]]
 
 [node name="TileMap" parent="room" instance=ExtResource("1_ghtqv")]
 position = Vector2(-400, 288)

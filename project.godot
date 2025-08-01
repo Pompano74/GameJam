@@ -125,7 +125,8 @@ dash={
 
 [physics]
 
-common/physics_ticks_per_second=480
+common/physics_ticks_per_second=700
+common/max_physics_steps_per_frame=32
 
 [rendering]
 

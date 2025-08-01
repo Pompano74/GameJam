@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://cxughnlvb3f14" path="res://BeatManager.tscn" id="4_8op4e"]
 [ext_resource type="PackedScene" uid="uid://bnc2hwby0cjai" path="res://pause_menu.tscn" id="5_4a08e"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ngpfc"]
-size = Vector2(8, 16)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4a08e"]
+size = Vector2(8, 14)
 
 [sub_resource type="Gradient" id="Gradient_4a08e"]
 colors = PackedColorArray(1, 1, 1, 1, 0, 1, 1, 1)
@@ -145,8 +145,8 @@ offset_right = 248.0
 offset_bottom = -119.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(8, -8)
-shape = SubResource("RectangleShape2D_ngpfc")
+position = Vector2(8, -7)
+shape = SubResource("RectangleShape2D_4a08e")
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
 position = Vector2(8, -8)
