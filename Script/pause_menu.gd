@@ -8,10 +8,7 @@ extends Control
 func _ready() -> void:
 	Engine.time_scale = 0
 	animation_player.play("basic")
-	pausePosition = Vector2(440, 170)
-	gamePosition = Vector2(900, 25)
-	pauseScale = Vector2(2,2)
-	gameScale = Vector2(1, 1)
+
 
 
 func _process(delta: float) -> void:
