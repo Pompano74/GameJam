@@ -25,7 +25,7 @@ window/vsync/vsync_mode=0
 [global_group]
 
 player=""
-origin_point=""
+room=""
 
 [input]
 

@@ -1,10 +1,11 @@
 class_name Player
 extends CharacterBody2D
 
-var origin_point = null
+
 var target_rotation = 0.0
 var rotation_amount = 45
 
+@onready var origin_point = $origin_point
 @onready var player_sprite_2d = $Sprite2D
 @onready var particles = $GPUParticles2D
 
@@ -119,9 +120,9 @@ func dash():
 	velocity.x = dash_direction * dash_force
 	print("invicible")
 func rotate_world():
-	velocity.y = player_jump_strength * jump_direction * 0.05
 	if origin_point != null:
 		target_rotation += deg_to_rad(rotation_amount)
+		
 	else:
 		print("no origin point")
 func gravity():
