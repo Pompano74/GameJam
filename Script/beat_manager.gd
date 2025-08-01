@@ -4,9 +4,9 @@ var bpm: float
 var beatDuration: float
 @onready var timer: Timer = $Timer
 var powersIndex: int = 0
-@export var actions: Array[String] = ["Nothing", "Jump", "Dash", "Gravity"]
+@export var actions: Array[String] = ["Nothing", "Jump", "Dash", "Gravity", "Rotate"]
 @onready var animated_sprite: AnimatedSprite2D = $CanvasLayer/AnimatedSprite2D
-
+@export var spriteList: Array[Texture]
 @export var drumRolls: Array[ButtonSelect]
 var maxRolls: int = 8
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D
@@ -37,9 +37,11 @@ func _process(_delta: float) -> void:
 		if drumRoll:  # vérifie que le bouton existe
 			var index = drumRoll.currentActionIndex
 			if index >= 0 and index < actions.size():
+				var image: Sprite2D = drumRoll.get_child(0)
+				image.texture = spriteList[index]
 				drumRoll.text = actions[index]
 			else:
-				drumRoll.text = "Invalid"
+				print("Invalid")
 	var newBeatDuration = 60.0 / bpm
 	if newBeatDuration != beatDuration:
 		beatDuration = newBeatDuration
@@ -51,9 +53,12 @@ func _process(_delta: float) -> void:
 		if drumRoll:
 			var index = drumRoll.currentActionIndex
 			if index >= 0 and index < actions.size():
+				var image: Sprite2D = drumRoll.get_child(0)
+				image.texture = spriteList[index]
 				drumRoll.text = actions[index]
+				
 			else:
-				drumRoll.text = "Invalid"
+				print("Invalid")
 
 func _on_timer_timeout() -> void:
 	# Reset powersIndex if it goes past the limit
@@ -66,6 +71,9 @@ func _on_timer_timeout() -> void:
 		if drumRoll:
 			var index = drumRoll.currentActionIndex
 			if index >= 0 and index < actions.size():
+				var image: Sprite2D = drumRoll.get_child(0)
+				image.texture = spriteList[index]
+				
 				drumRoll.text = actions[index]
 				
 				Blink()
@@ -84,8 +92,11 @@ func _on_timer_timeout() -> void:
 					"Gravity":
 						audio_stream_player_2d.play()
 						player.gravity()
+					"Rotate":
+						audio_stream_player_2d.play()
+						player.rotate_world()
 			else:
-				drumRoll.text = "Invalid"
+				print("Invalid")
 
 	powersIndex += 1
 	
