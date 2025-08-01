@@ -42,7 +42,7 @@ signal inputs_disabled
 signal game_resume
 
 #variables pour la camera
-@onready var player_cam: Camera2D = $Camera2D
+var player_cam: Camera2D
 var player_cam_global_position: Vector2
 var player_cam_zoom: Vector2
 
@@ -51,10 +51,11 @@ var remaining_rotations = 0
 
 func _ready():
 	var origin_nodes = get_tree().get_nodes_in_group("room")
+	player_cam =  get_tree().get_nodes_in_group("camera").front()
 	if origin_nodes.size() > 0:
 		origin_point = origin_nodes[0] as Node2D
-	print(origin_point)
 	add_to_group("player")
+	print(player_cam)
 
 func _process(delta):
 	if rotating:
@@ -223,9 +224,12 @@ func die():
 # Quand le jeu est mis sur pause a partir de la node PauseMenu
 func _on_pause_menu_game_pause() -> void:
 	disable_player_input = true
-	player_cam_global_position = player_cam.global_position
-	player_cam_zoom = player_cam.zoom
-	inputs_disabled.emit(disable_player_input, player_cam_global_position, player_cam_zoom) #vers pause_camera
+	if player_cam != null:
+		player_cam_global_position = player_cam.global_position
+		player_cam_zoom = player_cam.zoom
+		inputs_disabled.emit(disable_player_input, player_cam_global_position, player_cam_zoom) #vers pause_camera
+	else:
+		pass
 
 func _on_pause_camera_switch_to_player_cam() -> void:
 	player_cam.make_current()

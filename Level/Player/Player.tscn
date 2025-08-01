@@ -115,7 +115,7 @@ disable_mode = 2
 collision_layer = 2
 script = ExtResource("1_w7old")
 
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D" groups=["camera"]]
 position = Vector2(8, -8)
 scale = Vector2(0.5, 0.5)
 limit_smoothed = true
