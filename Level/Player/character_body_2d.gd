@@ -23,14 +23,17 @@ var dash_timer = 0.0
 var is_in_killzone = false
 
 # Rotation autour du joueur
-var rotation_amount_deg = 90
+var rotation_amount_deg = 45
 var rotating = false
-var rotation_duration = 0.5
+var rotation_duration = 0.15
 var rotation_timer = 0.0
 var origin_start_pos = Vector2.ZERO
 var origin_start_rot = 0.0
 var rotation_direction = 1
 var angle_rotate = 0.0
+
+# New: Counter to manage consecutive rotations
+var remaining_rotations = 0
 
 func _ready():
 	var origin_nodes = get_tree().get_nodes_in_group("room")
@@ -44,20 +47,25 @@ func _process(delta):
 		rotation_timer += delta
 		var t = clamp(rotation_timer / rotation_duration, 0, 1)
 		var angle = lerp(0.0, deg_to_rad(rotation_amount_deg * rotation_direction), t)
-		
+
 		var pivot = player_sprite_2d.global_position
 		var new_position = rotate_around(pivot, origin_start_pos, angle)
-		
+
 		origin_point.global_position = new_position
 		origin_point.rotation = origin_start_rot + angle
 
 		if t >= 1.0:
 			rotating = false
+			remaining_rotations -= 1
 
+			if remaining_rotations > 0:
+				# Set up the next rotation
+				start_rotation_step()
+	
 	if Input.is_action_just_pressed("debug_2"):
 		Dev_mode = !Dev_mode
 		print("dev_mode", Dev_mode)
-		
+
 	if Input.is_action_just_pressed("debug_9"):
 		jump()
 	if Input.is_action_just_pressed("debug_8"):
@@ -131,13 +139,18 @@ func dash():
 
 func rotate_world():
 	if origin_point != null and not rotating:
-		rotating = true
-		rotation_timer = 0.0
-		origin_start_pos = origin_point.global_position
-		origin_start_rot = origin_point.rotation
-		rotation_direction = 1 # ou -1 si tu veux tourner dans l’autre sens
+		remaining_rotations = 2  # Two 45-degree steps = 90 degrees
+		start_rotation_step()
 	else:
 		print("no origin point or already rotating")
+
+func start_rotation_step():
+	rotating = true
+	rotation_timer = 0.0
+	origin_start_pos = origin_point.global_position
+	origin_start_rot = origin_point.rotation
+	# You could randomize or invert direction if desired
+	rotation_direction = 1
 
 func gravity():
 	if gravity_direction == Vector2.DOWN:
