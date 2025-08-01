@@ -12,3 +12,4 @@ layer_0/tile_data = PackedInt32Array(65523, 0, 0, 65524, 0, 0, 65525, 0, 0, 6552
 [node name="TileMapBackground" parent="." instance=ExtResource("2_dve22")]
 
 [node name="Player" parent="." instance=ExtResource("3_dve22")]
+position = Vector2(96, 0)

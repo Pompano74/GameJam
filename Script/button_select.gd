@@ -2,7 +2,7 @@ class_name ButtonSelect
 extends Button
 
 @export var currentActionIndex: int = 0
-@export var maxActionIndex: int = 4
+@export var maxActionIndex: int = 5
 @export var canChange: bool
 func _ready() -> void:
 	self.pressed.connect(_on_button_pressed)

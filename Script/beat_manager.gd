@@ -1,42 +1,47 @@
 extends Node
 
-var bpm: int = 120
+var bpm: float
 var beatDuration: float
 @onready var timer: Timer = $Timer
 var powersIndex: int = 0
-@export var actions: Array[String] = ["Nothing", "Jump", "Dash", "Gravity"]
-
+@export var actions: Array[String] = ["Nothing", "Jump", "Dash", "Gravity", "Rotate"]
+@onready var animated_sprite: AnimatedSprite2D = $CanvasLayer/AnimatedSprite2D
+@export var spriteList: Array[Texture]
 @export var drumRolls: Array[ButtonSelect]
 var maxRolls: int = 8
-@onready var player = get_parent().get_parent()
-
 @onready var audio_stream_player_2d = $AudioStreamPlayer2D
 @onready var label = $"../../Label"
+@onready var player: Player = $"../.."
 
 
 
 func _ready() -> void:
+	bpm = player.modifyBpm
 	label.text = "bpm: " + str(bpm)
 	print("------ Arbre de la scène ------")
 	get_tree().get_root().print_tree_pretty()
 	print("-------------------------------")
 
 	Engine.time_scale = 0
+	
 	beatDuration = 60.0 / bpm
 	timer.wait_time = beatDuration
 	timer.start()
 	
 
 func _process(_delta: float) -> void:
+	bpm = player.modifyBpm
 	var limitedDrumRolls = drumRolls.slice(0, maxRolls)
 	
 	for drumRoll in limitedDrumRolls:
 		if drumRoll:  # vérifie que le bouton existe
 			var index = drumRoll.currentActionIndex
 			if index >= 0 and index < actions.size():
+				var image: Sprite2D = drumRoll.get_child(0)
+				image.texture = spriteList[index]
 				drumRoll.text = actions[index]
 			else:
-				drumRoll.text = "Invalid"
+				print("Invalid")
 	var newBeatDuration = 60.0 / bpm
 	if newBeatDuration != beatDuration:
 		beatDuration = newBeatDuration
@@ -48,9 +53,12 @@ func _process(_delta: float) -> void:
 		if drumRoll:
 			var index = drumRoll.currentActionIndex
 			if index >= 0 and index < actions.size():
+				var image: Sprite2D = drumRoll.get_child(0)
+				image.texture = spriteList[index]
 				drumRoll.text = actions[index]
+				
 			else:
-				drumRoll.text = "Invalid"
+				print("Invalid")
 
 func _on_timer_timeout() -> void:
 	# Reset powersIndex if it goes past the limit
@@ -63,7 +71,12 @@ func _on_timer_timeout() -> void:
 		if drumRoll:
 			var index = drumRoll.currentActionIndex
 			if index >= 0 and index < actions.size():
+				var image: Sprite2D = drumRoll.get_child(0)
+				image.texture = spriteList[index]
+				
 				drumRoll.text = actions[index]
+				
+				Blink()
 				print("Bouton", powersIndex, "→", drumRoll.text)
 
 				match drumRoll.text:
@@ -79,7 +92,17 @@ func _on_timer_timeout() -> void:
 					"Gravity":
 						audio_stream_player_2d.play()
 						player.gravity()
+					"Rotate":
+						audio_stream_player_2d.play()
+						player.rotate_world()
 			else:
-				drumRoll.text = "Invalid"
+				print("Invalid")
 
 	powersIndex += 1
+	
+func Blink():
+	var tween = get_tree().create_tween()
+	tween.tween_method(SetShader, 1.0, 0.0, 0.5)
+	
+func SetShader(newValue: float):
+	animated_sprite.material.set_shader_parameter("alpha_color", newValue)
