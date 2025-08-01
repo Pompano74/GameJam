@@ -1,49 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxughnlvb3f14"]
+[gd_scene load_steps=3 format=3 uid="uid://cxughnlvb3f14"]
 
 [ext_resource type="Script" uid="uid://0dqun7yphstw" path="res://Script/beat_manager.gd" id="1_2jfyb"]
 [ext_resource type="Script" uid="uid://ccmel6eobo4ti" path="res://Script/button_select.gd" id="2_gdq6i"]
-[ext_resource type="Shader" uid="uid://dxqskygonlsuj" path="res://Assets/blink.gdshader" id="3_htalq"]
-[ext_resource type="Texture2D" uid="uid://irpgv250trsr" path="res://Assets/Placeholder/white-border-white-rectangle-white-page.svg.hi.png" id="4_v0qob"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_v0qob"]
-shader = ExtResource("3_htalq")
-shader_parameter/alpha_color = 1.0
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_11non"]
-atlas = ExtResource("4_v0qob")
-region = Rect2(150, 95, 150, 95)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_r8ng7"]
-atlas = ExtResource("4_v0qob")
-region = Rect2(300, 95, 150, 95)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bov4c"]
-atlas = ExtResource("4_v0qob")
-region = Rect2(150, 190, 150, 95)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_esefu"]
-atlas = ExtResource("4_v0qob")
-region = Rect2(300, 190, 150, 95)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_1rcdx"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_11non")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_r8ng7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bov4c")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_esefu")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
-}]
 
 [node name="BeatManager" type="Node" node_paths=PackedStringArray("drumRolls")]
 script = ExtResource("1_2jfyb")
@@ -138,9 +96,5 @@ script = ExtResource("2_gdq6i")
 canChange = true
 metadata/_custom_type_script = "uid://ccmel6eobo4ti"
 metadata/_edit_use_anchors_ = true
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer"]
-material = SubResource("ShaderMaterial_v0qob")
-sprite_frames = SubResource("SpriteFrames_1rcdx")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -194,4 +194,7 @@ func on_killzone_exit():
 func die():
 	if not is_dashing:
 		print("die func called")
+		velocity = Vector2.ZERO
+		set_physics_process(false)
+		await get_tree().create_timer(1).timeout
 		get_tree().reload_current_scene()

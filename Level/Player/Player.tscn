@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dynw8drhp8bjg"]
+[gd_scene load_steps=21 format=3 uid="uid://dynw8drhp8bjg"]
 
 [ext_resource type="Script" uid="uid://dsytqkfnho75u" path="res://Level/Player/character_body_2d.gd" id="1_w7old"]
 [ext_resource type="Texture2D" uid="uid://eokojipc802j" path="res://Assets/Placeholder/FullscreenBackgroundV6.png" id="2_4a08e"]
@@ -10,7 +10,71 @@
 [ext_resource type="Texture2D" uid="uid://cibagvne3fshn" path="res://Assets/Placeholder/Icon_Dash.png" id="5_57mxj"]
 [ext_resource type="Texture2D" uid="uid://bkbhwvx66e7r5" path="res://Assets/Placeholder/Icon_Gravite.png" id="6_uv1qq"]
 [ext_resource type="Texture2D" uid="uid://7d3ldgn4y0d2" path="res://Assets/Placeholder/Icon_RotateRoom.png" id="7_t8ja0"]
+[ext_resource type="Material" uid="uid://y0tbwobrks0p" path="res://new_shader_material.tres" id="8_qx4tn"]
+[ext_resource type="Texture2D" uid="uid://irpgv250trsr" path="res://Assets/Placeholder/white-border-white-rectangle-white-page.svg.hi.png" id="9_r27eg"]
 [ext_resource type="PackedScene" uid="uid://1mc6byd07rbk" path="res://pause_camera.tscn" id="11_uv1qq"]
+
+[sub_resource type="Animation" id="Animation_qx4tn"]
+resource_name = "blink"
+length = 8.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/alpha_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 0.8, 1, 1.2, 1.8, 2, 2.2, 2.8, 3, 3.2, 3.76667, 4, 4.2, 4.8, 5, 5.2, 5.8, 6, 6.2, 6.8, 7, 7.2, 7.8, 8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 2.03333, 3, 4, 5, 6, 7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(259, 487), Vector2(321.291, 487), Vector2(384.409, 487), Vector2(448.232, 487), Vector2(510.983, 487), Vector2(573.831, 487), Vector2(636.495, 487), Vector2(700, 487)]
+}
+
+[sub_resource type="Animation" id="Animation_r27eg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:material:shader_parameter/alpha_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(259, 487)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4wa72"]
+_data = {
+&"RESET": SubResource("Animation_r27eg"),
+&"blink": SubResource("Animation_qx4tn")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4a08e"]
 size = Vector2(8, 14)
@@ -282,9 +346,16 @@ position = Vector2(4, 3.307)
 scale = Vector2(0.134024, 0.14127)
 texture = ExtResource("4_6dkl6")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CharacterBody2D/Camera2D/BeatManager"]
-position = Vector2(480, 281)
-stream = ExtResource("4_4a08e")
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D/Camera2D/BeatManager/CanvasLayer" index="8"]
+material = ExtResource("8_qx4tn")
+position = Vector2(259, 487)
+scale = Vector2(-0.09, 0.157)
+texture = ExtResource("9_r27eg")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody2D/Camera2D/BeatManager/CanvasLayer/Sprite2D"]
+libraries = {
+&"": SubResource("AnimationLibrary_4wa72")
+}
 
 [node name="PauseMenu" parent="CharacterBody2D/Camera2D/BeatManager" instance=ExtResource("5_4a08e")]
 anchors_preset = 8
@@ -353,6 +424,11 @@ vertical_alignment = 1
 
 [node name="origin_point" type="Node2D" parent="CharacterBody2D"]
 position = Vector2(8, -8)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
+position = Vector2(8, -3.5)
+scale = Vector2(0.5, 0.5)
+stream = ExtResource("4_4a08e")
 
 [node name="pause_camera" parent="." instance=ExtResource("11_uv1qq")]
 

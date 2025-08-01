@@ -5,14 +5,14 @@ var beatDuration: float
 @onready var timer: Timer = $Timer
 var powersIndex: int = 0
 @export var actions: Array[String] = ["Nothing", "Jump", "Dash", "Gravity", "Rotate"]
-@onready var animated_sprite: AnimatedSprite2D = $CanvasLayer/AnimatedSprite2D
 @export var spriteList: Array[Texture]
 @export var drumRolls: Array[ButtonSelect]
 var maxRolls: int = 8
-@onready var audio_stream_player_2d = $AudioStreamPlayer2D
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $"../../AudioStreamPlayer2D"
 @onready var label = $"../../Label"
 @onready var player: Player = $"../.."
-@export var conditionMet: bool = false
+@onready var sprite_2d: Sprite2D = $CanvasLayer/Sprite2D
+@onready var animation_player: AnimationPlayer = $CanvasLayer/Sprite2D/AnimationPlayer
 
 
 func _ready() -> void:
@@ -61,25 +61,15 @@ func _process(_delta: float) -> void:
 			else:
 				print("Invalid")
 				
-	if count_action_in_drumrolls("Jump") > player.maxJump:
-		conditionMet = false
-	else :
-		conditionMet = true
-
-	if count_action_in_drumrolls("Dash") > player.maxDash:
-		conditionMet = false
-	else :
-		conditionMet = true
-		
-	if count_action_in_drumrolls("Gravity") > player.maxGravity:
-		conditionMet = false
-	else :
-		conditionMet = true
-
-	if count_action_in_drumrolls("Rotate") > player.maxRotate:
-		conditionMet = false
-	else :
-		conditionMet = true
+		# On ajoute les actions qui ne dépassent pas leur max
+	if count_action_in_drumrolls("Jump") <= player.maxJump:
+		actions.insert(1, "Jump")
+	if count_action_in_drumrolls("Dash") <= player.maxDash:
+		actions.insert(2, "Dash")
+	if count_action_in_drumrolls("Gravity") <= player.maxGravity:
+		actions.insert(3, "Gravity")
+	if count_action_in_drumrolls("Rotate") <= player.maxRotate:
+		actions.insert(4, "Rotate")
 
 func _on_timer_timeout() -> void:
 	# Reset powersIndex if it goes past the limit
@@ -122,11 +112,14 @@ func _on_timer_timeout() -> void:
 	powersIndex += 1
 	
 func Blink():
-	var tween = get_tree().create_tween()
-	tween.tween_method(SetShader, 1.0, 0.0, 0.5)
+	animation_player.play("blink", -1, bpm/60)
+	pass
+	#var tween = get_tree().create_tween()
+	#tween.tween_method(SetShader, 1.0, 0.0, 0.5)
 	
 func SetShader(newValue: float):
-	animated_sprite.material.set_shader_parameter("alpha_color", newValue)
+	pass
+	#animated_sprite.material.set_shader_parameter("alpha_color", newValue)
 	
 func count_action_in_drumrolls(target_action: String) -> int:
 	return drumRolls.filter(func(d): return d and d.text == target_action).size()
