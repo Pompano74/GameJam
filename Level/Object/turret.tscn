@@ -20,6 +20,12 @@ rotation = 1.57079
 scale = Vector2(0.02, 0.124414)
 texture = ExtResource("2_2qdbv")
 
-[node name="RayCast2D" type="RayCast2D" parent="pivot"]
-rotation = 0.00189797
-target_position = Vector2(24, 0)
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, -16)
+target_position = Vector2(250, 0)
+
+[node name="Timer" type="Timer" parent="RayCast2D"]
+wait_time = 0.25
+one_shot = true
+
+[connection signal="timeout" from="RayCast2D/Timer" to="." method="_on_timer_timeout"]
