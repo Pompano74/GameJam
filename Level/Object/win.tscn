@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://pb0owfb37pgi"]
+[gd_scene load_steps=16 format=3 uid="uid://pb0owfb37pgi"]
 
 [ext_resource type="Texture2D" uid="uid://cv4id1n6wpbk3" path="res://Assets/Placeholder/Headphones-Sheet.png" id="1_bllmy"]
 [ext_resource type="Script" uid="uid://dd71ss4g2kwyc" path="res://Script/win.gd" id="1_s1anb"]
 [ext_resource type="AudioStream" uid="uid://bgtigvf3b8kx8" path="res://Assets/Placeholder/win_sound.wav" id="3_pjq6x"]
+[ext_resource type="PackedScene" uid="uid://b11dlomo3mdvf" path="res://fadeTransition.tscn" id="4_xcb1s"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s1anb"]
 radius = 16.0
@@ -179,4 +180,15 @@ libraries = {
 &"": SubResource("AnimationLibrary_6185u")
 }
 
+[node name="CanvasLayer" parent="." instance=ExtResource("4_xcb1s")]
+
+[node name="ColorRect" parent="CanvasLayer" index="0"]
+offset_left = -2.0
+offset_top = -6.0
+offset_right = 38.0
+offset_bottom = 34.0
+scale = Vector2(24.13, 13.3494)
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+
+[editable path="CanvasLayer"]
