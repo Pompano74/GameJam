@@ -21,6 +21,8 @@ capacity_texture_list = Array[Texture2D]([ExtResource("2_13qdt"), ExtResource("3
 position = Vector2(480, 264)
 texture = ExtResource("7_0xvyw")
 
+[node name="screenshot" type="Sprite2D" parent="Sprite2D"]
+
 [node name="Button" parent="." instance=ExtResource("1_uhqqe")]
 position = Vector2(259, 479)
 

@@ -9,6 +9,12 @@ extends Node2D
 @export var MAX_CAPACITY_DASH := 0
 @export var MAX_CAPACITY_GRAVITE := 0
 @export var MAX_CAPACITY_ROTATE := 0
+
+#level screenshot pour le mode pause
+@export var lvl_screenshot: Texture2D
+@onready var screenshot: Sprite2D = $Sprite2D/screenshot
+
+
 var capacity_counts = {
 	"jump": 0,
 	"dash": 0,
@@ -35,6 +41,8 @@ var sequence_loop = 0
 
 # Called when the node enters the scene tree
 func _ready():
+	screenshot.texture = lvl_screenshot
+	
 	await get_tree().process_frame
 	
 	
