@@ -8,6 +8,8 @@ extends CharacterBody2D
 @onready var origin_point = null
 @onready var player_sprite_2d = $Sprite2D
 @onready var particles = $GPUParticles2D
+@onready var death_particule: CPUParticles2D = $DeathParticule
+
 
 @export var modifyBpm: float = 60.0
 var Dev_mode = false
@@ -219,6 +221,8 @@ func on_killzone_exit():
 func die():
 	if not is_dashing:
 		print("die func called")
+		death_particule.restart()
+		death_particule.emitting = true
 		var camera_tween = get_tree().create_tween()
 		camera_tween.tween_method(StartCameraShake, 5.0, 1.0, 0.5)
 		velocity = Vector2.ZERO
