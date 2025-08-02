@@ -30,3 +30,4 @@ modifyBpm = 120.0
 [editable path="Player"]
 [editable path="Player/CharacterBody2D/Camera2D/BeatManager"]
 [editable path="Player/CharacterBody2D/Camera2D/BeatManager/PauseMenu"]
+[editable path="Player/pause_camera"]

@@ -7,7 +7,7 @@ extends Node2D
 @export var limit_bottom: int = 0
 
 #pause cam variables
-@onready var pause_cam: Camera2D = $PauseCamera2D
+var pause_cam
 var camera_position = Vector2 (0, 0)
 var camera_zoom = Vector2 (1, 1)
 var initial_zoom_out = Vector2 (2, 2)
@@ -29,6 +29,7 @@ signal switch_to_player_cam
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	await get_pause_camera()
 	pause_cam.limit_left = limit_left
 	pause_cam.limit_top = limit_top
 	pause_cam.limit_right = limit_right
@@ -68,19 +69,25 @@ func _process(delta: float) -> void:
 		
 		camera_zoom.x = clamp(camera_zoom.x, max_zoom.x, min_zoom.x)
 		camera_zoom.y = clamp(camera_zoom.y, max_zoom.y, min_zoom.y)
-		
-		pause_cam.position = pause_cam.position.lerp(camera_position, delta * move_speed)
-		pause_cam.zoom = pause_cam.zoom.lerp(camera_zoom, delta * zoom_speed)
+	
+	pause_cam.position = pause_cam.position.lerp(camera_position, delta * move_speed)
+	pause_cam.zoom = pause_cam.zoom.lerp(camera_zoom, delta * zoom_speed)
+	
+	#camera_zoom = lerp(camera_zoom, initial_zoom_out, delta * zoom_out_speed)
+	print(camera_zoom)
 
 func _on_character_body_2d_inputs_disabled(is_input_disabled: bool, player_cam_global_position: Vector2, player_cam_zoom: Vector2) -> void:
 	if is_input_disabled == true:
 		camera_position = player_cam_global_position
 		camera_zoom = player_cam_zoom
-		pause_cam.make_current()
+		if pause_cam != null:
+			pause_cam.make_current()
+		else:
+			pass
 		zoom_out()
+	print (is_input_disabled)
 
-func zoom_out():
-	camera_zoom = lerp(camera_zoom, initial_zoom_out, get_process_delta_time() * zoom_out_speed)
+
 
 func reset_cam(player_cam_global_position: Vector2, player_cam_zoom: Vector2):
 	camera_controls = false
@@ -92,3 +99,14 @@ func reset_cam(player_cam_global_position: Vector2, player_cam_zoom: Vector2):
 
 func _on_character_body_2d_game_resume(player_cam_global_position: Vector2, player_cam_zoom: Vector2) -> void:
 	reset_cam(player_cam_global_position, player_cam_zoom)
+
+func get_pause_camera():
+	pause_cam = get_tree().get_nodes_in_group("pause_camera").front()
+	zoom_out()
+	print("pause cam get!")
+
+func zoom_out():
+	if pause_cam != null:
+		camera_zoom = lerp(camera_zoom, initial_zoom_out, get_process_delta_time() * zoom_out_speed)
+	print("nyooom")
+	print(pause_cam)

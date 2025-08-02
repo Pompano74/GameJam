@@ -6,14 +6,18 @@ extends Control
 @onready var sprite_2d: Sprite2D = $"../CanvasLayer/Sprite2D"
 @export var pause: Texture
 @export var reload: Texture
+@onready var player: Player = $"../../.."
 
 signal game_pause
 signal game_resume
 
 func _ready() -> void:
+	await player.get_player_camera()
 	Engine.time_scale = 0
 	animation_player.play("basic")
 	game_pause.emit() #vers characterbody2d
+	print("fin")
+	
 
 
 

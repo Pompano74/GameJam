@@ -42,7 +42,7 @@ signal inputs_disabled
 signal game_resume
 
 #variables pour la camera
-var player_cam: Camera2D
+var player_cam
 var player_cam_global_position: Vector2
 var player_cam_zoom: Vector2
 
@@ -51,7 +51,6 @@ var remaining_rotations = 0
 
 func _ready():
 	var origin_nodes = get_tree().get_nodes_in_group("room")
-	player_cam =  get_tree().get_nodes_in_group("camera").front()
 	if origin_nodes.size() > 0:
 		origin_point = origin_nodes[0] as Node2D
 	add_to_group("player")
@@ -228,6 +227,7 @@ func _on_pause_menu_game_pause() -> void:
 		player_cam_global_position = player_cam.global_position
 		player_cam_zoom = player_cam.zoom
 		inputs_disabled.emit(disable_player_input, player_cam_global_position, player_cam_zoom) #vers pause_camera
+		print("hola")
 	else:
 		pass
 
@@ -239,3 +239,7 @@ func _on_pause_menu_game_resume() -> void:
 	player_cam_global_position = player_cam.global_position
 	player_cam_zoom = player_cam.zoom
 	game_resume.emit(player_cam_global_position, player_cam_zoom)
+
+func get_player_camera():
+	player_cam =  get_tree().get_nodes_in_group("camera").front()
+	print("camera get")

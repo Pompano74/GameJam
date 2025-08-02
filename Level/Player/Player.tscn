@@ -431,12 +431,13 @@ scale = Vector2(0.5, 0.5)
 stream = ExtResource("4_4a08e")
 
 [node name="pause_camera" parent="." instance=ExtResource("11_uv1qq")]
+position = Vector2(488, 272)
 
 [connection signal="game_resume" from="CharacterBody2D" to="pause_camera" method="_on_character_body_2d_game_resume"]
 [connection signal="inputs_disabled" from="CharacterBody2D" to="pause_camera" method="_on_character_body_2d_inputs_disabled"]
 [connection signal="game_pause" from="CharacterBody2D/Camera2D/BeatManager/PauseMenu" to="CharacterBody2D" method="_on_pause_menu_game_pause"]
 [connection signal="game_resume" from="CharacterBody2D/Camera2D/BeatManager/PauseMenu" to="CharacterBody2D" method="_on_pause_menu_game_resume"]
-[connection signal="switch_to_player_cam" from="pause_camera" to="CharacterBody2D" method="_on_pause_camera_switch_to_player_cam"]
 
 [editable path="CharacterBody2D/Camera2D/BeatManager"]
 [editable path="CharacterBody2D/Camera2D/BeatManager/PauseMenu"]
+[editable path="pause_camera"]

@@ -1,8 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://1mc6byd07rbk"]
 
-[ext_resource type="Script" uid="uid://bgpubuud7mnpi" path="res://Script/pause_camera.gd" id="1_7rpcd"]
+[ext_resource type="Script" uid="uid://q3ov1s6frn5q" path="res://pause_camera.gd" id="1_0fxu7"]
 
-[node name="pause_camera" type="Node2D"]
-script = ExtResource("1_7rpcd")
-
-[node name="PauseCamera2D" type="Camera2D" parent="."]
+[node name="PauseCamera2D" type="Camera2D" groups=["pause_camera"]]
+script = ExtResource("1_0fxu7")
