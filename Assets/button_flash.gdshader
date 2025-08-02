@@ -1,11 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://d32scr7lfh4bf"]
-
-[ext_resource type="Script" uid="uid://is4isgbint0h" path="res://Assets/sequencer/button.gd" id="1_3r3ib"]
-[ext_resource type="Texture2D" uid="uid://cfd1b87786ywu" path="res://Assets/Placeholder/Case_Capacites.png" id="2_cq1rj"]
-
-[sub_resource type="Shader" id="Shader_cq1rj"]
-resource_local_to_scene = true
-code = "shader_type canvas_item;
+shader_type canvas_item;
 
 uniform vec4 colour : source_color = vec4(1.0, 1.0, 1.0, 1.0);
 uniform float tint_factor : hint_range(0.0, 1.0) = 0.5;
@@ -29,9 +22,9 @@ void fragment() {
     // Tinting
     float original_modulation = 1.0 - tint_factor;
     final_output.rgb = mix(main_texture.rgb * original_modulation, colour.rgb * tint_factor, tint_factor);
-
-
-
+	
+	
+	
     // Distances
     float square_dist = max(abs(pixel_uv.x - fade_origin.x), abs(pixel_uv.y - fade_origin.y));
     float circle_dist = distance(pixel_uv, fade_origin);
@@ -47,34 +40,3 @@ void fragment() {
     COLOR = final_output;
 }
 
-"
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ge5sm"]
-shader = SubResource("Shader_cq1rj")
-shader_parameter/colour = Color(1, 1, 1, 1)
-shader_parameter/tint_factor = 1.0
-shader_parameter/fade = 1.0
-shader_parameter/border_fade_size = 0.158
-shader_parameter/pixel_size = 41.173
-shader_parameter/fade_origin = Vector2(0.5, 0.48)
-shader_parameter/fade_outer_limit = 0.475
-shader_parameter/corner_roundness = 0.398
-shader_parameter/shader_alpha = 1.0
-
-[node name="Sprite2D" type="Sprite2D"]
-position = Vector2(27, 31)
-texture = ExtResource("2_cq1rj")
-
-[node name="Button" type="Button" parent="." groups=["buttons"]]
-material = SubResource("ShaderMaterial_ge5sm")
-offset_left = -26.0
-offset_top = -31.0
-offset_right = 41.0
-scale = Vector2(0.775, 1.775)
-text = "
-"
-script = ExtResource("1_3r3ib")
-
-[node name="Icon" type="Sprite2D" parent="." groups=["button_sprite"]]
-
-[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

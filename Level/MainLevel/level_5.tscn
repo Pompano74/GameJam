@@ -30,6 +30,9 @@ scale = Vector2(21, 0.5)
 position = Vector2(-1768, -768)
 
 [node name="CharacterBody2D" parent="Player" index="0"]
+maxJump = 0
+maxDash = 0
+maxRotate = 0
 modifyBpm = 160.0
 
 [editable path="Player"]

@@ -35,13 +35,24 @@ var sequence_loop = 0
 
 # Called when the node enters the scene tree
 func _ready():
+	await get_tree().process_frame
+	
+	
+	
+	
 	max_capacities = {
 	"jump": MAX_CAPACITY_JUMP,
 	"dash": MAX_CAPACITY_DASH,
 	"gravity": MAX_CAPACITY_GRAVITE,
 	"rotate": MAX_CAPACITY_ROTATE
 }
+# Access the icon inside the button
 	for i in range(buttons.size()):
+		if buttons[i].material is ShaderMaterial:
+			buttons[i].material = buttons[i].material.duplicate()
+			buttons[i].material.set_shader_parameter("shader_alpha", 0.0)
+		
+		
 		button_states.append(0) # Default state
 		buttons[i].button_index = i
 	ui_label[0].text = "BPM = " + str(bpm)
@@ -49,6 +60,7 @@ func _ready():
 	ui_label[2].text = str(MAX_CAPACITY_DASH)
 	ui_label[3].text = str(MAX_CAPACITY_GRAVITE)
 	ui_label[4].text = str(MAX_CAPACITY_ROTATE)
+	
 # Mapping index to capacity name
 func get_capacity_name(index):
 	match index:
@@ -60,6 +72,8 @@ func get_capacity_name(index):
 
 # Called by button
 func button_call(body):
+
+	# Make sure the node exists and has a ShaderMaterial
 	
 	
 	var index = body.button_index
@@ -111,7 +125,6 @@ func button_call(body):
 	return current_capacity
 	
 func _on_timer_timeout():
-	metronom.play()
 	
 	if buttons.is_empty():
 		return
@@ -126,16 +139,24 @@ func _on_timer_timeout():
 		4:
 			player.rotate_world()
 		_:
+			metronom.play()
 			print("No action")
-	
+	buttons[sequence_loop].material.set_shader_parameter("shader_alpha", 1.0)
+	if sequence_loop > 0:
+		buttons[sequence_loop - 1].material.set_shader_parameter("shader_alpha", 0.0)
 	sequence_loop += 1
 	if sequence_loop >= buttons.size():
 		sequence_loop = 0
+	else:
+		buttons[7].material.set_shader_parameter("shader_alpha", 0.0)
 	
 	print(button_states[sequence_loop])
 	
 func timer_start():
+	player.sequence_is_playing = true
 	timer.wait_time = 60 / bpm
 	timer.start()
 func timer_stop():
+	player.sequence_is_playing = false
+	player.game_restart()
 	timer.stop()

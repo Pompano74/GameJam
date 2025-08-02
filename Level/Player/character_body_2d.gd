@@ -11,7 +11,7 @@ extends CharacterBody2D
 
 @export var modifyBpm: float = 60.0
 var Dev_mode = false
-
+var sequence_is_playing = false
 # Mouvement joueur
 var gravity_direction = Vector2.DOWN
 var gravity_force = 3
@@ -137,8 +137,10 @@ func _physics_process(delta):
 			print("vulnerable")
 			if is_in_killzone:
 				die()
-
-	move_and_slide()
+	if sequence_is_playing == true:
+		move_and_slide()
+	else:
+		pass
 
 # Capacité joueur
 func jump():
@@ -223,6 +225,8 @@ func die():
 		set_physics_process(false)
 		await get_tree().create_timer(1).timeout
 		get_tree().reload_current_scene()
+func game_restart():
+	get_tree().reload_current_scene()
 
 # Quand le jeu est mis sur pause a partir de la node PauseMenu
 #func _on_pause_menu_game_pause() -> void:

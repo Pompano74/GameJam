@@ -7,4 +7,3 @@ var button_capacity
 func _on_pressed():
 	if button_manager:
 		button_manager.button_call(self)
-		

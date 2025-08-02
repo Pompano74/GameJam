@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://753hfb0jp4xu"]
+[gd_scene load_steps=12 format=3 uid="uid://753hfb0jp4xu"]
 
 [ext_resource type="Script" uid="uid://dpbt5jid66xwx" path="res://Assets/sequencer/sequencer.gd" id="1_2828x"]
 [ext_resource type="PackedScene" uid="uid://d32scr7lfh4bf" path="res://Assets/sequencer/button.tscn" id="1_uhqqe"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://bdtbqo6scjfcw" path="res://Assets/Placeholder/FullscreenBackgroundV8.png" id="7_0xvyw"]
 [ext_resource type="PackedScene" uid="uid://46gsuqj43ym3" path="res://Assets/sequencer/start_button.tscn" id="9_njel3"]
 [ext_resource type="FontFile" uid="uid://frfsgfg3c8u7" path="res://Assets/Font_Pixel_v1.ttf" id="10_1hjla"]
+[ext_resource type="AudioStream" uid="uid://7gytyod0k7qm" path="res://Assets/Placeholder/son_tempo_placeholder.wav" id="10_sewa6"]
 
 [node name="sequencer" type="Node2D" groups=["button_manager"]]
 position = Vector2(0, 6)
@@ -51,6 +52,7 @@ position = Vector2(277, 82)
 wait_time = 60.0
 
 [node name="metronom" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_sewa6")
 
 [node name="Labels" type="Node2D" parent="."]
 

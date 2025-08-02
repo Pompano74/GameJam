@@ -24,6 +24,10 @@ rotation = 1.57079
 position = Vector2(-1416, -768)
 
 [node name="CharacterBody2D" parent="Player" index="0"]
+maxJump = 0
+maxDash = 0
+maxGravity = 0
+maxRotate = 2
 modifyBpm = 170.0
 
 [editable path="Player"]

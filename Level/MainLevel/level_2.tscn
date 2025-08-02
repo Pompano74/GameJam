@@ -45,6 +45,6 @@ maxRotate = 0
 modifyBpm = 120.0
 
 [node name="sequencer" parent="Player/CharacterBody2D/Camera2D" index="0"]
-MAX_CAPACITY_JUMP = 3
+MAX_CAPACITY_JUMP = 2
 
 [editable path="Player"]
