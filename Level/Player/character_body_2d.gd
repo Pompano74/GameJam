@@ -42,9 +42,10 @@ signal inputs_disabled
 signal game_resume
 
 #variables pour la camera
-var player_cam
+@onready var player_cam: Camera2D = $Camera2D
 var player_cam_global_position: Vector2
 var player_cam_zoom: Vector2
+var cameraShakeNoise: FastNoiseLite
 
 # New: Counter to manage consecutive rotations
 var remaining_rotations = 0
@@ -55,6 +56,7 @@ func _ready():
 		origin_point = origin_nodes[0] as Node2D
 	add_to_group("player")
 	print(player_cam)
+	cameraShakeNoise = FastNoiseLite.new()
 
 func _process(delta):
 	if rotating:
@@ -215,6 +217,8 @@ func on_killzone_exit():
 func die():
 	if not is_dashing:
 		print("die func called")
+		var camera_tween = get_tree().create_tween()
+		camera_tween.tween_method(StartCameraShake, 5.0, 1.0, 0.5)
 		velocity = Vector2.ZERO
 		set_physics_process(false)
 		await get_tree().create_timer(1).timeout
@@ -243,3 +247,7 @@ func die():
 #func get_player_camera():
 	#player_cam =  get_tree().get_nodes_in_group("camera").front()
 	#print("camera get")
+func StartCameraShake(intensity: float):
+	var cameraOffset = cameraShakeNoise.get_noise_1d(Time.get_ticks_msec()) * intensity
+	player_cam.offset.x = cameraOffset
+	player_cam.offset.y = cameraOffset
