@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dynw8drhp8bjg"]
+[gd_scene load_steps=10 format=3 uid="uid://dynw8drhp8bjg"]
 
 [ext_resource type="Script" uid="uid://dsytqkfnho75u" path="res://Level/Player/character_body_2d.gd" id="1_w7old"]
 [ext_resource type="Texture2D" uid="uid://b1raoryae4dvt" path="res://Assets/Placeholder/CharBase.png" id="2_xmy7u"]
@@ -32,6 +32,10 @@ scale_min = 3.0
 scale_max = 5.0
 hue_variation_min = -0.32
 hue_variation_max = -2.23517e-08
+
+[sub_resource type="Curve" id="Curve_ngpfc"]
+_data = [Vector2(0.0485075, 0.937743), 0.0, 0.0, 0, 0, Vector2(0.988806, 0.0972763), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="Player" type="Node2D" groups=["player"]]
 position = Vector2(-8, 0)
@@ -88,3 +92,18 @@ position = Vector2(8, -8)
 position = Vector2(8, -3.5)
 scale = Vector2(0.5, 0.5)
 stream = ExtResource("4_4a08e")
+
+[node name="DeathParticule" type="CPUParticles2D" parent="CharacterBody2D"]
+position = Vector2(8.5, -7)
+emitting = false
+amount = 60
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.75
+spread = 180.0
+gravity = Vector2(0, 100)
+initial_velocity_min = 50.0
+initial_velocity_max = 100.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_ngpfc")
