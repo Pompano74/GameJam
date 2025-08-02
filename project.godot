@@ -28,6 +28,10 @@ player=""
 room=""
 camera=""
 pause_camera=""
+buttons=""
+button_manager=""
+button_sprite=""
+UI_Label=""
 
 [input]
 

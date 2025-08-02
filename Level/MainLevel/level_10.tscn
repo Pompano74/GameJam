@@ -26,5 +26,3 @@ position = Vector2(-2792, -1120)
 modifyBpm = 350.0
 
 [editable path="Player"]
-[editable path="Player/CharacterBody2D/Camera2D/BeatManager"]
-[editable path="Player/CharacterBody2D/Camera2D/BeatManager/PauseMenu"]

@@ -1,0 +1,141 @@
+extends Node2D
+
+#-----button var------#
+@export var capacity_texture_list: Array[Texture2D] # Index: 0 = default, 1 = jump, 2 = dash, 3 = gravity, 4 = rotate
+@onready var buttons = get_tree().get_nodes_in_group("buttons")
+# Capacity limits
+
+@export var MAX_CAPACITY_JUMP := 0
+@export var MAX_CAPACITY_DASH := 0
+@export var MAX_CAPACITY_GRAVITE := 0
+@export var MAX_CAPACITY_ROTATE := 0
+var capacity_counts = {
+	"jump": 0,
+	"dash": 0,
+	"gravity": 0,
+	"rotate": 0
+}
+var max_capacities = {}
+# One index per button, tracks which texture it's using
+var button_states = []
+
+
+#-----sequencer var------#
+@onready var timer = $Timer
+@export var bpm: float = 120
+@onready var metronom = $metronom
+var sequence_loop = 0
+@onready var start_button = $start_button
+
+#-----Player-------#
+@onready var player = $"../.."
+
+#-----UI labels-----#
+@onready var ui_label = get_tree().get_nodes_in_group("UI_Label")
+
+# Called when the node enters the scene tree
+func _ready():
+	max_capacities = {
+	"jump": MAX_CAPACITY_JUMP,
+	"dash": MAX_CAPACITY_DASH,
+	"gravity": MAX_CAPACITY_GRAVITE,
+	"rotate": MAX_CAPACITY_ROTATE
+}
+	for i in range(buttons.size()):
+		button_states.append(0) # Default state
+		buttons[i].button_index = i
+	ui_label[0].text = "BPM = " + str(bpm)
+	ui_label[1].text = str(MAX_CAPACITY_JUMP)
+	ui_label[2].text = str(MAX_CAPACITY_DASH)
+	ui_label[3].text = str(MAX_CAPACITY_GRAVITE)
+	ui_label[4].text = str(MAX_CAPACITY_ROTATE)
+# Mapping index to capacity name
+func get_capacity_name(index):
+	match index:
+		1: return "jump"
+		2: return "dash"
+		3: return "gravity"
+		4: return "rotate"
+		_: return null
+
+# Called by button
+func button_call(body):
+	
+	
+	var index = body.button_index
+	var sprite = get_tree().get_nodes_in_group("button_sprite")[index]
+	var current_capacity = button_states[index]
+	
+	# Free up old capacity
+	var old_name = get_capacity_name(current_capacity)
+	if old_name and capacity_counts[old_name]:
+		capacity_counts[old_name] -= 1
+
+	# Loop to next capacity
+	var next_capacity = (current_capacity + 1) % capacity_texture_list.size()
+	var looped = false
+
+	# Skip over full capacities
+	while true:
+		var cap_name = get_capacity_name(next_capacity)
+		if cap_name == null:
+			break
+		elif capacity_counts[cap_name] < max_capacities[cap_name]:
+			break
+			
+		next_capacity = (next_capacity + 1) % capacity_texture_list.size()
+		if next_capacity == (current_capacity + 1) % capacity_texture_list.size():
+			# All capacities full — reset to default
+			next_capacity = 0
+			looped = true
+			break
+	
+	# Update texture and state
+	if sprite != null:
+		sprite.texture = capacity_texture_list[next_capacity]
+	else:
+		print("Aucun nœud 'Icon' trouvé dans le bouton")
+	button_states[index] = next_capacity
+	
+	# Assign new capacity count if not default
+	var new_name = get_capacity_name(next_capacity)
+	if new_name and capacity_counts.has(new_name):
+		capacity_counts[new_name] += 1
+	
+	ui_label[1].text = str(MAX_CAPACITY_JUMP - capacity_counts["jump"])
+	ui_label[2].text = str(MAX_CAPACITY_DASH - capacity_counts["dash"])
+	ui_label[3].text = str(MAX_CAPACITY_GRAVITE - capacity_counts["gravity"])
+	ui_label[4].text = str(MAX_CAPACITY_ROTATE - capacity_counts["rotate"])
+	print("Button", index, " → ", new_name if new_name else "default")
+	print("Current counts: ", capacity_counts)
+	return current_capacity
+	
+func _on_timer_timeout():
+	metronom.play()
+	
+	if buttons.is_empty():
+		return
+ 
+	match button_states[sequence_loop]:
+		1:
+			player.jump()
+		2:
+			player.dash()
+		3:
+			player.gravity()
+		4:
+			player.rotate_world()
+		_:
+			print("No action")
+	
+	sequence_loop += 1
+	if sequence_loop >= buttons.size():
+		sequence_loop = 0
+	
+	print(button_states[sequence_loop])
+	
+func timer_start():
+	timer.wait_time = 60 / bpm
+	timer.start()
+func timer_stop():
+	timer.stop()

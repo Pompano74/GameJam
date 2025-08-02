@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://d32scr7lfh4bf"]
+
+[ext_resource type="Script" uid="uid://is4isgbint0h" path="res://Assets/sequencer/button.gd" id="1_3r3ib"]
+[ext_resource type="Texture2D" uid="uid://cfd1b87786ywu" path="res://Assets/Placeholder/Case_Capacites.png" id="2_cq1rj"]
+
+[node name="Sprite2D" type="Sprite2D"]
+position = Vector2(35, 18.1818)
+scale = Vector2(1.25, 0.568182)
+texture = ExtResource("2_cq1rj")
+
+[node name="Button" type="Button" parent="." groups=["buttons"]]
+offset_right = 69.5
+offset_bottom = 32.0
+scale = Vector2(0.8, 1.76)
+text = "
+"
+script = ExtResource("1_3r3ib")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

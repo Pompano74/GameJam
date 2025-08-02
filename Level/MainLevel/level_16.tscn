@@ -149,18 +149,7 @@ position = Vector2(-1752, -928)
 [node name="CharacterBody2D" parent="Player" index="0"]
 modifyBpm = 160.0
 
-[node name="PauseMenu" parent="Player/CharacterBody2D/Camera2D/BeatManager" index="3"]
-metadata/_edit_use_anchors_ = true
-
-[node name="ColorRect" parent="Player/CharacterBody2D/Camera2D/BeatManager/PauseMenu" index="0"]
-metadata/_edit_use_anchors_ = true
-
-[node name="TextureButton" parent="Player/CharacterBody2D/Camera2D/BeatManager/PauseMenu/CanvasLayer" index="1"]
-metadata/_edit_use_anchors_ = true
-
 [node name="Label" parent="Player/CharacterBody2D" index="4"]
 metadata/_edit_use_anchors_ = true
 
 [editable path="Player"]
-[editable path="Player/CharacterBody2D/Camera2D/BeatManager"]
-[editable path="Player/CharacterBody2D/Camera2D/BeatManager/PauseMenu"]

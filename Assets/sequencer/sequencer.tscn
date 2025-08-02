@@ -1,0 +1,120 @@
+[gd_scene load_steps=11 format=3 uid="uid://753hfb0jp4xu"]
+
+[ext_resource type="Script" uid="uid://dpbt5jid66xwx" path="res://Assets/sequencer/sequencer.gd" id="1_2828x"]
+[ext_resource type="PackedScene" uid="uid://d32scr7lfh4bf" path="res://Assets/sequencer/button.tscn" id="1_uhqqe"]
+[ext_resource type="Texture2D" uid="uid://cfd1b87786ywu" path="res://Assets/Placeholder/Case_Capacites.png" id="2_13qdt"]
+[ext_resource type="Texture2D" uid="uid://dcg108xpr6qtq" path="res://Assets/Placeholder/Icon_Jump.png" id="3_0xvyw"]
+[ext_resource type="Texture2D" uid="uid://cibagvne3fshn" path="res://Assets/Placeholder/Icon_Dash.png" id="4_1hjla"]
+[ext_resource type="Texture2D" uid="uid://bkbhwvx66e7r5" path="res://Assets/Placeholder/Icon_Gravite.png" id="5_sewa6"]
+[ext_resource type="Texture2D" uid="uid://7d3ldgn4y0d2" path="res://Assets/Placeholder/Icon_RotateRoom.png" id="6_wqqe1"]
+[ext_resource type="Texture2D" uid="uid://bdtbqo6scjfcw" path="res://Assets/Placeholder/FullscreenBackgroundV8.png" id="7_0xvyw"]
+[ext_resource type="PackedScene" uid="uid://46gsuqj43ym3" path="res://Assets/sequencer/start_button.tscn" id="9_njel3"]
+[ext_resource type="FontFile" uid="uid://frfsgfg3c8u7" path="res://Assets/Font_Pixel_v1.ttf" id="10_1hjla"]
+
+[node name="sequencer" type="Node2D" groups=["button_manager"]]
+position = Vector2(0, 6)
+script = ExtResource("1_2828x")
+capacity_texture_list = Array[Texture2D]([ExtResource("2_13qdt"), ExtResource("3_0xvyw"), ExtResource("4_1hjla"), ExtResource("5_sewa6"), ExtResource("6_wqqe1")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(480, 264)
+texture = ExtResource("7_0xvyw")
+
+[node name="Button" parent="." instance=ExtResource("1_uhqqe")]
+position = Vector2(259, 479)
+
+[node name="Button2" parent="." instance=ExtResource("1_uhqqe")]
+position = Vector2(322, 479)
+
+[node name="Button3" parent="." instance=ExtResource("1_uhqqe")]
+position = Vector2(385, 479)
+
+[node name="Button4" parent="." instance=ExtResource("1_uhqqe")]
+position = Vector2(448, 479)
+
+[node name="Button5" parent="." instance=ExtResource("1_uhqqe")]
+position = Vector2(511, 479)
+
+[node name="Button6" parent="." instance=ExtResource("1_uhqqe")]
+position = Vector2(574, 479)
+
+[node name="Button7" parent="." instance=ExtResource("1_uhqqe")]
+position = Vector2(637, 479)
+
+[node name="Button8" parent="." instance=ExtResource("1_uhqqe")]
+position = Vector2(700, 479)
+
+[node name="start_button" parent="." instance=ExtResource("9_njel3")]
+position = Vector2(277, 82)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 60.0
+
+[node name="metronom" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Labels" type="Node2D" parent="."]
+
+[node name="BPM_label" type="Label" parent="Labels" groups=["UI_Label"]]
+offset_left = 602.0
+offset_top = 66.0
+offset_right = 644.0
+offset_bottom = 89.0
+theme_override_colors/font_shadow_color = Color(0.223529, 0.223529, 0.207843, 1)
+theme_override_fonts/font = ExtResource("10_1hjla")
+text = "BPM :"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NBRjump_label" type="Label" parent="Labels" groups=["UI_Label"]]
+offset_left = 827.0
+offset_top = 119.0
+offset_right = 867.0
+offset_bottom = 142.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.223529, 0.223529, 0.207843, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("10_1hjla")
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NBRdash_label" type="Label" parent="Labels" groups=["UI_Label"]]
+offset_left = 827.0
+offset_top = 189.0
+offset_right = 867.0
+offset_bottom = 212.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.223529, 0.223529, 0.207843, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("10_1hjla")
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NBRgravity_label" type="Label" parent="Labels" groups=["UI_Label"]]
+offset_left = 828.0
+offset_top = 259.0
+offset_right = 868.0
+offset_bottom = 282.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.223529, 0.223529, 0.207843, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("10_1hjla")
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="NBRrotate_label" type="Label" parent="Labels" groups=["UI_Label"]]
+offset_left = 828.0
+offset_top = 329.0
+offset_right = 868.0
+offset_bottom = 352.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.223529, 0.223529, 0.207843, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = ExtResource("10_1hjla")
+text = "2"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
