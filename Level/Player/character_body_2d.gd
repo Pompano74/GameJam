@@ -221,25 +221,25 @@ func die():
 		get_tree().reload_current_scene()
 
 # Quand le jeu est mis sur pause a partir de la node PauseMenu
-func _on_pause_menu_game_pause() -> void:
-	disable_player_input = true
-	if player_cam != null:
-		player_cam_global_position = player_cam.global_position
-		player_cam_zoom = player_cam.zoom
-		inputs_disabled.emit(disable_player_input, player_cam_global_position, player_cam_zoom) #vers pause_camera
-		print("hola")
-	else:
-		pass
-
-func _on_pause_camera_switch_to_player_cam() -> void:
-	player_cam.make_current()
-	disable_player_input = false
-
-func _on_pause_menu_game_resume() -> void:
-	player_cam_global_position = player_cam.global_position
-	player_cam_zoom = player_cam.zoom
-	game_resume.emit(player_cam_global_position, player_cam_zoom)
-
-func get_player_camera():
-	player_cam =  get_tree().get_nodes_in_group("camera").front()
-	print("camera get")
+#func _on_pause_menu_game_pause() -> void:
+	#disable_player_input = true
+	#if player_cam != null:
+		#player_cam_global_position = player_cam.global_position
+		#player_cam_zoom = player_cam.zoom
+		#inputs_disabled.emit(disable_player_input, player_cam_global_position, player_cam_zoom) #vers pause_camera
+		#print("hola")
+	#else:
+		#pass
+#
+#func _on_pause_camera_switch_to_player_cam() -> void:
+	#player_cam.make_current()
+	#disable_player_input = false
+#
+#func _on_pause_menu_game_resume() -> void:
+	#player_cam_global_position = player_cam.global_position
+	#player_cam_zoom = player_cam.zoom
+	#game_resume.emit(player_cam_global_position, player_cam_zoom)
+#
+#func get_player_camera():
+	#player_cam =  get_tree().get_nodes_in_group("camera").front()
+	#print("camera get")

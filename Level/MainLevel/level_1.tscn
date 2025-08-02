@@ -27,7 +27,10 @@ position = Vector2(-1688, -832)
 [node name="CharacterBody2D" parent="Player" index="0"]
 modifyBpm = 120.0
 
+[node name="PauseMenu" parent="Player/CharacterBody2D/Camera2D/BeatManager" index="2"]
+pause = null
+reload = null
+
 [editable path="Player"]
 [editable path="Player/CharacterBody2D/Camera2D/BeatManager"]
 [editable path="Player/CharacterBody2D/Camera2D/BeatManager/PauseMenu"]
-[editable path="Player/pause_camera"]

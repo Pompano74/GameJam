@@ -12,8 +12,8 @@ signal game_pause
 signal game_resume
 
 func _ready() -> void:
-	await player.get_player_camera()
-	Engine.time_scale = 0
+	#await player.get_player_camera()
+	#Engine.time_scale = 1
 	animation_player.play("basic")
 	game_pause.emit() #vers characterbody2d
 	print("fin")
