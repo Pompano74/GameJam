@@ -1,6 +1,8 @@
 extends Area2D
 
 @onready var animation_player = $AnimationPlayer
+@onready var color_rect: ColorRect = $CanvasLayer/ColorRect
+@onready var animation_player_2: AnimationPlayer = $CanvasLayer/AnimationPlayer
 
 var current_scene_file
 var next_level_number
@@ -10,9 +12,13 @@ var level_finished = false
 var finished_duration = 2.0
 var finished_timer = 0.0
 
+func _ready() -> void:
+	color_rect.visible = false
 
 func _on_body_entered(body):
+	color_rect.visible = true
 	animation_player.play("PickupSound")
+	animation_player_2.play("fade_to_black")
 	level_finished = true
 	finished_timer = finished_duration
 
@@ -22,6 +28,7 @@ func _process(delta):
 		print("next level")
 		if finished_timer <= 0:
 			next_level()
+			animation_player_2.play("fade_to_normal")
 			level_finished == false
 			print("poop")
 			
