@@ -1,9 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://dynw8drhp8bjg"]
+[gd_scene load_steps=15 format=3 uid="uid://dynw8drhp8bjg"]
 
 [ext_resource type="Script" uid="uid://dsytqkfnho75u" path="res://Level/Player/character_body_2d.gd" id="1_w7old"]
 [ext_resource type="Texture2D" uid="uid://b1raoryae4dvt" path="res://Assets/Placeholder/CharBase.png" id="2_xmy7u"]
 [ext_resource type="PackedScene" uid="uid://753hfb0jp4xu" path="res://Assets/sequencer/sequencer.tscn" id="3_8op4e"]
 [ext_resource type="AudioStream" uid="uid://7gytyod0k7qm" path="res://Assets/Placeholder/son_tempo_placeholder.wav" id="4_4a08e"]
+[ext_resource type="AudioStream" uid="uid://fgcvr7xiwrut" path="res://Assets/audio/sfx/Snare.wav" id="5_6dkl6"]
+[ext_resource type="AudioStream" uid="uid://lqrsbsqiurds" path="res://Assets/audio/sfx/Kick.wav" id="5_57mxj"]
+[ext_resource type="AudioStream" uid="uid://bylowyv7iu1q0" path="res://Assets/audio/sfx/gravity shift.wav" id="6_4a08e"]
+[ext_resource type="AudioStream" uid="uid://dhpj8hsh8v3vb" path="res://Assets/audio/sfx/menu scroll.wav" id="7_uv1qq"]
+[ext_resource type="AudioStream" uid="uid://hkkgmwohrgck" path="res://Assets/audio/sfx/808.wav" id="8_t8ja0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4a08e"]
 size = Vector2(8, 14)
@@ -107,3 +112,27 @@ initial_velocity_max = 100.0
 scale_amount_min = 2.0
 scale_amount_max = 4.0
 scale_amount_curve = SubResource("Curve_ngpfc")
+
+[node name="Sounds" type="Node2D" parent="CharacterBody2D"]
+
+[node name="capacity" type="Node2D" parent="CharacterBody2D/Sounds"]
+
+[node name="jump_sound" type="AudioStreamPlayer2D" parent="CharacterBody2D/Sounds/capacity" groups=["capacity_sounds"]]
+stream = ExtResource("5_57mxj")
+bus = &"SFX"
+
+[node name="dash_sound" type="AudioStreamPlayer2D" parent="CharacterBody2D/Sounds/capacity" groups=["capacity_sounds"]]
+stream = ExtResource("5_6dkl6")
+
+[node name="gravity_sound" type="AudioStreamPlayer2D" parent="CharacterBody2D/Sounds/capacity" groups=["capacity_sounds"]]
+stream = ExtResource("7_uv1qq")
+
+[node name="rotate_sound" type="AudioStreamPlayer2D" parent="CharacterBody2D/Sounds/capacity" groups=["capacity_sounds"]]
+stream = ExtResource("8_t8ja0")
+
+[node name="state" type="Node2D" parent="CharacterBody2D/Sounds"]
+
+[node name="walk_sound" type="AudioStreamPlayer2D" parent="CharacterBody2D/Sounds/state" groups=["state_sounds"]]
+
+[node name="fail_sound" type="AudioStreamPlayer2D" parent="CharacterBody2D/Sounds/state" groups=["state_sounds"]]
+stream = ExtResource("6_4a08e")

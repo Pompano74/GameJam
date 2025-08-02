@@ -3,14 +3,14 @@ extends Area2D
 @onready var animation_player = $AnimationPlayer
 @onready var color_rect: ColorRect = $CanvasLayer/ColorRect
 @onready var animation_player_2: AnimationPlayer = $CanvasLayer/AnimationPlayer
+@onready var sequencer = get_tree().get_first_node_in_group("button_manager")
 
 var current_scene_file
 var next_level_number
 var next_level_path
 
 var level_finished = false
-var finished_duration = 2.0
-var finished_timer = 0.0
+var finished_timer = 4
 
 func _ready() -> void:
 	color_rect.visible = false
@@ -20,16 +20,17 @@ func _on_body_entered(body):
 	animation_player.play("PickupSound")
 	animation_player_2.play("fade_to_black")
 	level_finished = true
-	finished_timer = finished_duration
 
 func _process(delta):
 	if level_finished == true:
+		sequencer.level_finish_paude()
 		finished_timer -= delta
 		print("next level")
+		print(finished_timer)
 		if finished_timer <= 0:
+			level_finished == false
 			next_level()
 			animation_player_2.play("fade_to_normal")
-			level_finished == false
 			print("poop")
 			
 func next_level():

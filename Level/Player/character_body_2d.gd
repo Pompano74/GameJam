@@ -10,6 +10,10 @@ extends CharacterBody2D
 @onready var particles = $GPUParticles2D
 @onready var death_particule: CPUParticles2D = $DeathParticule
 
+#sounds
+@onready var capacity_sounds = get_tree().get_nodes_in_group("capacity_sounds")
+@onready var state_sounds = get_tree().get_nodes_in_group("state_sounds")
+
 
 @export var modifyBpm: float = 60.0
 var Dev_mode = false
@@ -146,12 +150,14 @@ func _physics_process(delta):
 
 # Capacité joueur
 func jump():
+	capacity_sounds[0].play()
 	if not disable_player_input:
 		velocity.y = player_jump_strength * jump_direction
 	else:
 		pass
 
 func dash():
+	capacity_sounds[1].play()
 	if not disable_player_input:
 		particles.emitting = true
 		is_dashing = true
@@ -164,6 +170,7 @@ func dash():
 		pass
 
 func rotate_world():
+	capacity_sounds[3].play()
 	if not disable_player_input:
 		if origin_point != null and not rotating:
 			remaining_rotations = 2  # Two 45-degree steps = 90 degrees
@@ -182,6 +189,7 @@ func start_rotation_step():
 	rotation_direction = 1
 
 func gravity():
+	capacity_sounds[2].play()
 	if not disable_player_input:
 		if gravity_direction == Vector2.DOWN:
 			velocity.y = player_jump_strength * jump_direction
@@ -221,13 +229,14 @@ func on_killzone_exit():
 func die():
 	if not is_dashing:
 		print("die func called")
+		state_sounds[2].play()
 		death_particule.restart()
 		death_particule.emitting = true
 		var camera_tween = get_tree().create_tween()
 		camera_tween.tween_method(StartCameraShake, 5.0, 1.0, 0.5)
 		velocity = Vector2.ZERO
 		set_physics_process(false)
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(2.2).timeout
 		get_tree().reload_current_scene()
 func game_restart():
 	get_tree().reload_current_scene()
