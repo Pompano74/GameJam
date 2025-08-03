@@ -38,6 +38,6 @@ func _on_mouse_exited() -> void:
 		var current_color = parent.modulate
 		parent.modulate = Color(1.0, 1.0, 1.0, current_color.a)
 
-#func _process(delta: float) -> void:
-	#if sequencer.player.sequence_is_playing == true:
-		#sequencer.screenshot.visible = false
+func _process(delta: float) -> void:
+	if sequencer.player.sequence_is_playing == true:
+		sequencer.screenshot.visible = false
