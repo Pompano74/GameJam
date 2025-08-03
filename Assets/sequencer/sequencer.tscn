@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://753hfb0jp4xu"]
+[gd_scene load_steps=13 format=3 uid="uid://753hfb0jp4xu"]
 
 [ext_resource type="Script" uid="uid://dpbt5jid66xwx" path="res://Assets/sequencer/sequencer.gd" id="1_2828x"]
 [ext_resource type="PackedScene" uid="uid://d32scr7lfh4bf" path="res://Assets/sequencer/button.tscn" id="1_uhqqe"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://46gsuqj43ym3" path="res://Assets/sequencer/start_button.tscn" id="9_njel3"]
 [ext_resource type="FontFile" uid="uid://frfsgfg3c8u7" path="res://Assets/Font_Pixel_v1.ttf" id="10_1hjla"]
 [ext_resource type="AudioStream" uid="uid://dwiwkmji00g36" path="res://Assets/audio/metronome.mp3" id="10_sewa6"]
+[ext_resource type="PackedScene" uid="uid://nyx5hb1sahu6" path="res://Assets/sequencer/view_button.tscn" id="10_wqqe1"]
 
 [node name="sequencer" type="Node2D" groups=["button_manager"]]
 position = Vector2(0, 6)
@@ -22,6 +23,7 @@ position = Vector2(480, 264)
 texture = ExtResource("7_0xvyw")
 
 [node name="screenshot" type="Sprite2D" parent="Sprite2D"]
+visible = false
 
 [node name="Button" parent="." instance=ExtResource("1_uhqqe")]
 position = Vector2(259, 479)
@@ -49,6 +51,9 @@ position = Vector2(700, 479)
 
 [node name="start_button" parent="." instance=ExtResource("9_njel3")]
 position = Vector2(277, 82)
+
+[node name="view_button" parent="." instance=ExtResource("10_wqqe1")]
+position = Vector2(348, 81)
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 60.0
