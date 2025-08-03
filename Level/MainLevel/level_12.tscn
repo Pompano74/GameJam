@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://mqkfsyc2edcy"]
+[gd_scene load_steps=8 format=3 uid="uid://mqkfsyc2edcy"]
 
 [ext_resource type="PackedScene" uid="uid://cv1m0gtjpoqa7" path="res://Level/Object/tile_map.tscn" id="1_6g2qf"]
 [ext_resource type="PackedScene" uid="uid://oven145eycth" path="res://Level/paralax/noise_move_rose.tscn" id="1_nmuof"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://pb0owfb37pgi" path="res://Level/Object/win.tscn" id="4_mse1w"]
 [ext_resource type="PackedScene" uid="uid://7j41jpon30lu" path="res://Level/Object/kill_zone.tscn" id="4_xtj3k"]
 [ext_resource type="AudioStream" uid="uid://bk18tc47k3ex3" path="res://Assets/audio/music/Here come danger/Here comes danger 120bpm.mp3" id="6_nmuof"]
+[ext_resource type="Texture2D" uid="uid://brb1prcaqmkio" path="res://Assets/Level_Screenshots/screenshot_lvl12.png" id="6_ogo1j"]
 
 [node name="level_12" type="Node"]
 
@@ -99,6 +100,7 @@ MAX_CAPACITY_JUMP = 2
 MAX_CAPACITY_DASH = 2
 MAX_CAPACITY_GRAVITE = 2
 MAX_CAPACITY_ROTATE = 2
+lvl_screenshot = ExtResource("6_ogo1j")
 
 [node name="MusicPlayer" parent="Player/CharacterBody2D" index="12"]
 level_music = ExtResource("6_nmuof")

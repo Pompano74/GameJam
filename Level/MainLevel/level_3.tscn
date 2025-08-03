@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgn2n5vj436dh"]
+[gd_scene load_steps=8 format=3 uid="uid://dgn2n5vj436dh"]
 
 [ext_resource type="PackedScene" uid="uid://cv1m0gtjpoqa7" path="res://Level/Object/tile_map.tscn" id="2_tri43"]
 [ext_resource type="PackedScene" uid="uid://dynw8drhp8bjg" path="res://Level/Player/Player.tscn" id="3_tri43"]
 [ext_resource type="PackedScene" uid="uid://pb0owfb37pgi" path="res://Level/Object/win.tscn" id="4_p8gk3"]
 [ext_resource type="PackedScene" uid="uid://7j41jpon30lu" path="res://Level/Object/kill_zone.tscn" id="5_ea14k"]
 [ext_resource type="PackedScene" uid="uid://bpp2rt7jm6dj8" path="res://Level/paralax/noise_move_bleu.tscn" id="6_345us"]
+[ext_resource type="Texture2D" uid="uid://rrj6chjo0qy4" path="res://Assets/Level_Screenshots/screenshot_lvl3.png" id="6_panwp"]
 [ext_resource type="AudioStream" uid="uid://bk18tc47k3ex3" path="res://Assets/audio/music/Here come danger/Here comes danger 120bpm.mp3" id="6_qknev"]
 
 [node name="level_3" type="Node"]
@@ -61,6 +62,7 @@ modifyBpm = 120.0
 [node name="sequencer" parent="Player/CharacterBody2D/Camera2D" index="0"]
 MAX_CAPACITY_JUMP = 1
 MAX_CAPACITY_DASH = 1
+lvl_screenshot = ExtResource("6_panwp")
 
 [node name="MusicPlayer" parent="Player/CharacterBody2D" index="12"]
 level_music = ExtResource("6_qknev")

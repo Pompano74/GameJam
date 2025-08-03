@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://c8f0fbwwoas07"]
+[gd_scene load_steps=8 format=3 uid="uid://c8f0fbwwoas07"]
 
 [ext_resource type="PackedScene" uid="uid://oven145eycth" path="res://Level/paralax/noise_move_rose.tscn" id="1_lwvxa"]
 [ext_resource type="PackedScene" uid="uid://cv1m0gtjpoqa7" path="res://Level/Object/tile_map.tscn" id="1_ugnc4"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://pb0owfb37pgi" path="res://Level/Object/win.tscn" id="4_f7rn6"]
 [ext_resource type="PackedScene" uid="uid://7j41jpon30lu" path="res://Level/Object/kill_zone.tscn" id="4_kmr68"]
 [ext_resource type="AudioStream" uid="uid://bmdpfwuwe3i1b" path="res://Assets/audio/music/Eolienne/Eolienne 200bpm.mp3" id="6_lwvxa"]
+[ext_resource type="Texture2D" uid="uid://dxb07gyaci3od" path="res://Assets/Level_Screenshots/screenshot_lvl14.png" id="6_oanaf"]
 
 [node name="level_14" type="Node"]
 
@@ -694,6 +695,7 @@ MAX_CAPACITY_JUMP = 3
 MAX_CAPACITY_DASH = 3
 MAX_CAPACITY_GRAVITE = 3
 MAX_CAPACITY_ROTATE = 3
+lvl_screenshot = ExtResource("6_oanaf")
 bpm = 200.0
 
 [node name="MusicPlayer" parent="Player/CharacterBody2D" index="12"]
