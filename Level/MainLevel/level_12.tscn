@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://mqkfsyc2edcy"]
+[gd_scene load_steps=7 format=3 uid="uid://mqkfsyc2edcy"]
 
 [ext_resource type="PackedScene" uid="uid://cv1m0gtjpoqa7" path="res://Level/Object/tile_map.tscn" id="1_6g2qf"]
+[ext_resource type="PackedScene" uid="uid://bpp2rt7jm6dj8" path="res://Level/noise_move.tscn" id="1_nmuof"]
 [ext_resource type="PackedScene" uid="uid://dynw8drhp8bjg" path="res://Level/Player/Player.tscn" id="3_dve22"]
 [ext_resource type="PackedScene" uid="uid://pb0owfb37pgi" path="res://Level/Object/win.tscn" id="4_mse1w"]
 [ext_resource type="PackedScene" uid="uid://7j41jpon30lu" path="res://Level/Object/kill_zone.tscn" id="4_xtj3k"]
@@ -10,6 +11,10 @@
 
 [node name="room" type="Node2D" parent="." groups=["room"]]
 position = Vector2(-232, 1248)
+
+[node name="NoiseMove" parent="room" instance=ExtResource("1_nmuof")]
+position = Vector2(-1184, -2000)
+scale = Vector2(1.5, 1.5)
 
 [node name="TileMap" parent="room" instance=ExtResource("1_6g2qf")]
 position = Vector2(416, -960)

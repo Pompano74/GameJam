@@ -1,61 +1,19 @@
-[gd_scene load_steps=13 format=3 uid="uid://c1ku2e8m1msts"]
+[gd_scene load_steps=7 format=3 uid="uid://c1ku2e8m1msts"]
 
-[ext_resource type="Script" uid="uid://wa2d5vkgxofb" path="res://Level/MainLevel/noise_move.gd" id="1_2fyo8"]
+[ext_resource type="PackedScene" uid="uid://bpp2rt7jm6dj8" path="res://Level/noise_move.tscn" id="1_fo4jo"]
 [ext_resource type="PackedScene" uid="uid://cv1m0gtjpoqa7" path="res://Level/Object/tile_map.tscn" id="2_fw5vd"]
 [ext_resource type="PackedScene" uid="uid://pb0owfb37pgi" path="res://Level/Object/win.tscn" id="3_fo4jo"]
 [ext_resource type="PackedScene" uid="uid://dynw8drhp8bjg" path="res://Level/Player/Player.tscn" id="4_7vokk"]
 [ext_resource type="FontFile" uid="uid://frfsgfg3c8u7" path="res://Assets/Font_Pixel_v1.ttf" id="4_fo4jo"]
 [ext_resource type="AudioStream" uid="uid://cyg1itnq4gyra" path="res://Assets/audio/music/Eolienne/Eolienne 120bpm.mp3" id="5_fw5vd"]
-[ext_resource type="Texture2D" uid="uid://ci5nhx8kprma1" path="res://Assets/Gear_Background.png" id="6_qhjdi"]
-[ext_resource type="Texture2D" uid="uid://qp72ro74tewn" path="res://Assets/GearsBackground_V2_lines.png" id="7_2fyo8"]
-[ext_resource type="Texture2D" uid="uid://dw33f2hr4sm08" path="res://Assets/GearsBackground_V2_back.png" id="8_t3jgb"]
-[ext_resource type="Texture2D" uid="uid://dpc11bcaetuno" path="res://Assets/Gear_MiddleLayer.png" id="9_dw7ys"]
-[ext_resource type="Texture2D" uid="uid://cmj0ccxpccqv5" path="res://Assets/Gear_FrontLayer.png" id="10_dcctw"]
-[ext_resource type="Texture2D" uid="uid://d0mhkvfibcdhd" path="res://Assets/GearsBackground_V2_middle.png" id="11_atfv0"]
 
 [node name="Level_1" type="Node" groups=["level_1"]]
 
-[node name="NoiseMove" type="Node2D" parent="."]
-script = ExtResource("1_2fyo8")
-
-[node name="Sprite2D" type="Sprite2D" parent="NoiseMove"]
-modulate = Color(0.255659, 0.255659, 0.255659, 1)
-position = Vector2(1665, 521.5)
-scale = Vector2(1.85, 1.85)
-texture = ExtResource("6_qhjdi")
-
-[node name="Sprite2D2" type="Sprite2D" parent="NoiseMove"]
-modulate = Color(0.255659, 0.255659, 0.255659, 1)
-position = Vector2(1665, 521.5)
-scale = Vector2(1.85, 1.85)
-texture = ExtResource("9_dw7ys")
-
-[node name="Sprite2D3" type="Sprite2D" parent="NoiseMove"]
-modulate = Color(0.255659, 0.255659, 0.255659, 1)
-position = Vector2(1665, 521.5)
-scale = Vector2(1.85, 1.85)
-texture = ExtResource("10_dcctw")
-
-[node name="Sprite2D4" type="Sprite2D" parent="NoiseMove"]
-modulate = Color(0.255659, 0.255659, 0.255659, 1)
-position = Vector2(1665, 521.5)
-scale = Vector2(1.85, 1.85)
-texture = ExtResource("11_atfv0")
-
-[node name="Sprite2D5" type="Sprite2D" parent="NoiseMove"]
-modulate = Color(0.255659, 0.255659, 0.255659, 1)
-position = Vector2(1665, 521.5)
-scale = Vector2(1.85, 1.85)
-texture = ExtResource("7_2fyo8")
-
-[node name="Sprite2D6" type="Sprite2D" parent="NoiseMove"]
-modulate = Color(0.255659, 0.255659, 0.255659, 1)
-position = Vector2(1665, 521.5)
-scale = Vector2(1.85, 1.85)
-texture = ExtResource("8_t3jgb")
-
 [node name="room" type="Node2D" parent="." groups=["room"]]
 position = Vector2(1640, 512)
+
+[node name="NoiseMove" parent="room" instance=ExtResource("1_fo4jo")]
+position = Vector2(-1640, -512)
 
 [node name="TileMap" parent="room" instance=ExtResource("2_fw5vd")]
 position = Vector2(-352, 160)
@@ -72,10 +30,12 @@ offset_bottom = 97.0
 theme_override_colors/font_shadow_color = Color(0.223529, 0.223529, 0.207843, 1)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 1
+theme_override_constants/outline_size = 11
 theme_override_constants/shadow_outline_size = 4
 theme_override_fonts/font = ExtResource("4_fo4jo")
 text = "MAKE A SEQUENCE & PRESS PLAY!
-MOVE WITH LEFT & RIGHT"
+
+MOVE WITH KEYS: LEFT & RIGHT"
 horizontal_alignment = 1
 vertical_alignment = 1
 

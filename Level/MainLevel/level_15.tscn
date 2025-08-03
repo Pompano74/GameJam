@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3vnuhp6rbuui"]
+[gd_scene load_steps=7 format=3 uid="uid://b3vnuhp6rbuui"]
 
 [ext_resource type="PackedScene" uid="uid://cv1m0gtjpoqa7" path="res://Level/Object/tile_map.tscn" id="1_dajox"]
+[ext_resource type="PackedScene" uid="uid://bpp2rt7jm6dj8" path="res://Level/noise_move.tscn" id="1_ymlbi"]
 [ext_resource type="PackedScene" uid="uid://pb0owfb37pgi" path="res://Level/Object/win.tscn" id="3_yit0a"]
 [ext_resource type="PackedScene" uid="uid://dynw8drhp8bjg" path="res://Level/Player/Player.tscn" id="4_srh70"]
 [ext_resource type="PackedScene" uid="uid://7j41jpon30lu" path="res://Level/Object/kill_zone.tscn" id="4_vkge8"]
@@ -10,6 +11,10 @@
 
 [node name="room" type="Node2D" parent="." groups=["room"]]
 position = Vector2(1584, 1024)
+
+[node name="NoiseMove" parent="room" instance=ExtResource("1_ymlbi")]
+position = Vector2(-1752, 896)
+rotation = -1.57079
 
 [node name="TileMap" parent="room" instance=ExtResource("1_dajox")]
 position = Vector2(-1056, -736)
@@ -125,7 +130,7 @@ MAX_CAPACITY_GRAVITE = 2
 MAX_CAPACITY_ROTATE = 2
 bpm = 140.0
 
-[node name="MusicPlayer" parent="Player/CharacterBody2D" index="9"]
+[node name="MusicPlayer" parent="Player/CharacterBody2D" index="12"]
 level_music = ExtResource("6_ymlbi")
 
 [editable path="Player"]

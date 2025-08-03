@@ -1,15 +1,19 @@
-[gd_scene load_steps=6 format=3 uid="uid://d4n3wt7myhox"]
+[gd_scene load_steps=7 format=3 uid="uid://d4n3wt7myhox"]
 
 [ext_resource type="PackedScene" uid="uid://cv1m0gtjpoqa7" path="res://Level/Object/tile_map.tscn" id="2_wv686"]
 [ext_resource type="PackedScene" uid="uid://dynw8drhp8bjg" path="res://Level/Player/Player.tscn" id="3_dhsi6"]
 [ext_resource type="PackedScene" uid="uid://7j41jpon30lu" path="res://Level/Object/kill_zone.tscn" id="4_dhsi6"]
 [ext_resource type="PackedScene" uid="uid://pb0owfb37pgi" path="res://Level/Object/win.tscn" id="4_wv686"]
 [ext_resource type="AudioStream" uid="uid://yo2bib5m77rx" path="res://Assets/audio/music/Here come danger/Here comes danger 160bpm.mp3" id="6_18xru"]
+[ext_resource type="PackedScene" uid="uid://bpp2rt7jm6dj8" path="res://Level/noise_move.tscn" id="6_gx1g3"]
 
 [node name="Level_5" type="Node"]
 
 [node name="room" type="Node2D" parent="." groups=["room"]]
 position = Vector2(840, 112)
+
+[node name="NoiseMove" parent="room" instance=ExtResource("6_gx1g3")]
+position = Vector2(-1840, -696)
 
 [node name="TileMap" parent="room" instance=ExtResource("2_wv686")]
 position = Vector2(-384, 176)
@@ -36,7 +40,7 @@ modifyBpm = 160.0
 MAX_CAPACITY_GRAVITE = 1
 bpm = 160.0
 
-[node name="MusicPlayer" parent="Player/CharacterBody2D" index="9"]
+[node name="MusicPlayer" parent="Player/CharacterBody2D" index="12"]
 level_music = ExtResource("6_18xru")
 
 [editable path="Player"]
