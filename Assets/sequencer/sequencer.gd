@@ -4,6 +4,7 @@ extends Node2D
 @export var capacity_texture_list: Array[Texture2D] # Index: 0 = default, 1 = jump, 2 = dash, 3 = gravity, 4 = rotate
 @onready var buttons = get_tree().get_nodes_in_group("buttons")
 @onready var sprite = get_tree().get_nodes_in_group("button_sprite")
+var as_pressed_play = false
 # Capacity limits
 
 @export var MAX_CAPACITY_JUMP := 0
@@ -84,54 +85,55 @@ func button_call(body):
 
 	# Make sure the node exists and has a ShaderMaterial
 	
-	
-	var index = body.button_index
-	var sprite = get_tree().get_nodes_in_group("button_sprite")[index]
-	var current_capacity = button_states[index]
-	
-	# Free up old capacity
-	var old_name = get_capacity_name(current_capacity)
-	if old_name and capacity_counts[old_name]:
-		capacity_counts[old_name] -= 1
+	if as_pressed_play == false:
+		var index = body.button_index
+		var sprite = get_tree().get_nodes_in_group("button_sprite")[index]
+		var current_capacity = button_states[index]
+		
+		# Free up old capacity
+		var old_name = get_capacity_name(current_capacity)
+		if old_name and capacity_counts[old_name]:
+			capacity_counts[old_name] -= 1
 
-	# Loop to next capacity
-	var next_capacity = (current_capacity + 1) % capacity_texture_list.size()
-	var looped = false
+		# Loop to next capacity
+		var next_capacity = (current_capacity + 1) % capacity_texture_list.size()
+		var looped = false
 
-	# Skip over full capacities
-	while true:
-		var cap_name = get_capacity_name(next_capacity)
-		if cap_name == null:
-			break
-		elif capacity_counts[cap_name] < max_capacities[cap_name]:
-			break
-			
-		next_capacity = (next_capacity + 1) % capacity_texture_list.size()
-		if next_capacity == (current_capacity + 1) % capacity_texture_list.size():
-			# All capacities full — reset to default
-			next_capacity = 0
-			looped = true
-			break
-	
-	# Update texture and state
-	if sprite != null:
-		sprite.texture = capacity_texture_list[next_capacity]
-	else:
-		print("Aucun nœud 'Icon' trouvé dans le bouton")
-	button_states[index] = next_capacity
-	
-	# Assign new capacity count if not default
-	var new_name = get_capacity_name(next_capacity)
-	if new_name and capacity_counts.has(new_name):
-		capacity_counts[new_name] += 1
-	
-	ui_label[1].text = str(MAX_CAPACITY_JUMP - capacity_counts["jump"])
-	ui_label[2].text = str(MAX_CAPACITY_DASH - capacity_counts["dash"])
-	ui_label[3].text = str(MAX_CAPACITY_GRAVITE - capacity_counts["gravity"])
-	ui_label[4].text = str(MAX_CAPACITY_ROTATE - capacity_counts["rotate"])
-	print("Button", index, " → ", new_name if new_name else "default")
-	print("Current counts: ", capacity_counts)
-	return current_capacity
+		# Skip over full capacities
+		while true:
+			var cap_name = get_capacity_name(next_capacity)
+			if cap_name == null:
+				break
+			elif capacity_counts[cap_name] < max_capacities[cap_name]:
+				break
+				
+			next_capacity = (next_capacity + 1) % capacity_texture_list.size()
+			if next_capacity == (current_capacity + 1) % capacity_texture_list.size():
+				# All capacities full — reset to default
+				next_capacity = 0
+				looped = true
+				break
+		
+		# Update texture and state
+		if sprite != null:
+			sprite.texture = capacity_texture_list[next_capacity]
+		else:
+			print("Aucun nœud 'Icon' trouvé dans le bouton")
+		button_states[index] = next_capacity
+		
+		# Assign new capacity count if not default
+		var new_name = get_capacity_name(next_capacity)
+		if new_name and capacity_counts.has(new_name):
+			capacity_counts[new_name] += 1
+		
+		ui_label[1].text = str(MAX_CAPACITY_JUMP - capacity_counts["jump"])
+		ui_label[2].text = str(MAX_CAPACITY_DASH - capacity_counts["dash"])
+		ui_label[3].text = str(MAX_CAPACITY_GRAVITE - capacity_counts["gravity"])
+		ui_label[4].text = str(MAX_CAPACITY_ROTATE - capacity_counts["rotate"])
+		print("Button", index, " → ", new_name if new_name else "default")
+		print("Current counts: ", capacity_counts)
+		return current_capacity
+		
 	
 func _on_timer_timeout():
 	

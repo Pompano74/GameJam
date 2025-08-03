@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://c1ku2e8m1msts"]
+[gd_scene load_steps=7 format=3 uid="uid://c1ku2e8m1msts"]
 
 [ext_resource type="PackedScene" uid="uid://p2u7i0vjae6b" path="res://Level/Object/tile_map_background.tscn" id="1_8nk43"]
 [ext_resource type="PackedScene" uid="uid://cv1m0gtjpoqa7" path="res://Level/Object/tile_map.tscn" id="2_fw5vd"]
 [ext_resource type="PackedScene" uid="uid://pb0owfb37pgi" path="res://Level/Object/win.tscn" id="3_fo4jo"]
 [ext_resource type="PackedScene" uid="uid://dynw8drhp8bjg" path="res://Level/Player/Player.tscn" id="4_7vokk"]
+[ext_resource type="FontFile" uid="uid://frfsgfg3c8u7" path="res://Assets/Font_Pixel_v1.ttf" id="4_fo4jo"]
 [ext_resource type="AudioStream" uid="uid://cyg1itnq4gyra" path="res://Assets/audio/music/Eolienne/Eolienne 120bpm.mp3" id="5_fw5vd"]
 
 [node name="Level_1" type="Node"]
@@ -22,6 +23,21 @@ layer_0/tile_data = PackedInt32Array(65532, 262152, 1, 131068, 131080, 0, 196604
 
 [node name="Win" parent="room" instance=ExtResource("3_fo4jo")]
 position = Vector2(416, 0)
+
+[node name="Label" type="Label" parent="room"]
+offset_left = -376.0
+offset_top = 48.0
+offset_right = -139.0
+offset_bottom = 97.0
+theme_override_colors/font_shadow_color = Color(0.223529, 0.223529, 0.207843, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 1
+theme_override_constants/shadow_outline_size = 4
+theme_override_fonts/font = ExtResource("4_fo4jo")
+text = "MAKE A SEQUENCE & PRESS PLAY!
+MOVE WITH LEFT & RIGHT"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="Player" parent="." instance=ExtResource("4_7vokk")]
 position = Vector2(-1688, -824)

@@ -105,7 +105,6 @@ func _physics_process(delta):
 	else:
 		if state_sounds[0].playing:
 			state_sounds[0].stop()
-	print(state_sounds[0])
 	var direction = Input.get_axis("move_left", "move_right")
 
 	if Input.is_action_just_pressed("move_left"):
@@ -237,7 +236,7 @@ func on_killzone_exit():
 func die():
 	if not is_dashing:
 		print("die func called")
-		state_sounds[2].play()
+		state_sounds[1].play()
 		death_particule.restart()
 		death_particule.emitting = true
 		var camera_tween = get_tree().create_tween()

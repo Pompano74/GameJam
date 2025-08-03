@@ -8,9 +8,11 @@ func _on_button_down():
 	click_sound.play()
 	print("pressed")
 	if is_on == false:
+		sequencer.as_pressed_play = true
 		sequencer.timer_start()
 		print("timer_start")
 	if is_on == true:
+		sequencer.as_pressed_play = false
 		sequencer.timer_stop()
 		print("timer_stop")
 func _on_button_up():
