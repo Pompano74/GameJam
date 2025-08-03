@@ -11,7 +11,7 @@
 [node name="level_7" type="Node"]
 
 [node name="room" type="Node2D" parent="." groups=["room"]]
-position = Vector2(1688, 952)
+position = Vector2(504, 504)
 
 [node name="NoiseMove" parent="room" instance=ExtResource("1_4q7dp")]
 position = Vector2(-2208, -1304)
@@ -124,7 +124,7 @@ rotation = -3.14159
 scale = Vector2(0.5, 1)
 
 [node name="Player" parent="." instance=ExtResource("3_grjux")]
-position = Vector2(1184, 448)
+position = Vector2(0, 0)
 
 [node name="CharacterBody2D" parent="Player" index="0"]
 maxJump = 8

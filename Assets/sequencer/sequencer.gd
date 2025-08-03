@@ -116,11 +116,8 @@ func button_call(body):
 				looped = true
 				break
 		
-		# Update texture and state
-		if sprite != null:
-			sprite.texture = capacity_texture_list[next_capacity]
-		else:
-			print("Aucun nœud 'Icon' trouvé dans le bouton")
+		sprite.texture = capacity_texture_list[next_capacity]
+		
 		button_states[index] = next_capacity
 		
 		# Assign new capacity count if not default
