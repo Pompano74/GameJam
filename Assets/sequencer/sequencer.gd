@@ -163,7 +163,7 @@ func _on_timer_timeout():
 	else:
 		buttons[7].material.set_shader_parameter("shader_alpha", 0.0)
 	
-	print(button_states[sequence_loop])
+	print("action: " + str(button_states[sequence_loop]))
 	
 func timer_start():
 	player.sequence_is_playing = true

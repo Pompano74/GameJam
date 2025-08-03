@@ -59,7 +59,7 @@ var player_cam_zoom: Vector2
 var cameraShakeNoise: FastNoiseLite
 var as_won
 
-
+var is_dead = false
 # New: Counter to manage consecutive rotations
 var remaining_rotations = 0
 
@@ -262,6 +262,7 @@ func on_killzone_exit():
 
 func die():
 	if not is_dashing:
+		is_dead = true
 		sequencer.restart_timer_stop()
 		player_sprite_2d.animation = "lose"
 		print("die func called")
@@ -273,6 +274,7 @@ func die():
 		velocity = Vector2.ZERO
 		set_physics_process(false)
 		await get_tree().create_timer(2.2).timeout
+		is_dead = false
 		global_position = original_position
 		velocity = Vector2.ZERO  # reset velocity as well
 		# Reset other states if needed

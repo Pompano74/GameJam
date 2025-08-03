@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://46gsuqj43ym3"]
+[gd_scene load_steps=5 format=3 uid="uid://46gsuqj43ym3"]
 
 [ext_resource type="Script" uid="uid://dd0f3gqcfvrtt" path="res://Assets/sequencer/start_button.gd" id="1_2jedh"]
 [ext_resource type="Texture2D" uid="uid://corvde5dqo4ed" path="res://Assets/Placeholder/Case_Play.png" id="2_2jedh"]
+[ext_resource type="Texture2D" uid="uid://b8hjjbej0m7nn" path="res://Assets/Case_Stop.png" id="3_fu2v1"]
 [ext_resource type="AudioStream" uid="uid://dk0hmxp78hmrq" path="res://Assets/audio/click.mp3" id="3_krl1o"]
 
 [node name="Sprite2D" type="Sprite2D"]
@@ -16,6 +17,11 @@ offset_right = 42.5
 offset_bottom = 1.0
 scale = Vector2(0.775, 1.775)
 script = ExtResource("1_2jedh")
+
+[node name="pausse" type="Sprite2D" parent="." groups=["pause_button"]]
+visible = false
+position = Vector2(-1, -1)
+texture = ExtResource("3_fu2v1")
 
 [node name="click_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_krl1o")

@@ -67,10 +67,10 @@ scale = Vector2(0.5, 3)
 position = Vector2(704, -1064)
 
 [node name="CharacterBody2D" parent="Player" index="0"]
-maxJump = 3
+maxJump = 0
 maxDash = 0
-maxGravity = 3
-maxRotate = 3
+maxGravity = 0
+maxRotate = 0
 modifyBpm = 140.0
 
 [node name="sequencer" parent="Player/CharacterBody2D/Camera2D" index="0"]
