@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://uy803fr8f4jj"]
+[gd_scene load_steps=7 format=3 uid="uid://uy803fr8f4jj"]
 
 [ext_resource type="PackedScene" uid="uid://cv1m0gtjpoqa7" path="res://Level/Object/tile_map.tscn" id="1_p5b7s"]
 [ext_resource type="PackedScene" uid="uid://p2u7i0vjae6b" path="res://Level/Object/tile_map_background.tscn" id="2_d366w"]
 [ext_resource type="PackedScene" uid="uid://dynw8drhp8bjg" path="res://Level/Player/Player.tscn" id="3_0mmwp"]
 [ext_resource type="PackedScene" uid="uid://7j41jpon30lu" path="res://Level/Object/kill_zone.tscn" id="4_t8lcm"]
 [ext_resource type="PackedScene" uid="uid://pb0owfb37pgi" path="res://Level/Object/win.tscn" id="4_w15dt"]
+[ext_resource type="AudioStream" uid="uid://cw273r6h82klw" path="res://Assets/audio/music/Locked away/locked away 80bpm.mp3" id="6_t8lcm"]
 
 [node name="level_16" type="Node"]
 
@@ -153,7 +154,17 @@ maxGravity = 8
 maxRotate = 8
 modifyBpm = 160.0
 
+[node name="sequencer" parent="Player/CharacterBody2D/Camera2D" index="0"]
+MAX_CAPACITY_JUMP = 8
+MAX_CAPACITY_DASH = 8
+MAX_CAPACITY_GRAVITE = 8
+MAX_CAPACITY_ROTATE = 8
+bpm = 160.0
+
 [node name="Label" parent="Player/CharacterBody2D" index="4"]
 metadata/_edit_use_anchors_ = true
+
+[node name="MusicPlayer" parent="Player/CharacterBody2D" index="9"]
+level_music = ExtResource("6_t8lcm")
 
 [editable path="Player"]

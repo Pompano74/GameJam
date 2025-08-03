@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bjd00i583tr7e"]
+[gd_scene load_steps=6 format=3 uid="uid://bjd00i583tr7e"]
 
 [ext_resource type="PackedScene" uid="uid://p2u7i0vjae6b" path="res://Level/Object/tile_map_background.tscn" id="1_e3gyo"]
 [ext_resource type="PackedScene" uid="uid://cv1m0gtjpoqa7" path="res://Level/Object/tile_map.tscn" id="2_cxc2x"]
 [ext_resource type="PackedScene" uid="uid://dynw8drhp8bjg" path="res://Level/Player/Player.tscn" id="3_cxc2x"]
 [ext_resource type="PackedScene" uid="uid://pb0owfb37pgi" path="res://Level/Object/win.tscn" id="4_d4gul"]
+[ext_resource type="AudioStream" uid="uid://cfhdac4bc476s" path="res://Assets/audio/music/Here come danger/Here comes danger 175bpm.mp3" id="5_w8klm"]
 
 [node name="level_8" type="Node"]
 
@@ -29,5 +30,12 @@ maxDash = 0
 maxGravity = 0
 maxRotate = 2
 modifyBpm = 170.0
+
+[node name="sequencer" parent="Player/CharacterBody2D/Camera2D" index="0"]
+MAX_CAPACITY_ROTATE = 2
+bpm = 175.0
+
+[node name="MusicPlayer" parent="Player/CharacterBody2D" index="9"]
+level_music = ExtResource("5_w8klm")
 
 [editable path="Player"]

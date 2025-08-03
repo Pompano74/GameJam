@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8f0fbwwoas07"]
+[gd_scene load_steps=7 format=3 uid="uid://c8f0fbwwoas07"]
 
 [ext_resource type="PackedScene" uid="uid://cv1m0gtjpoqa7" path="res://Level/Object/tile_map.tscn" id="1_ugnc4"]
 [ext_resource type="PackedScene" uid="uid://p2u7i0vjae6b" path="res://Level/Object/tile_map_background.tscn" id="2_jp74y"]
 [ext_resource type="PackedScene" uid="uid://dynw8drhp8bjg" path="res://Level/Player/Player.tscn" id="3_jp74y"]
 [ext_resource type="PackedScene" uid="uid://pb0owfb37pgi" path="res://Level/Object/win.tscn" id="4_f7rn6"]
 [ext_resource type="PackedScene" uid="uid://7j41jpon30lu" path="res://Level/Object/kill_zone.tscn" id="4_kmr68"]
+[ext_resource type="AudioStream" uid="uid://bmdpfwuwe3i1b" path="res://Assets/audio/music/Eolienne/Eolienne 200bpm.mp3" id="6_lwvxa"]
 
 [node name="level_14" type="Node"]
 
@@ -685,5 +686,15 @@ maxDash = 3
 maxGravity = 3
 maxRotate = 3
 modifyBpm = 200.0
+
+[node name="sequencer" parent="Player/CharacterBody2D/Camera2D" index="0"]
+MAX_CAPACITY_JUMP = 3
+MAX_CAPACITY_DASH = 3
+MAX_CAPACITY_GRAVITE = 3
+MAX_CAPACITY_ROTATE = 3
+bpm = 200.0
+
+[node name="MusicPlayer" parent="Player/CharacterBody2D" index="9"]
+level_music = ExtResource("6_lwvxa")
 
 [editable path="Player"]

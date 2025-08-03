@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://ds154vntdf5wf"]
+[gd_scene load_steps=7 format=3 uid="uid://ds154vntdf5wf"]
 
 [ext_resource type="PackedScene" uid="uid://p2u7i0vjae6b" path="res://Level/Object/tile_map_background.tscn" id="1_811l7"]
 [ext_resource type="PackedScene" uid="uid://cv1m0gtjpoqa7" path="res://Level/Object/tile_map.tscn" id="2_libbo"]
 [ext_resource type="PackedScene" uid="uid://pb0owfb37pgi" path="res://Level/Object/win.tscn" id="3_aiiyb"]
 [ext_resource type="PackedScene" uid="uid://7j41jpon30lu" path="res://Level/Object/kill_zone.tscn" id="4_aiiyb"]
 [ext_resource type="PackedScene" uid="uid://dynw8drhp8bjg" path="res://Level/Player/Player.tscn" id="4_libbo"]
+[ext_resource type="AudioStream" uid="uid://d2wgxk42pn3dd" path="res://Assets/audio/music/Locked away/locked away 115bpm.mp3" id="6_ogvl0"]
 
 [node name="Level_6" type="Node"]
 
@@ -74,5 +75,12 @@ maxDash = 0
 maxGravity = 4
 maxRotate = 0
 modifyBpm = 230.0
+
+[node name="sequencer" parent="Player/CharacterBody2D/Camera2D" index="0"]
+MAX_CAPACITY_GRAVITE = 4
+bpm = 230.0
+
+[node name="MusicPlayer" parent="Player/CharacterBody2D" index="9"]
+level_music = ExtResource("6_ogvl0")
 
 [editable path="Player"]
