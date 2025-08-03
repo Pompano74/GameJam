@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3vnuhp6rbuui"]
+[gd_scene load_steps=7 format=3 uid="uid://b3vnuhp6rbuui"]
 
 [ext_resource type="PackedScene" uid="uid://cv1m0gtjpoqa7" path="res://Level/Object/tile_map.tscn" id="1_dajox"]
 [ext_resource type="PackedScene" uid="uid://p2u7i0vjae6b" path="res://Level/Object/tile_map_background.tscn" id="2_yit0a"]
 [ext_resource type="PackedScene" uid="uid://pb0owfb37pgi" path="res://Level/Object/win.tscn" id="3_yit0a"]
 [ext_resource type="PackedScene" uid="uid://dynw8drhp8bjg" path="res://Level/Player/Player.tscn" id="4_srh70"]
 [ext_resource type="PackedScene" uid="uid://7j41jpon30lu" path="res://Level/Object/kill_zone.tscn" id="4_vkge8"]
+[ext_resource type="AudioStream" uid="uid://dm16568tuvj18" path="res://Assets/audio/music/Here come danger/Here comes danger 140bpm.mp3" id="6_ymlbi"]
 
 [node name="Level_15" type="Node"]
 
@@ -119,5 +120,15 @@ maxDash = 2
 maxGravity = 2
 maxRotate = 2
 modifyBpm = 140.0
+
+[node name="sequencer" parent="Player/CharacterBody2D/Camera2D" index="0"]
+MAX_CAPACITY_JUMP = 2
+MAX_CAPACITY_DASH = 2
+MAX_CAPACITY_GRAVITE = 2
+MAX_CAPACITY_ROTATE = 2
+bpm = 140.0
+
+[node name="MusicPlayer" parent="Player/CharacterBody2D" index="9"]
+level_music = ExtResource("6_ymlbi")
 
 [editable path="Player"]
