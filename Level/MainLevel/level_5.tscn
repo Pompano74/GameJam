@@ -1,6 +1,5 @@
-[gd_scene load_steps=7 format=3 uid="uid://d4n3wt7myhox"]
+[gd_scene load_steps=6 format=3 uid="uid://d4n3wt7myhox"]
 
-[ext_resource type="PackedScene" uid="uid://p2u7i0vjae6b" path="res://Level/Object/tile_map_background.tscn" id="1_137hr"]
 [ext_resource type="PackedScene" uid="uid://cv1m0gtjpoqa7" path="res://Level/Object/tile_map.tscn" id="2_wv686"]
 [ext_resource type="PackedScene" uid="uid://dynw8drhp8bjg" path="res://Level/Player/Player.tscn" id="3_dhsi6"]
 [ext_resource type="PackedScene" uid="uid://7j41jpon30lu" path="res://Level/Object/kill_zone.tscn" id="4_dhsi6"]
@@ -11,9 +10,6 @@
 
 [node name="room" type="Node2D" parent="." groups=["room"]]
 position = Vector2(840, 112)
-
-[node name="TileMapBackground" parent="room" instance=ExtResource("1_137hr")]
-position = Vector2(-384, 176)
 
 [node name="TileMap" parent="room" instance=ExtResource("2_wv686")]
 position = Vector2(-384, 176)
