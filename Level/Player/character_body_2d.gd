@@ -9,11 +9,14 @@ extends CharacterBody2D
 @onready var player_sprite_2d = $Sprite2D
 @onready var particles = $GPUParticles2D
 @onready var death_particule: CPUParticles2D = $DeathParticule
+@onready var origin_nodes = get_tree().get_nodes_in_group("room")
 var original_position
+var room_original_position
 #sounds
 @onready var capacity_sounds = get_tree().get_nodes_in_group("capacity_sounds")
 @onready var state_sounds = get_tree().get_nodes_in_group("state_sounds")
-
+var origin_initial_pos: Vector2
+var origin_initial_rot: float
 
 @export var modifyBpm: float = 60.0
 var Dev_mode = false
@@ -57,9 +60,12 @@ var cameraShakeNoise: FastNoiseLite
 var remaining_rotations = 0
 
 func _ready():
-	var original_position = global_position
-	print(original_position)
-	var origin_nodes = get_tree().get_nodes_in_group("room")
+	# ... your existing code ...
+	if origin_point != null:
+		origin_initial_pos = origin_point.global_position
+		origin_initial_rot = origin_point.rotation
+	original_position = global_position
+	room_original_position = origin_nodes[0].position
 	if origin_nodes.size() > 0:
 		origin_point = origin_nodes[0] as Node2D
 	add_to_group("player")
@@ -246,9 +252,30 @@ func die():
 		velocity = Vector2.ZERO
 		set_physics_process(false)
 		await get_tree().create_timer(2.2).timeout
-		get_tree().reload_current_scene()
+		global_position = original_position
+		velocity = Vector2.ZERO  # reset velocity as well
+		# Reset other states if needed
+		set_physics_process(true)  # ensure physics process is enabled if you disabled it on death
+		rotating = false
+		is_dashing = false
+		dash_timer = 0.0
+		disable_player_input = false
+		gravity_direction = Vector2.DOWN
+		origin_nodes[0].rotation =  0.0
+		origin_nodes[0].position = room_original_position
 func game_restart():
-	print("text temporaire")
+	global_position = original_position
+	velocity = Vector2.ZERO  # reset velocity as well
+	# Reset other states if needed
+	set_physics_process(true)  # ensure physics process is enabled if you disabled it on death
+	rotating = false
+	is_dashing = false
+	dash_timer = 0.0
+	disable_player_input = false
+	gravity_direction = Vector2.DOWN
+	origin_nodes[0].rotation =  0.0
+	origin_nodes[0].position = room_original_position
+	
 func StartCameraShake(intensity: float):
 	var cameraOffset = cameraShakeNoise.get_noise_1d(Time.get_ticks_msec()) * intensity
 	player_cam.offset.x = cameraOffset
