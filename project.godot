@@ -32,6 +32,8 @@ buttons=""
 button_manager=""
 button_sprite=""
 UI_Label=""
+capacity_sounds=""
+state_sounds=""
 
 [input]
 

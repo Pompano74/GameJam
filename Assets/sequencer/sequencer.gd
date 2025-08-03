@@ -3,12 +3,19 @@ extends Node2D
 #-----button var------#
 @export var capacity_texture_list: Array[Texture2D] # Index: 0 = default, 1 = jump, 2 = dash, 3 = gravity, 4 = rotate
 @onready var buttons = get_tree().get_nodes_in_group("buttons")
+@onready var sprite = get_tree().get_nodes_in_group("button_sprite")
 # Capacity limits
 
 @export var MAX_CAPACITY_JUMP := 0
 @export var MAX_CAPACITY_DASH := 0
 @export var MAX_CAPACITY_GRAVITE := 0
 @export var MAX_CAPACITY_ROTATE := 0
+
+#level screenshot pour le mode pause
+@export var lvl_screenshot: Texture2D
+@onready var screenshot: Sprite2D = $Sprite2D/screenshot
+
+
 var capacity_counts = {
 	"jump": 0,
 	"dash": 0,
@@ -35,6 +42,8 @@ var sequence_loop = 0
 
 # Called when the node enters the scene tree
 func _ready():
+	screenshot.texture = lvl_screenshot
+	
 	await get_tree().process_frame
 	
 	
@@ -160,3 +169,13 @@ func timer_stop():
 	player.sequence_is_playing = false
 	player.game_restart()
 	timer.stop()
+func level_finish_paude():
+	var sprite = get_tree().get_nodes_in_group("button_sprite")
+	player.sequence_is_playing = false
+	timer.stop()
+	for i in buttons.size():
+		if sprite != null:
+			sprite[i].texture = capacity_texture_list[0]
+	for n in buttons.size():
+		if buttons[n].material is ShaderMaterial:
+			buttons[n].material.set_shader_parameter("shader_alpha", 1.0)
