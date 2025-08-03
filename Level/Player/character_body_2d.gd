@@ -6,9 +6,10 @@ extends CharacterBody2D
 @export var maxGravity: int = 1
 @export var maxRotate: int = 1
 @onready var origin_point = null
-@onready var player_sprite_2d = $Sprite2D
+@onready var player_sprite_2d = $AnimatedSprite2D
 @onready var particles = $GPUParticles2D
 @onready var death_particule: CPUParticles2D = $DeathParticule
+@onready var jump_particule = $GPUParticles2Djump
 @onready var origin_nodes = get_tree().get_nodes_in_group("room")
 var original_position
 var room_original_position
@@ -106,21 +107,33 @@ func _process(delta):
 		gravity()
 
 func _physics_process(delta):
-	
-	if is_on_floor() and velocity != Vector2(0,0):
+	if is_on_floor() && sequence_is_playing ==true:
 		if not state_sounds[0].playing:
 			state_sounds[0].play()
+		jump_particule.emitting = false
 	else:
 		if state_sounds[0].playing:
 			state_sounds[0].stop()
 	var direction = Input.get_axis("move_left", "move_right")
-
-	if Input.is_action_just_pressed("move_left"):
+	if direction != 0 && velocity > Vector2(0.0,0.0) &&sequence_is_playing ==true:
+		player_sprite_2d.animation = "walk"
+	else:
+		player_sprite_2d.animation = "idle"
+	
+	if Input.is_action_pressed("move_left") && sequence_is_playing ==true:
+		if not state_sounds[0].playing:
+			state_sounds[0].play()
 		dash_direction = -1
 		player_sprite_2d.flip_h = true
-	elif Input.is_action_just_pressed("move_right"):
+	elif Input.is_action_pressed("move_right") && sequence_is_playing ==true:
+		if not state_sounds[0].playing:
+			state_sounds[0].play()
 		dash_direction = 1
 		player_sprite_2d.flip_h = false
+	else:
+		state_sounds[0].stop()
+		if state_sounds[0].playing:
+			state_sounds[0].stop()
 
 	if Dev_mode:
 		if Input.is_action_just_pressed("debug_1"):
@@ -134,13 +147,19 @@ func _physics_process(delta):
 
 	if gravity_direction == Vector2.DOWN:
 		if not is_on_floor():
+			if sequence_is_playing == true:
+				player_sprite_2d.animation = "jump"
+				jump_particule.emitting = true
 			velocity += get_gravity() * gravity_direction * delta * gravity_force
 			player_sprite_2d.flip_v = false
 	elif gravity_direction == Vector2.UP:
 		if not is_on_ceiling():
+			if sequence_is_playing == true:
+				player_sprite_2d.animation = "jump"
+				jump_particule.emitting = true
 			velocity += get_gravity() * gravity_direction * delta * gravity_force
 			player_sprite_2d.flip_v = true
-
+	
 	if not is_dashing:
 		if direction:
 			velocity.x = direction * player_speed
@@ -151,7 +170,9 @@ func _physics_process(delta):
 
 	if is_dashing:
 		dash_timer -= delta
+		player_sprite_2d.animation = "dash"
 		if dash_timer <= 0:
+			player_sprite_2d.animation = "idle"
 			particles.emitting = false
 			is_dashing = false
 			player_sprite_2d.modulate = Color(1,1,1,1)
@@ -176,7 +197,6 @@ func dash():
 	if not disable_player_input:
 		particles.emitting = true
 		is_dashing = true
-		player_sprite_2d.modulate = Color(0,50,1,1)
 		dash_timer = dash_duration
 		velocity.y = -200 * jump_direction
 		velocity.x = dash_direction * dash_force

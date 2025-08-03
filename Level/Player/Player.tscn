@@ -1,44 +1,159 @@
-[gd_scene load_steps=17 format=3 uid="uid://dynw8drhp8bjg"]
+[gd_scene load_steps=37 format=3 uid="uid://dynw8drhp8bjg"]
 
 [ext_resource type="Script" uid="uid://dsytqkfnho75u" path="res://Level/Player/character_body_2d.gd" id="1_w7old"]
-[ext_resource type="Texture2D" uid="uid://b1raoryae4dvt" path="res://Assets/Placeholder/CharBase.png" id="2_xmy7u"]
 [ext_resource type="PackedScene" uid="uid://753hfb0jp4xu" path="res://Assets/sequencer/sequencer.tscn" id="3_8op4e"]
+[ext_resource type="Texture2D" uid="uid://bo34n1fwcrwsg" path="res://Assets/animation/GreenishLevelsAnimations/PersonnageV69_DashSprite_greenishPal.png" id="3_r27eg"]
+[ext_resource type="Texture2D" uid="uid://5popx00k8qc4" path="res://Assets/animation/GreenishLevelsAnimations/PersonnageV69_IdleAnimation_greenishPal.png" id="3_t8ja0"]
 [ext_resource type="AudioStream" uid="uid://7gytyod0k7qm" path="res://Assets/Placeholder/son_tempo_placeholder.wav" id="4_4a08e"]
+[ext_resource type="Texture2D" uid="uid://dgxdw5xfqbp3d" path="res://Assets/animation/GreenishLevelsAnimations/PersonnageV69_JumpSprite_GreenishPal.png" id="4_qx4tn"]
+[ext_resource type="Texture2D" uid="uid://dwkcgogfra5fx" path="res://Assets/animation/GreenishLevelsAnimations/WalkAnimation_Greenish.png" id="4_t8ja0"]
 [ext_resource type="AudioStream" uid="uid://fgcvr7xiwrut" path="res://Assets/audio/sfx/Snare.wav" id="5_6dkl6"]
 [ext_resource type="AudioStream" uid="uid://lqrsbsqiurds" path="res://Assets/audio/sfx/Kick.wav" id="5_57mxj"]
 [ext_resource type="AudioStream" uid="uid://bylowyv7iu1q0" path="res://Assets/audio/sfx/gravity shift.wav" id="6_4a08e"]
+[ext_resource type="Texture2D" uid="uid://c7cdq24qlakff" path="res://Assets/animation/PersonnageV69_HitWhite.png" id="7_4wa72"]
 [ext_resource type="AudioStream" uid="uid://dhpj8hsh8v3vb" path="res://Assets/audio/sfx/menu scroll.wav" id="7_uv1qq"]
 [ext_resource type="AudioStream" uid="uid://hkkgmwohrgck" path="res://Assets/audio/sfx/808.wav" id="8_t8ja0"]
 [ext_resource type="AudioStream" uid="uid://gsi4t5dvyux7" path="res://Assets/audio/walk.mp3" id="9_uv1qq"]
 [ext_resource type="PackedScene" uid="uid://bq3x3ia72edan" path="res://Level/music_player.tscn" id="10_57mxj"]
+[ext_resource type="Texture2D" uid="uid://cuq5r02reesbq" path="res://Assets/animation/DashEffect.png" id="16_aycq3"]
+[ext_resource type="Texture2D" uid="uid://do1ulogyngiix" path="res://Assets/animation/JumpEffect.png" id="17_kptdk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4a08e"]
 size = Vector2(8, 14)
 
-[sub_resource type="Gradient" id="Gradient_4a08e"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 1, 1, 1)
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsa31"]
+atlas = ExtResource("3_r27eg")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_6dkl6"]
-gradient = SubResource("Gradient_4a08e")
-width = 5
+[sub_resource type="AtlasTexture" id="AtlasTexture_qx4tn"]
+atlas = ExtResource("3_t8ja0")
+region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_8op4e"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_r27eg"]
+atlas = ExtResource("3_t8ja0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4wa72"]
+atlas = ExtResource("3_t8ja0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aycq3"]
+atlas = ExtResource("3_t8ja0")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kptdk"]
+atlas = ExtResource("3_t8ja0")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bdqow"]
+atlas = ExtResource("3_t8ja0")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g81rx"]
+atlas = ExtResource("3_t8ja0")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x05af"]
+atlas = ExtResource("4_qx4tn")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ysui"]
+atlas = ExtResource("4_t8ja0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35gxp"]
+atlas = ExtResource("4_t8ja0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5fyg"]
+atlas = ExtResource("4_t8ja0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s2ngj"]
+atlas = ExtResource("4_t8ja0")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_artv0"]
+atlas = ExtResource("4_t8ja0")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jh3j2"]
+atlas = ExtResource("4_t8ja0")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uv1qq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gsa31")
+}],
+"loop": true,
+"name": &"dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qx4tn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r27eg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4wa72")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aycq3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kptdk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bdqow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g81rx")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x05af")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_4ysui")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_35gxp")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_f5fyg")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_s2ngj")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_artv0")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_jh3j2")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 6.0
+}]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4wa72"]
 particle_flag_disable_z = true
-emission_shape = 1
-emission_sphere_radius = 10.4
-direction = Vector3(7.375, 0, 0)
-spread = 180.0
-initial_velocity_max = 2.0
-gravity = Vector3(-75, 0, 0)
-linear_accel_min = -89.48
-linear_accel_max = 2.82
-radial_accel_min = -64.9
-radial_accel_max = -12.59
-damping_max = 6.185
-scale_min = 3.0
-scale_max = 5.0
-hue_variation_min = -0.32
-hue_variation_max = -2.23517e-08
+angle_min = -28.0
+angle_max = 76.8
+gravity = Vector3(0, 0, 0)
 
 [sub_resource type="Curve" id="Curve_ngpfc"]
 _data = [Vector2(0.0485075, 0.937743), 0.0, 0.0, 0, 0, Vector2(0.988806, 0.0972763), 0.0, 0.0, 0, 0]
@@ -54,6 +169,19 @@ scale = Vector2(2, 2)
 disable_mode = 2
 collision_layer = 2
 script = ExtResource("1_w7old")
+
+[node name="dash_sprite" type="Sprite2D" parent="CharacterBody2D"]
+visible = false
+position = Vector2(-5.5, -6)
+rotation = 1.57079
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("16_aycq3")
+
+[node name="jump_sprite" type="Sprite2D" parent="CharacterBody2D"]
+visible = false
+position = Vector2(9, 7.5)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("17_kptdk")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" groups=["camera"]]
 position = Vector2(8, -8)
@@ -71,18 +199,32 @@ position = Vector2(-480, -264)
 position = Vector2(8, -7)
 shape = SubResource("RectangleShape2D_4a08e")
 
-[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
 position = Vector2(8, -8)
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_xmy7u")
+sprite_frames = SubResource("SpriteFrames_uv1qq")
+animation = &"dash"
+autoplay = "walk"
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="CharacterBody2D"]
+modulate = Color(1, 1, 1, 0.454902)
 show_behind_parent = true
 position = Vector2(8, -8)
 emitting = false
-amount = 55
-texture = SubResource("GradientTexture1D_6dkl6")
-process_material = SubResource("ParticleProcessMaterial_8op4e")
+amount = 25
+texture = ExtResource("7_4wa72")
+interp_to_end = 0.231
+process_material = SubResource("ParticleProcessMaterial_4wa72")
+
+[node name="GPUParticles2Djump" type="GPUParticles2D" parent="CharacterBody2D"]
+modulate = Color(1, 1, 1, 0.454902)
+show_behind_parent = true
+position = Vector2(8, -8)
+emitting = false
+amount = 25
+texture = ExtResource("7_4wa72")
+interp_to_end = 0.231
+process_material = SubResource("ParticleProcessMaterial_4wa72")
 
 [node name="Label" type="Label" parent="CharacterBody2D"]
 offset_left = -16.0

@@ -42,10 +42,21 @@ maxGravity = 0
 maxRotate = 0
 modifyBpm = 120.0
 
+[node name="dash_sprite" parent="Player/CharacterBody2D" index="0"]
+visible = true
+modulate = Color(1, 1, 1, 0)
+
+[node name="jump_sprite" parent="Player/CharacterBody2D" index="1"]
+visible = true
+modulate = Color(1, 1, 1, 0)
+
 [node name="sequencer" parent="Player/CharacterBody2D/Camera2D" index="0"]
 MAX_CAPACITY_JUMP = 1
 
-[node name="MusicPlayer" parent="Player/CharacterBody2D" index="9"]
+[node name="AnimatedSprite2D" parent="Player/CharacterBody2D" index="4"]
+autoplay = "idle"
+
+[node name="MusicPlayer" parent="Player/CharacterBody2D" index="12"]
 level_music = ExtResource("5_fw5vd")
 
 [editable path="Player"]
