@@ -19,7 +19,7 @@ layer_0/tile_data = PackedInt32Array(65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0,
 position = Vector2(-1056, -736)
 
 [node name="Win" parent="room" instance=ExtResource("3_yit0a")]
-position = Vector2(-1392, -192)
+position = Vector2(-1408, -192)
 rotation = 1.57079
 
 [node name="KillZone" parent="room" instance=ExtResource("4_vkge8")]

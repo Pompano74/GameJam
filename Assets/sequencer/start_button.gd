@@ -1,6 +1,6 @@
 extends Button
+@onready var click_sound = $"../click_sound"
 
-@onready var click_sound: AudioStreamPlayer2D = $click_sound
 @onready var sequencer = get_tree().get_first_node_in_group("button_manager")
 var is_on = false
 

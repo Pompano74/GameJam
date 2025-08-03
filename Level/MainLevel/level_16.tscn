@@ -22,7 +22,7 @@ layer_1/tile_data = PackedInt32Array(-655332, 12, 1, -655329, 65548, 2, -655331,
 position = Vector2(-106, -92)
 
 [node name="Win" parent="room" instance=ExtResource("4_w15dt")]
-position = Vector2(960, -672)
+position = Vector2(976, -656)
 
 [node name="KillZone" parent="room" instance=ExtResource("4_t8lcm")]
 position = Vector2(0, -16)

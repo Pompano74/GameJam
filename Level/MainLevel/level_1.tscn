@@ -7,7 +7,7 @@
 [ext_resource type="FontFile" uid="uid://frfsgfg3c8u7" path="res://Assets/Font_Pixel_v1.ttf" id="4_fo4jo"]
 [ext_resource type="AudioStream" uid="uid://cyg1itnq4gyra" path="res://Assets/audio/music/Eolienne/Eolienne 120bpm.mp3" id="5_fw5vd"]
 
-[node name="Level_1" type="Node"]
+[node name="Level_1" type="Node" groups=["level_1"]]
 
 [node name="room" type="Node2D" parent="." groups=["room"]]
 position = Vector2(-936, -696)
