@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://753hfb0jp4xu"]
+[gd_scene load_steps=23 format=3 uid="uid://753hfb0jp4xu"]
 
 [ext_resource type="Script" uid="uid://dpbt5jid66xwx" path="res://Assets/sequencer/sequencer.gd" id="1_2828x"]
 [ext_resource type="PackedScene" uid="uid://d32scr7lfh4bf" path="res://Assets/sequencer/button.tscn" id="1_uhqqe"]
@@ -17,7 +17,45 @@
 [ext_resource type="Texture2D" uid="uid://cmv71pxqlsr6l" path="res://UI/Images/EXISTBUTTON.png" id="14_xhjb5"]
 [ext_resource type="Texture2D" uid="uid://j6m5obqq00g0" path="res://UI/Images/LevelButtonImgBeforeAnimation.png" id="15_3v1ao"]
 [ext_resource type="Script" uid="uid://bmqhdp2gsjx64" path="res://Assets/sequencer/exit_button.gd" id="15_gmqqg"]
+[ext_resource type="Texture2D" uid="uid://bd6es1qoe5h3f" path="res://UI/Images/PLUG_Animation.png" id="16_gmqqg"]
 [ext_resource type="Script" uid="uid://c13ggw7m5uyx1" path="res://Assets/sequencer/levelButton.gd" id="16_xhjb5"]
+
+[sub_resource type="Animation" id="Animation_gmqqg"]
+resource_name = "UnplugAnimation"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0666667, 1, 2, 3, 4, 5.13333, 6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 4, 5, 6, 7]
+}
+
+[sub_resource type="Animation" id="Animation_2olib"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [1]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_30kkk"]
+_data = {
+&"RESET": SubResource("Animation_2olib"),
+&"UnplugAnimation": SubResource("Animation_gmqqg")
+}
 
 [node name="sequencer" type="Node2D" groups=["button_manager"]]
 position = Vector2(0, 6)
@@ -148,9 +186,22 @@ offset_left = 101.0
 offset_top = -15.0
 offset_right = 205.0
 offset_bottom = 90.0
+focus_mode = 0
 icon = ExtResource("14_xhjb5")
 flat = true
 script = ExtResource("15_gmqqg")
+
+[node name="PlugAnim" type="Sprite2D" parent="ExitButton"]
+position = Vector2(-25, 24)
+texture = ExtResource("16_gmqqg")
+hframes = 8
+frame = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="ExitButton/PlugAnim"]
+libraries = {
+&"": SubResource("AnimationLibrary_30kkk")
+}
+speed_scale = 4.0
 
 [node name="LevelManager" type="Node2D" parent="."]
 script = ExtResource("14_kvxoe")
@@ -618,6 +669,7 @@ metadata/_edit_use_anchors_ = true
 [connection signal="button_down" from="ExitButton" to="ExitButton" method="_on_button_down"]
 [connection signal="mouse_entered" from="ExitButton" to="ExitButton" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="ExitButton" to="ExitButton" method="_on_mouse_exited"]
+[connection signal="animation_finished" from="ExitButton/PlugAnim/AnimationPlayer" to="ExitButton" method="_on_animation_player_animation_finished"]
 [connection signal="mouse_entered" from="LevelManager/ButtonNiveau1" to="LevelManager/ButtonNiveau1" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="LevelManager/ButtonNiveau1" to="LevelManager/ButtonNiveau1" method="_on_mouse_exited"]
 [connection signal="mouse_entered" from="LevelManager/ButtonNiveau2" to="LevelManager/ButtonNiveau2" method="_on_mouse_entered"]
