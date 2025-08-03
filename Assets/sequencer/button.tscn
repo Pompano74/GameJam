@@ -77,6 +77,7 @@ scale = Vector2(0.775, 1.775)
 text = "
 "
 script = ExtResource("1_3r3ib")
+metadata/_edit_use_anchors_ = true
 
 [node name="click_sound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_ge5sm")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://753hfb0jp4xu"]
+[gd_scene load_steps=17 format=3 uid="uid://753hfb0jp4xu"]
 
 [ext_resource type="Script" uid="uid://dpbt5jid66xwx" path="res://Assets/sequencer/sequencer.gd" id="1_2828x"]
 [ext_resource type="PackedScene" uid="uid://d32scr7lfh4bf" path="res://Assets/sequencer/button.tscn" id="1_uhqqe"]
@@ -13,6 +13,9 @@
 [ext_resource type="AudioStream" uid="uid://dwiwkmji00g36" path="res://Assets/audio/metronome.mp3" id="10_sewa6"]
 [ext_resource type="PackedScene" uid="uid://nyx5hb1sahu6" path="res://Assets/sequencer/view_button.tscn" id="10_wqqe1"]
 [ext_resource type="Texture2D" uid="uid://cacayaykjkvk4" path="res://Assets/Placeholder/Case_Stop.png" id="13_m6nqx"]
+[ext_resource type="Script" uid="uid://csgayqufw8fe6" path="res://Assets/sequencer/LevelButtonsControl.gd" id="14_kvxoe"]
+[ext_resource type="Texture2D" uid="uid://j6m5obqq00g0" path="res://UI/Images/LevelButtonImgBeforeAnimation.png" id="15_3v1ao"]
+[ext_resource type="Script" uid="uid://c13ggw7m5uyx1" path="res://Assets/sequencer/levelButton.gd" id="16_xhjb5"]
 
 [node name="sequencer" type="Node2D" groups=["button_manager"]]
 position = Vector2(0, 6)
@@ -137,5 +140,208 @@ bus = &"Main Music"
 visible = false
 position = Vector2(276, 81)
 texture = ExtResource("13_m6nqx")
+
+[node name="LevelManager" type="Node2D" parent="."]
+script = ExtResource("14_kvxoe")
+
+[node name="ButtonNiveau1" type="Button" parent="LevelManager"]
+offset_left = 33.0
+offset_top = 121.0
+offset_right = 105.0
+offset_bottom = 193.0
+icon = ExtResource("15_3v1ao")
+flat = true
+script = ExtResource("16_xhjb5")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="LevelManager/ButtonNiveau1"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0416667
+anchor_right = -0.0416667
+offset_left = 61.0
+offset_top = 33.0
+offset_right = 101.0
+offset_bottom = 56.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("10_1hjla")
+text = "01"
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonNiveau2" type="Button" parent="LevelManager"]
+offset_left = 107.0
+offset_top = 121.0
+offset_right = 179.0
+offset_bottom = 193.0
+icon = ExtResource("15_3v1ao")
+flat = true
+script = ExtResource("16_xhjb5")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="LevelManager/ButtonNiveau2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0416667
+anchor_right = -0.0416667
+offset_left = 61.0
+offset_top = 33.0
+offset_right = 101.0
+offset_bottom = 56.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("10_1hjla")
+text = "XX"
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonNiveau3" type="Button" parent="LevelManager"]
+offset_left = 32.0
+offset_top = 195.0
+offset_right = 104.0
+offset_bottom = 267.0
+icon = ExtResource("15_3v1ao")
+flat = true
+script = ExtResource("16_xhjb5")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="LevelManager/ButtonNiveau3"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0416667
+anchor_right = -0.0416667
+offset_left = 61.0
+offset_top = 33.0
+offset_right = 101.0
+offset_bottom = 56.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("10_1hjla")
+text = "XX"
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonNiveau4" type="Button" parent="LevelManager"]
+offset_left = 106.0
+offset_top = 195.0
+offset_right = 178.0
+offset_bottom = 267.0
+icon = ExtResource("15_3v1ao")
+flat = true
+script = ExtResource("16_xhjb5")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="LevelManager/ButtonNiveau4"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0416667
+anchor_right = -0.0416667
+offset_left = 61.0
+offset_top = 33.0
+offset_right = 101.0
+offset_bottom = 56.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("10_1hjla")
+text = "XX"
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonNiveau5" type="Button" parent="LevelManager"]
+offset_left = 33.0
+offset_top = 266.0
+offset_right = 105.0
+offset_bottom = 338.0
+icon = ExtResource("15_3v1ao")
+flat = true
+script = ExtResource("16_xhjb5")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="LevelManager/ButtonNiveau5"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0416667
+anchor_right = -0.0416667
+offset_left = 61.0
+offset_top = 33.0
+offset_right = 101.0
+offset_bottom = 56.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("10_1hjla")
+text = "XX"
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonNiveau6" type="Button" parent="LevelManager"]
+offset_left = 107.0
+offset_top = 266.0
+offset_right = 179.0
+offset_bottom = 338.0
+icon = ExtResource("15_3v1ao")
+flat = true
+script = ExtResource("16_xhjb5")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="LevelManager/ButtonNiveau6"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0416667
+anchor_right = -0.0416667
+offset_left = 61.0
+offset_top = 33.0
+offset_right = 101.0
+offset_bottom = 56.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("10_1hjla")
+text = "XX"
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonNiveau7" type="Button" parent="LevelManager"]
+offset_left = 33.0
+offset_top = 338.0
+offset_right = 105.0
+offset_bottom = 410.0
+icon = ExtResource("15_3v1ao")
+flat = true
+script = ExtResource("16_xhjb5")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="LevelManager/ButtonNiveau7"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0416667
+anchor_right = -0.0416667
+offset_left = 61.0
+offset_top = 33.0
+offset_right = 101.0
+offset_bottom = 56.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("10_1hjla")
+text = "XX"
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonNiveau8" type="Button" parent="LevelManager"]
+offset_left = 107.0
+offset_top = 338.0
+offset_right = 179.0
+offset_bottom = 410.0
+icon = ExtResource("15_3v1ao")
+flat = true
+script = ExtResource("16_xhjb5")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="LevelManager/ButtonNiveau8"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0416667
+anchor_right = -0.0416667
+offset_left = 61.0
+offset_top = 33.0
+offset_right = 101.0
+offset_bottom = 56.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("10_1hjla")
+text = "XX"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
