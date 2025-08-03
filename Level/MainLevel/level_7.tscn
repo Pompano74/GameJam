@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bljmrma0vicl6"]
+[gd_scene load_steps=8 format=3 uid="uid://bljmrma0vicl6"]
 
 [ext_resource type="PackedScene" uid="uid://cv1m0gtjpoqa7" path="res://Level/Object/tile_map.tscn" id="1_0k00u"]
 [ext_resource type="PackedScene" uid="uid://dtiagg4y12vvt" path="res://Level/paralax/noise_move_vert.tscn" id="1_4q7dp"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://pb0owfb37pgi" path="res://Level/Object/win.tscn" id="4_12wf5"]
 [ext_resource type="PackedScene" uid="uid://7j41jpon30lu" path="res://Level/Object/kill_zone.tscn" id="4_t4urw"]
 [ext_resource type="AudioStream" uid="uid://cyg1itnq4gyra" path="res://Assets/audio/music/Eolienne/Eolienne 120bpm.mp3" id="6_4q7dp"]
+[ext_resource type="Texture2D" uid="uid://ofvo2jpbd53d" path="res://Assets/Level_Screenshots/screenshot_lvl7.png" id="6_c7w2v"]
 
 [node name="level_7" type="Node"]
 
@@ -134,6 +135,7 @@ modifyBpm = 120.0
 [node name="sequencer" parent="Player/CharacterBody2D/Camera2D" index="0"]
 MAX_CAPACITY_JUMP = 8
 MAX_CAPACITY_GRAVITE = 1
+lvl_screenshot = ExtResource("6_c7w2v")
 
 [node name="MusicPlayer" parent="Player/CharacterBody2D" index="12"]
 level_music = ExtResource("6_4q7dp")

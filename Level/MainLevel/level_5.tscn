@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d4n3wt7myhox"]
+[gd_scene load_steps=8 format=3 uid="uid://d4n3wt7myhox"]
 
 [ext_resource type="PackedScene" uid="uid://dtiagg4y12vvt" path="res://Level/paralax/noise_move_vert.tscn" id="1_18xru"]
 [ext_resource type="PackedScene" uid="uid://cv1m0gtjpoqa7" path="res://Level/Object/tile_map.tscn" id="2_wv686"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://7j41jpon30lu" path="res://Level/Object/kill_zone.tscn" id="4_dhsi6"]
 [ext_resource type="PackedScene" uid="uid://pb0owfb37pgi" path="res://Level/Object/win.tscn" id="4_wv686"]
 [ext_resource type="AudioStream" uid="uid://yo2bib5m77rx" path="res://Assets/audio/music/Here come danger/Here comes danger 160bpm.mp3" id="6_18xru"]
+[ext_resource type="Texture2D" uid="uid://c42pt028b6gu1" path="res://Assets/Level_Screenshots/screenshot_lvl5.png" id="6_gx1g3"]
 
 [node name="Level_5" type="Node"]
 
@@ -38,6 +39,7 @@ modifyBpm = 160.0
 
 [node name="sequencer" parent="Player/CharacterBody2D/Camera2D" index="0"]
 MAX_CAPACITY_GRAVITE = 1
+lvl_screenshot = ExtResource("6_gx1g3")
 bpm = 160.0
 
 [node name="MusicPlayer" parent="Player/CharacterBody2D" index="12"]
