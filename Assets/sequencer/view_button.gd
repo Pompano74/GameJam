@@ -38,3 +38,7 @@ func _on_mouse_exited() -> void:
 	if parent and parent.has_method("set_modulate"):
 		var current_color = parent.modulate
 		parent.modulate = Color(1.0, 1.0, 1.0, current_color.a)
+
+func _process(delta: float) -> void:
+	if sequencer.as_pressed_play == true:
+		sequencer.screenshot.visible = false
