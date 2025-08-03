@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cibagvne3fshn" path="res://Assets/Placeholder/Icon_Dash.png" id="4_1hjla"]
 [ext_resource type="Texture2D" uid="uid://bkbhwvx66e7r5" path="res://Assets/Placeholder/Icon_Gravite.png" id="5_sewa6"]
 [ext_resource type="Texture2D" uid="uid://7d3ldgn4y0d2" path="res://Assets/Placeholder/Icon_RotateRoom.png" id="6_wqqe1"]
-[ext_resource type="Texture2D" uid="uid://bdtbqo6scjfcw" path="res://Assets/Placeholder/FullscreenBackgroundV8.png" id="7_0xvyw"]
+[ext_resource type="Texture2D" uid="uid://c4v3528wn5cle" path="res://UI/Images/FullscreenBackgroundV10.png" id="7_kvxoe"]
 [ext_resource type="PackedScene" uid="uid://46gsuqj43ym3" path="res://Assets/sequencer/start_button.tscn" id="9_njel3"]
 [ext_resource type="FontFile" uid="uid://frfsgfg3c8u7" path="res://Assets/Font_Pixel_v1.ttf" id="10_1hjla"]
 [ext_resource type="AudioStream" uid="uid://dwiwkmji00g36" path="res://Assets/audio/metronome.mp3" id="10_sewa6"]
@@ -24,7 +24,7 @@ capacity_texture_list = Array[Texture2D]([ExtResource("2_13qdt"), ExtResource("3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(480, 264)
-texture = ExtResource("7_0xvyw")
+texture = ExtResource("7_kvxoe")
 
 [node name="screenshot" type="Sprite2D" parent="Sprite2D"]
 visible = false
@@ -145,10 +145,11 @@ texture = ExtResource("13_m6nqx")
 script = ExtResource("14_kvxoe")
 
 [node name="ButtonNiveau1" type="Button" parent="LevelManager"]
-offset_left = 33.0
-offset_top = 121.0
-offset_right = 105.0
-offset_bottom = 193.0
+offset_left = 31.0
+offset_top = 105.0
+offset_right = 103.0
+offset_bottom = 177.0
+scale = Vector2(0.685, 0.685)
 icon = ExtResource("15_3v1ao")
 flat = true
 script = ExtResource("16_xhjb5")
@@ -170,10 +171,11 @@ text = "01"
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonNiveau2" type="Button" parent="LevelManager"]
-offset_left = 107.0
-offset_top = 121.0
-offset_right = 179.0
-offset_bottom = 193.0
+offset_left = 81.0
+offset_top = 105.0
+offset_right = 153.0
+offset_bottom = 177.0
+scale = Vector2(0.685, 0.685)
 icon = ExtResource("15_3v1ao")
 flat = true
 script = ExtResource("16_xhjb5")
@@ -191,14 +193,15 @@ offset_bottom = 56.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 2
 theme_override_fonts/font = ExtResource("10_1hjla")
-text = "XX"
+text = "02"
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonNiveau3" type="Button" parent="LevelManager"]
-offset_left = 32.0
-offset_top = 195.0
-offset_right = 104.0
-offset_bottom = 267.0
+offset_left = 130.0
+offset_top = 106.0
+offset_right = 202.0
+offset_bottom = 178.0
+scale = Vector2(0.685, 0.685)
 icon = ExtResource("15_3v1ao")
 flat = true
 script = ExtResource("16_xhjb5")
@@ -216,14 +219,15 @@ offset_bottom = 56.0
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 2
 theme_override_fonts/font = ExtResource("10_1hjla")
-text = "XX"
+text = "03"
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonNiveau4" type="Button" parent="LevelManager"]
-offset_left = 106.0
-offset_top = 195.0
-offset_right = 178.0
-offset_bottom = 267.0
+offset_left = 31.0
+offset_top = 155.0
+offset_right = 103.0
+offset_bottom = 227.0
+scale = Vector2(0.685, 0.685)
 icon = ExtResource("15_3v1ao")
 flat = true
 script = ExtResource("16_xhjb5")
@@ -245,10 +249,11 @@ text = "XX"
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonNiveau5" type="Button" parent="LevelManager"]
-offset_left = 33.0
-offset_top = 266.0
-offset_right = 105.0
-offset_bottom = 338.0
+offset_left = 81.0
+offset_top = 156.0
+offset_right = 153.0
+offset_bottom = 228.0
+scale = Vector2(0.685, 0.685)
 icon = ExtResource("15_3v1ao")
 flat = true
 script = ExtResource("16_xhjb5")
@@ -270,10 +275,11 @@ text = "XX"
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonNiveau6" type="Button" parent="LevelManager"]
-offset_left = 107.0
-offset_top = 266.0
-offset_right = 179.0
-offset_bottom = 338.0
+offset_left = 131.0
+offset_top = 157.0
+offset_right = 203.0
+offset_bottom = 229.0
+scale = Vector2(0.685, 0.685)
 icon = ExtResource("15_3v1ao")
 flat = true
 script = ExtResource("16_xhjb5")
@@ -295,10 +301,11 @@ text = "XX"
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonNiveau7" type="Button" parent="LevelManager"]
-offset_left = 33.0
-offset_top = 338.0
-offset_right = 105.0
-offset_bottom = 410.0
+offset_left = 32.0
+offset_top = 206.0
+offset_right = 104.0
+offset_bottom = 278.0
+scale = Vector2(0.685, 0.685)
 icon = ExtResource("15_3v1ao")
 flat = true
 script = ExtResource("16_xhjb5")
@@ -320,16 +327,251 @@ text = "XX"
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonNiveau8" type="Button" parent="LevelManager"]
-offset_left = 107.0
-offset_top = 338.0
-offset_right = 179.0
-offset_bottom = 410.0
+offset_left = 82.0
+offset_top = 206.0
+offset_right = 154.0
+offset_bottom = 278.0
+scale = Vector2(0.685, 0.685)
 icon = ExtResource("15_3v1ao")
 flat = true
 script = ExtResource("16_xhjb5")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="LevelManager/ButtonNiveau8"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0416667
+anchor_right = -0.0416667
+offset_left = 61.0
+offset_top = 33.0
+offset_right = 101.0
+offset_bottom = 56.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("10_1hjla")
+text = "XX"
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonNiveau9" type="Button" parent="LevelManager"]
+offset_left = 133.0
+offset_top = 207.0
+offset_right = 205.0
+offset_bottom = 279.0
+scale = Vector2(0.685, 0.685)
+icon = ExtResource("15_3v1ao")
+flat = true
+script = ExtResource("16_xhjb5")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="LevelManager/ButtonNiveau9"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0416667
+anchor_right = -0.0416667
+offset_left = 61.0
+offset_top = 33.0
+offset_right = 101.0
+offset_bottom = 56.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("10_1hjla")
+text = "XX"
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonNiveau10" type="Button" parent="LevelManager"]
+offset_left = 32.0
+offset_top = 259.0
+offset_right = 104.0
+offset_bottom = 331.0
+scale = Vector2(0.685, 0.685)
+icon = ExtResource("15_3v1ao")
+flat = true
+script = ExtResource("16_xhjb5")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="LevelManager/ButtonNiveau10"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0416667
+anchor_right = -0.0416667
+offset_left = 61.0
+offset_top = 33.0
+offset_right = 101.0
+offset_bottom = 56.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("10_1hjla")
+text = "XX"
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonNiveau11" type="Button" parent="LevelManager"]
+offset_left = 84.0
+offset_top = 259.0
+offset_right = 156.0
+offset_bottom = 331.0
+scale = Vector2(0.685, 0.685)
+icon = ExtResource("15_3v1ao")
+flat = true
+script = ExtResource("16_xhjb5")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="LevelManager/ButtonNiveau11"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0416667
+anchor_right = -0.0416667
+offset_left = 61.0
+offset_top = 33.0
+offset_right = 101.0
+offset_bottom = 56.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("10_1hjla")
+text = "XX"
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonNiveau12" type="Button" parent="LevelManager"]
+offset_left = 134.0
+offset_top = 259.0
+offset_right = 206.0
+offset_bottom = 331.0
+scale = Vector2(0.685, 0.685)
+icon = ExtResource("15_3v1ao")
+flat = true
+script = ExtResource("16_xhjb5")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="LevelManager/ButtonNiveau12"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0416667
+anchor_right = -0.0416667
+offset_left = 61.0
+offset_top = 33.0
+offset_right = 101.0
+offset_bottom = 56.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("10_1hjla")
+text = "XX"
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonNiveau13" type="Button" parent="LevelManager"]
+offset_left = 32.0
+offset_top = 311.0
+offset_right = 104.0
+offset_bottom = 383.0
+scale = Vector2(0.685, 0.685)
+icon = ExtResource("15_3v1ao")
+flat = true
+script = ExtResource("16_xhjb5")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="LevelManager/ButtonNiveau13"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0416667
+anchor_right = -0.0416667
+offset_left = 61.0
+offset_top = 33.0
+offset_right = 101.0
+offset_bottom = 56.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("10_1hjla")
+text = "XX"
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonNiveau14" type="Button" parent="LevelManager"]
+offset_left = 86.0
+offset_top = 311.0
+offset_right = 158.0
+offset_bottom = 383.0
+scale = Vector2(0.685, 0.685)
+icon = ExtResource("15_3v1ao")
+flat = true
+script = ExtResource("16_xhjb5")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="LevelManager/ButtonNiveau14"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0416667
+anchor_right = -0.0416667
+offset_left = 61.0
+offset_top = 33.0
+offset_right = 101.0
+offset_bottom = 56.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("10_1hjla")
+text = "XX"
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonNiveau15" type="Button" parent="LevelManager"]
+offset_left = 136.0
+offset_top = 311.0
+offset_right = 208.0
+offset_bottom = 383.0
+scale = Vector2(0.685, 0.685)
+icon = ExtResource("15_3v1ao")
+flat = true
+script = ExtResource("16_xhjb5")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="LevelManager/ButtonNiveau15"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0416667
+anchor_right = -0.0416667
+offset_left = 61.0
+offset_top = 33.0
+offset_right = 101.0
+offset_bottom = 56.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("10_1hjla")
+text = "XX"
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonNiveau16" type="Button" parent="LevelManager"]
+offset_left = 33.0
+offset_top = 364.0
+offset_right = 105.0
+offset_bottom = 436.0
+scale = Vector2(0.685, 0.685)
+icon = ExtResource("15_3v1ao")
+flat = true
+script = ExtResource("16_xhjb5")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="LevelManager/ButtonNiveau16"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0416667
+anchor_right = -0.0416667
+offset_left = 61.0
+offset_top = 33.0
+offset_right = 101.0
+offset_bottom = 56.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("10_1hjla")
+text = "XX"
+metadata/_edit_use_anchors_ = true
+
+[node name="ButtonNiveau17" type="Button" parent="LevelManager"]
+offset_left = 87.0
+offset_top = 364.0
+offset_right = 159.0
+offset_bottom = 436.0
+scale = Vector2(0.685, 0.685)
+icon = ExtResource("15_3v1ao")
+flat = true
+script = ExtResource("16_xhjb5")
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="LevelManager/ButtonNiveau17"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0416667
