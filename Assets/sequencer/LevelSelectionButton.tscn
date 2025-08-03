@@ -24,3 +24,6 @@ theme_override_constants/shadow_offset_y = 2
 theme_override_fonts/font = ExtResource("3_myxpl")
 text = "XX"
 metadata/_edit_use_anchors_ = true
+
+[connection signal="mouse_entered" from="Button" to="Button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="Button" method="_on_mouse_exited"]

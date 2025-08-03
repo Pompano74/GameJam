@@ -23,3 +23,5 @@ volume_db = 7.0
 
 [connection signal="button_down" from="start_button" to="start_button" method="_on_button_down"]
 [connection signal="button_up" from="start_button" to="start_button" method="_on_button_up"]
+[connection signal="mouse_entered" from="start_button" to="start_button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="start_button" to="start_button" method="_on_mouse_exited"]

@@ -24,3 +24,18 @@ func _on_button_up():
 	elif is_on == false:
 		is_on = true
 		print("off")
+
+@export var min_brightness := 0.5  # 0.0 = full black, 1.0 = original brightness
+
+func _on_mouse_entered() -> void:
+	var parent = get_parent()
+	if parent and parent.has_method("set_modulate"):
+		print("PARENT FOUND WITH ITS PROPERTIES")
+		var current_color = parent.modulate
+		parent.modulate = Color(min_brightness, min_brightness, min_brightness, current_color.a)
+
+func _on_mouse_exited() -> void:
+	var parent = get_parent()
+	if parent and parent.has_method("set_modulate"):
+		var current_color = parent.modulate
+		parent.modulate = Color(1.0, 1.0, 1.0, current_color.a)
