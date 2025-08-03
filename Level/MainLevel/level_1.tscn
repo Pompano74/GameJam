@@ -7,10 +7,10 @@
 [ext_resource type="FontFile" uid="uid://frfsgfg3c8u7" path="res://Assets/Font_Pixel_v1.ttf" id="4_fo4jo"]
 [ext_resource type="AudioStream" uid="uid://cyg1itnq4gyra" path="res://Assets/audio/music/Eolienne/Eolienne 120bpm.mp3" id="5_fw5vd"]
 
-[node name="Level_1" type="Node"]
+[node name="Level_1" type="Node" groups=["level_1"]]
 
 [node name="room" type="Node2D" parent="." groups=["room"]]
-position = Vector2(-936, -696)
+position = Vector2(752, 128)
 
 [node name="TileMapBackground" parent="room" instance=ExtResource("1_8nk43")]
 visible = false
@@ -40,7 +40,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Player" parent="." instance=ExtResource("4_7vokk")]
-position = Vector2(-1688, -824)
+position = Vector2(0, 0)
 
 [node name="CharacterBody2D" parent="Player" index="0"]
 maxDash = 0

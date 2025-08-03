@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dt4t8lga3sioh"
+path="res://.godot/imported/Eolienne 120bpm(level final no loop).mp3-5921885e34c344bb23f98a3a5cdc92f3.mp3str"
+
+[deps]
+
+source_file="res://Assets/audio/music/Eolienne/Eolienne 120bpm(level final no loop).mp3"
+dest_files=["res://.godot/imported/Eolienne 120bpm(level final no loop).mp3-5921885e34c344bb23f98a3a5cdc92f3.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

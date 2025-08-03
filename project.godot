@@ -40,6 +40,8 @@ capacity_sounds=""
 state_sounds=""
 music=""
 win_script=""
+level_1=""
+pause_button=""
 
 [input]
 

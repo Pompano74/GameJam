@@ -10,7 +10,7 @@
 [node name="level_16" type="Node"]
 
 [node name="room" type="Node2D" parent="." groups=["room"]]
-position = Vector2(-1248, -608)
+position = Vector2(504, 320)
 
 [node name="TileMap" parent="room" instance=ExtResource("1_p5b7s")]
 position = Vector2(-96, -96)
@@ -22,7 +22,7 @@ layer_1/tile_data = PackedInt32Array(-655332, 12, 1, -655329, 65548, 2, -655331,
 position = Vector2(-106, -92)
 
 [node name="Win" parent="room" instance=ExtResource("4_w15dt")]
-position = Vector2(960, -672)
+position = Vector2(976, -656)
 
 [node name="KillZone" parent="room" instance=ExtResource("4_t8lcm")]
 position = Vector2(0, -16)
@@ -206,7 +206,7 @@ rotation = -1.57079
 scale = Vector2(3, 0.5)
 
 [node name="Player" parent="." instance=ExtResource("3_0mmwp")]
-position = Vector2(-1752, -928)
+position = Vector2(0, 0)
 
 [node name="CharacterBody2D" parent="Player" index="0"]
 maxJump = 8

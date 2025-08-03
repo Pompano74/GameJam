@@ -9,6 +9,7 @@
 [node name="Level_10" type="Node"]
 
 [node name="room" type="Node2D" parent="." groups=["room"]]
+position = Vector2(2792, 1120)
 
 [node name="TileMapBackground" parent="room" instance=ExtResource("1_pmebd")]
 position = Vector2(-2304, -864)
@@ -21,7 +22,7 @@ layer_0/tile_data = PackedInt32Array(131070, 1, 0, 131071, 1, 0, 65536, 1, 0, 65
 position = Vector2(-992, -864)
 
 [node name="Player" parent="." instance=ExtResource("4_ckac0")]
-position = Vector2(-2792, -1120)
+position = Vector2(0, 0)
 
 [node name="CharacterBody2D" parent="Player" index="0"]
 maxJump = 8

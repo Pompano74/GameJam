@@ -9,7 +9,7 @@
 [node name="level_8" type="Node"]
 
 [node name="room" type="Node2D" parent="." groups=["room"]]
-position = Vector2(-928, -608)
+position = Vector2(488, 160)
 
 [node name="TileMapBackground" parent="room" instance=ExtResource("1_e3gyo")]
 
@@ -22,7 +22,7 @@ position = Vector2(-120, -32)
 rotation = 1.57079
 
 [node name="Player" parent="." instance=ExtResource("3_cxc2x")]
-position = Vector2(-1416, -768)
+position = Vector2(0, 0)
 
 [node name="CharacterBody2D" parent="Player" index="0"]
 maxJump = 0

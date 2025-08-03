@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://753hfb0jp4xu"]
+[gd_scene load_steps=14 format=3 uid="uid://753hfb0jp4xu"]
 
 [ext_resource type="Script" uid="uid://dpbt5jid66xwx" path="res://Assets/sequencer/sequencer.gd" id="1_2828x"]
 [ext_resource type="PackedScene" uid="uid://d32scr7lfh4bf" path="res://Assets/sequencer/button.tscn" id="1_uhqqe"]
@@ -12,6 +12,7 @@
 [ext_resource type="FontFile" uid="uid://frfsgfg3c8u7" path="res://Assets/Font_Pixel_v1.ttf" id="10_1hjla"]
 [ext_resource type="AudioStream" uid="uid://dwiwkmji00g36" path="res://Assets/audio/metronome.mp3" id="10_sewa6"]
 [ext_resource type="PackedScene" uid="uid://nyx5hb1sahu6" path="res://Assets/sequencer/view_button.tscn" id="10_wqqe1"]
+[ext_resource type="Texture2D" uid="uid://cacayaykjkvk4" path="res://Assets/Placeholder/Case_Stop.png" id="13_m6nqx"]
 
 [node name="sequencer" type="Node2D" groups=["button_manager"]]
 position = Vector2(0, 6)
@@ -131,5 +132,10 @@ vertical_alignment = 1
 
 [node name="music" type="AudioStreamPlayer2D" parent="."]
 bus = &"Main Music"
+
+[node name="CaseStop" type="Sprite2D" parent="." groups=["pause_button"]]
+visible = false
+position = Vector2(276, 81)
+texture = ExtResource("13_m6nqx")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
