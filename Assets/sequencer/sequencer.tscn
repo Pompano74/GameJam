@@ -58,45 +58,58 @@ _data = {
 }
 
 [node name="sequencer" type="Node2D" groups=["button_manager"]]
+z_index = 2
 position = Vector2(0, 6)
 script = ExtResource("1_2828x")
 capacity_texture_list = Array[Texture2D]([ExtResource("2_13qdt"), ExtResource("3_0xvyw"), ExtResource("4_1hjla"), ExtResource("5_sewa6"), ExtResource("6_wqqe1")])
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
 position = Vector2(480, 264)
 texture = ExtResource("7_kvxoe")
 
 [node name="screenshot" type="Sprite2D" parent="Sprite2D"]
 visible = false
+z_index = -1
 
 [node name="Button" parent="." instance=ExtResource("1_uhqqe")]
+z_index = 2
 position = Vector2(259, 479)
 
 [node name="Button2" parent="." instance=ExtResource("1_uhqqe")]
+z_index = 2
 position = Vector2(322, 479)
 
 [node name="Button3" parent="." instance=ExtResource("1_uhqqe")]
+z_index = 2
 position = Vector2(385, 479)
 
 [node name="Button4" parent="." instance=ExtResource("1_uhqqe")]
+z_index = 2
 position = Vector2(448, 479)
 
 [node name="Button5" parent="." instance=ExtResource("1_uhqqe")]
+z_index = 2
 position = Vector2(511, 479)
 
 [node name="Button6" parent="." instance=ExtResource("1_uhqqe")]
+z_index = 2
 position = Vector2(574, 479)
 
 [node name="Button7" parent="." instance=ExtResource("1_uhqqe")]
+z_index = 2
 position = Vector2(637, 479)
 
 [node name="Button8" parent="." instance=ExtResource("1_uhqqe")]
+z_index = 2
 position = Vector2(700, 479)
 
 [node name="start_button" parent="." instance=ExtResource("9_njel3")]
+z_index = 2
 position = Vector2(277, 82)
 
 [node name="view_button" parent="." instance=ExtResource("10_wqqe1")]
+z_index = 2
 position = Vector2(348, 81)
 
 [node name="Timer" type="Timer" parent="."]
@@ -111,6 +124,7 @@ bus = &"SFX"
 [node name="Labels" type="Node2D" parent="."]
 
 [node name="BPM_label" type="Label" parent="Labels" groups=["UI_Label"]]
+z_index = 2
 offset_left = 602.0
 offset_top = 66.0
 offset_right = 644.0
@@ -122,6 +136,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="NBRjump_label" type="Label" parent="Labels" groups=["UI_Label"]]
+z_index = 2
 offset_left = 827.0
 offset_top = 119.0
 offset_right = 867.0
@@ -135,6 +150,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="NBRdash_label" type="Label" parent="Labels" groups=["UI_Label"]]
+z_index = 2
 offset_left = 827.0
 offset_top = 189.0
 offset_right = 867.0
@@ -148,6 +164,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="NBRgravity_label" type="Label" parent="Labels" groups=["UI_Label"]]
+z_index = 2
 offset_left = 828.0
 offset_top = 259.0
 offset_right = 868.0
@@ -161,6 +178,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="NBRrotate_label" type="Label" parent="Labels" groups=["UI_Label"]]
+z_index = 2
 offset_left = 828.0
 offset_top = 329.0
 offset_right = 868.0
@@ -182,6 +200,7 @@ position = Vector2(276, 81)
 texture = ExtResource("13_m6nqx")
 
 [node name="ExitButton" type="Button" parent="."]
+z_index = 2
 offset_left = 101.0
 offset_top = -15.0
 offset_right = 205.0
@@ -192,6 +211,7 @@ flat = true
 script = ExtResource("15_gmqqg")
 
 [node name="PlugAnim" type="Sprite2D" parent="ExitButton"]
+z_index = 2
 position = Vector2(-25, 24)
 texture = ExtResource("16_gmqqg")
 hframes = 8
@@ -207,6 +227,7 @@ speed_scale = 4.0
 script = ExtResource("14_kvxoe")
 
 [node name="ButtonNiveau1" type="Button" parent="LevelManager"]
+z_index = 2
 offset_left = 31.0
 offset_top = 105.0
 offset_right = 103.0
@@ -219,6 +240,7 @@ script = ExtResource("16_xhjb5")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="LevelManager/ButtonNiveau1"]
+z_index = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0416667
@@ -234,6 +256,7 @@ text = "01"
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonNiveau2" type="Button" parent="LevelManager"]
+z_index = 2
 offset_left = 81.0
 offset_top = 105.0
 offset_right = 153.0
@@ -246,6 +269,7 @@ script = ExtResource("16_xhjb5")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="LevelManager/ButtonNiveau2"]
+z_index = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0416667
@@ -261,6 +285,7 @@ text = "02"
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonNiveau3" type="Button" parent="LevelManager"]
+z_index = 2
 offset_left = 130.0
 offset_top = 106.0
 offset_right = 202.0
@@ -273,6 +298,7 @@ script = ExtResource("16_xhjb5")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="LevelManager/ButtonNiveau3"]
+z_index = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0416667
@@ -288,6 +314,7 @@ text = "03"
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonNiveau4" type="Button" parent="LevelManager"]
+z_index = 2
 offset_left = 31.0
 offset_top = 155.0
 offset_right = 103.0
@@ -300,6 +327,7 @@ script = ExtResource("16_xhjb5")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="LevelManager/ButtonNiveau4"]
+z_index = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0416667
@@ -315,6 +343,7 @@ text = "XX"
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonNiveau5" type="Button" parent="LevelManager"]
+z_index = 2
 offset_left = 81.0
 offset_top = 156.0
 offset_right = 153.0
@@ -327,6 +356,7 @@ script = ExtResource("16_xhjb5")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="LevelManager/ButtonNiveau5"]
+z_index = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0416667
@@ -342,6 +372,7 @@ text = "XX"
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonNiveau6" type="Button" parent="LevelManager"]
+z_index = 2
 offset_left = 131.0
 offset_top = 157.0
 offset_right = 203.0
@@ -354,6 +385,7 @@ script = ExtResource("16_xhjb5")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="LevelManager/ButtonNiveau6"]
+z_index = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0416667
@@ -369,6 +401,7 @@ text = "XX"
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonNiveau7" type="Button" parent="LevelManager"]
+z_index = 2
 offset_left = 32.0
 offset_top = 206.0
 offset_right = 104.0
@@ -381,6 +414,7 @@ script = ExtResource("16_xhjb5")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="LevelManager/ButtonNiveau7"]
+z_index = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0416667
@@ -396,6 +430,7 @@ text = "XX"
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonNiveau8" type="Button" parent="LevelManager"]
+z_index = 2
 offset_left = 82.0
 offset_top = 206.0
 offset_right = 154.0
@@ -408,6 +443,7 @@ script = ExtResource("16_xhjb5")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="LevelManager/ButtonNiveau8"]
+z_index = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0416667
@@ -423,6 +459,7 @@ text = "XX"
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonNiveau9" type="Button" parent="LevelManager"]
+z_index = 2
 offset_left = 133.0
 offset_top = 207.0
 offset_right = 205.0
@@ -435,6 +472,7 @@ script = ExtResource("16_xhjb5")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="LevelManager/ButtonNiveau9"]
+z_index = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0416667
@@ -450,6 +488,7 @@ text = "XX"
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonNiveau10" type="Button" parent="LevelManager"]
+z_index = 2
 offset_left = 32.0
 offset_top = 259.0
 offset_right = 104.0
@@ -462,6 +501,7 @@ script = ExtResource("16_xhjb5")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="LevelManager/ButtonNiveau10"]
+z_index = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0416667
@@ -477,6 +517,7 @@ text = "XX"
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonNiveau11" type="Button" parent="LevelManager"]
+z_index = 2
 offset_left = 84.0
 offset_top = 259.0
 offset_right = 156.0
@@ -489,6 +530,7 @@ script = ExtResource("16_xhjb5")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="LevelManager/ButtonNiveau11"]
+z_index = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0416667
@@ -504,6 +546,7 @@ text = "XX"
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonNiveau12" type="Button" parent="LevelManager"]
+z_index = 2
 offset_left = 134.0
 offset_top = 259.0
 offset_right = 206.0
@@ -516,6 +559,7 @@ script = ExtResource("16_xhjb5")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="LevelManager/ButtonNiveau12"]
+z_index = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0416667
@@ -531,6 +575,7 @@ text = "XX"
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonNiveau13" type="Button" parent="LevelManager"]
+z_index = 2
 offset_left = 32.0
 offset_top = 311.0
 offset_right = 104.0
@@ -543,6 +588,7 @@ script = ExtResource("16_xhjb5")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="LevelManager/ButtonNiveau13"]
+z_index = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0416667
@@ -558,6 +604,7 @@ text = "XX"
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonNiveau14" type="Button" parent="LevelManager"]
+z_index = 2
 offset_left = 86.0
 offset_top = 311.0
 offset_right = 158.0
@@ -570,6 +617,7 @@ script = ExtResource("16_xhjb5")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="LevelManager/ButtonNiveau14"]
+z_index = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0416667
@@ -585,6 +633,7 @@ text = "XX"
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonNiveau15" type="Button" parent="LevelManager"]
+z_index = 2
 offset_left = 136.0
 offset_top = 311.0
 offset_right = 208.0
@@ -597,6 +646,7 @@ script = ExtResource("16_xhjb5")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="LevelManager/ButtonNiveau15"]
+z_index = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0416667
@@ -612,6 +662,7 @@ text = "XX"
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonNiveau16" type="Button" parent="LevelManager"]
+z_index = 2
 offset_left = 33.0
 offset_top = 364.0
 offset_right = 105.0
@@ -624,6 +675,7 @@ script = ExtResource("16_xhjb5")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="LevelManager/ButtonNiveau16"]
+z_index = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0416667
@@ -639,6 +691,7 @@ text = "XX"
 metadata/_edit_use_anchors_ = true
 
 [node name="ButtonNiveau17" type="Button" parent="LevelManager"]
+z_index = 2
 offset_left = 87.0
 offset_top = 364.0
 offset_right = 159.0
@@ -651,6 +704,7 @@ script = ExtResource("16_xhjb5")
 metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="LevelManager/ButtonNiveau17"]
+z_index = 2
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -0.0416667
