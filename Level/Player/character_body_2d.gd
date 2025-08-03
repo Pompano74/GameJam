@@ -105,18 +105,18 @@ func _process(delta):
 				# Set up the next rotation
 				start_rotation_step()
 	
-	if Input.is_action_just_pressed("debug_2"):
-		Dev_mode = !Dev_mode
-		print("dev_mode", Dev_mode)
+	#if Input.is_action_just_pressed("debug_2"):
+		#Dev_mode = !Dev_mode
+		#print("dev_mode", Dev_mode)
 
-	if Input.is_action_just_pressed("debug_9"):
-		jump()
-	if Input.is_action_just_pressed("debug_8"):
-		dash()
-	if Input.is_action_just_pressed("debug_7"):
-		rotate_world()
-	if Input.is_action_just_pressed("debug_6"):
-		gravity()
+	#if Input.is_action_just_pressed("debug_9"):
+		#jump()
+	#if Input.is_action_just_pressed("debug_8"):
+		#dash()
+	#if Input.is_action_just_pressed("debug_7"):
+		#rotate_world()
+	#if Input.is_action_just_pressed("debug_6"):
+		#gravity()
 
 func _physics_process(delta):
 	if is_on_floor() && sequence_is_playing ==true:
