@@ -37,3 +37,31 @@ func _on_button_pressed():
 
 func load_level_scene():
 	get_tree().change_scene_to_file(level_scene_path)
+
+
+@export var min_brightness := 0.5
+
+func _on_mouse_entered() -> void:
+	var parent = get_parent()
+	if parent == null:
+		return
+
+	for button in parent.get_children():
+		if button == self:
+			# darken only this button (self)
+			var c = button.modulate
+			button.modulate = Color(min_brightness, min_brightness, min_brightness, c.a)
+		else:
+			# restore siblings to normal
+			var c = button.modulate
+			button.modulate = Color(1.0, 1.0, 1.0, c.a)
+
+func _on_mouse_exited() -> void:
+	# restore all siblings including self on mouse exit
+	var parent = get_parent()
+	if parent == null:
+		return
+
+	for button in parent.get_children():
+		var c = button.modulate
+		button.modulate = Color(1.0, 1.0, 1.0, c.a)
