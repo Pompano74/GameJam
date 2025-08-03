@@ -95,7 +95,7 @@ MAX_CAPACITY_DASH = 2
 MAX_CAPACITY_GRAVITE = 2
 MAX_CAPACITY_ROTATE = 2
 
-[node name="MusicPlayer" parent="Player/CharacterBody2D" index="9"]
+[node name="MusicPlayer" parent="Player/CharacterBody2D" index="12"]
 level_music = ExtResource("6_nmuof")
 
 [editable path="Player"]
