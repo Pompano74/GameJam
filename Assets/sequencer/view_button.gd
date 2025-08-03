@@ -5,6 +5,7 @@ extends Button
 var is_on = false
 
 
+
 func _on_button_down() -> void:
 	print("pressed")
 	if is_on == false:
@@ -37,7 +38,3 @@ func _on_mouse_exited() -> void:
 	if parent and parent.has_method("set_modulate"):
 		var current_color = parent.modulate
 		parent.modulate = Color(1.0, 1.0, 1.0, current_color.a)
-
-func _process(delta: float) -> void:
-	if sequencer.player.sequence_is_playing == true:
-		sequencer.screenshot.visible = false

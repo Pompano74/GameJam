@@ -68,18 +68,19 @@ func next_level():
 	var level_manager = get_tree().get_first_node_in_group("level_manager")
 	if level_manager: 
 		level_manager.unlock_level(level_number)
-		print("Unlocking level: ", level_number + 1)
+		print("Unlocking level: ", level_number)
 	
-	var next_level_number = level_number + 1
+	var next_level_number = level_number + 1	
 	
 	if next_level_number == 18:
-		get_tree().change_scene_to_file("res://Assets/sequencer/sequencer.tscn")  # Go to level selection
+		get_tree().change_scene_to_file("res://Level/MainLevel/level_1.tscn")  # Go to level selection
 		print("go to level selection")
 		level_finished = false
 	else:
 		var next_level_path = "res://Level/MainLevel/level_" + str(next_level_number) + ".tscn"
 		get_tree().change_scene_to_file(next_level_path)
 		print("go to level ", next_level_number)
+	
 
 func extract_number_from_scene_name(scene_name: String) -> int:
 	# Extract number from "Level_2" -> 2

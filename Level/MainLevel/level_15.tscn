@@ -11,7 +11,7 @@
 [node name="Level_15" type="Node"]
 
 [node name="room" type="Node2D" parent="." groups=["room"]]
-position = Vector2(1584, 1024)
+position = Vector2(288, 1064)
 
 [node name="NoiseMove" parent="room" instance=ExtResource("1_ymlbi")]
 position = Vector2(-3808, -1456)
@@ -30,14 +30,14 @@ position = Vector2(-1184, -928)
 scale = Vector2(0.5, 6)
 
 [node name="KillZone2" parent="room" instance=ExtResource("4_vkge8")]
-position = Vector2(-1152, -936)
+position = Vector2(-1152, -940)
 rotation = -1.57079
-scale = Vector2(0.5, 6)
+scale = Vector2(0.25, 6)
 
 [node name="KillZone3" parent="room" instance=ExtResource("4_vkge8")]
-position = Vector2(-1152, -968)
+position = Vector2(-1152, -972)
 rotation = -1.57079
-scale = Vector2(0.5, 6)
+scale = Vector2(0.25, 6)
 
 [node name="KillZone4" parent="room" instance=ExtResource("4_vkge8")]
 position = Vector2(-1504, -928)
@@ -45,76 +45,77 @@ rotation = -1.57079
 scale = Vector2(0.5, 2)
 
 [node name="KillZone5" parent="room" instance=ExtResource("4_vkge8")]
-position = Vector2(-1376, -1096)
+position = Vector2(-1376, -1100)
 rotation = -1.57079
-scale = Vector2(0.5, 4)
+scale = Vector2(0.25, 4)
 
 [node name="KillZone6" parent="room" instance=ExtResource("4_vkge8")]
-position = Vector2(-1376, -1064)
+position = Vector2(-1376, -1068)
 rotation = -1.57079
-scale = Vector2(0.5, 4)
+scale = Vector2(0.25, 4)
 
 [node name="KillZone7" parent="room" instance=ExtResource("4_vkge8")]
-position = Vector2(-1440, -904)
+position = Vector2(-1440, -908)
 rotation = -1.57079
-scale = Vector2(0.5, 4)
+scale = Vector2(0.25, 4)
 
 [node name="KillZone8" parent="room" instance=ExtResource("4_vkge8")]
-position = Vector2(-1440, -872)
+position = Vector2(-1440, -876)
 rotation = -1.57079
-scale = Vector2(0.5, 4)
+scale = Vector2(0.25, 4)
 
 [node name="KillZone9" parent="room" instance=ExtResource("4_vkge8")]
-position = Vector2(-1440, -840)
+position = Vector2(-1440, -844)
 rotation = -1.57079
-scale = Vector2(0.5, 4)
+scale = Vector2(0.25, 4)
 
 [node name="KillZone10" parent="room" instance=ExtResource("4_vkge8")]
-position = Vector2(-1440, -808)
+position = Vector2(-1440, -812)
 rotation = -1.57079
-scale = Vector2(0.5, 4)
+scale = Vector2(0.25, 4)
 
 [node name="KillZone11" parent="room" instance=ExtResource("4_vkge8")]
-position = Vector2(-1440, -776)
+position = Vector2(-1440, -780)
 rotation = -1.57079
-scale = Vector2(0.5, 4)
+scale = Vector2(0.25, 4)
 
 [node name="KillZone12" parent="room" instance=ExtResource("4_vkge8")]
-position = Vector2(-1440, -744)
+position = Vector2(-1440, -748)
 rotation = -1.57079
-scale = Vector2(0.5, 4)
+scale = Vector2(0.25, 4)
 
 [node name="KillZone13" parent="room" instance=ExtResource("4_vkge8")]
-position = Vector2(-1440, -456)
+position = Vector2(-1440, -460)
 rotation = -1.57079
-scale = Vector2(0.5, 4)
+scale = Vector2(0.25, 4)
 
 [node name="KillZone14" parent="room" instance=ExtResource("4_vkge8")]
-position = Vector2(-1440, -424)
+position = Vector2(-1440, -428)
 rotation = -1.57079
-scale = Vector2(0.5, 4)
+scale = Vector2(0.25, 4)
 
 [node name="KillZone15" parent="room" instance=ExtResource("4_vkge8")]
-position = Vector2(-1440, -392)
+position = Vector2(-1440, -396)
 rotation = -1.57079
-scale = Vector2(0.5, 4)
+scale = Vector2(0.25, 4)
 
 [node name="KillZone16" parent="room" instance=ExtResource("4_vkge8")]
-position = Vector2(-1440, -360)
+position = Vector2(-1440, -364)
 rotation = -1.57079
-scale = Vector2(0.5, 4)
+scale = Vector2(0.25, 4)
 
 [node name="KillZone17" parent="room" instance=ExtResource("4_vkge8")]
-position = Vector2(-1440, -328)
+position = Vector2(-1440, -332)
 rotation = -1.57079
-scale = Vector2(0.5, 4)
+scale = Vector2(0.25, 4)
 
 [node name="KillZone18" parent="room" instance=ExtResource("4_vkge8")]
-position = Vector2(-1384, -1120)
+position = Vector2(-1388, -1120)
 rotation = -3.14159
-scale = Vector2(0.5, 3)
+scale = Vector2(0.25, 3)
 
 [node name="Player" parent="." instance=ExtResource("4_srh70")]
+visible = false
 position = Vector2(0, 0)
 
 [node name="CharacterBody2D" parent="Player" index="0"]

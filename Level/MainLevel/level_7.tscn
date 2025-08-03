@@ -43,19 +43,19 @@ rotation = -3.14159
 scale = Vector2(0.5, 12)
 
 [node name="KillZone5" parent="room" instance=ExtResource("4_t4urw")]
-position = Vector2(96, -688)
+position = Vector2(96, -684)
 rotation = -4.71238
-scale = Vector2(0.5, 6)
+scale = Vector2(0.25, 6)
 
 [node name="KillZone19" parent="room" instance=ExtResource("4_t4urw")]
-position = Vector2(96, -720)
+position = Vector2(96, -716)
 rotation = -4.71238
-scale = Vector2(0.5, 6)
+scale = Vector2(0.25, 6)
 
 [node name="KillZone20" parent="room" instance=ExtResource("4_t4urw")]
-position = Vector2(96, -752)
+position = Vector2(96, -748)
 rotation = -4.71238
-scale = Vector2(0.5, 6)
+scale = Vector2(0.25, 6)
 
 [node name="KillZone6" parent="room" instance=ExtResource("4_t4urw")]
 position = Vector2(96, -648)

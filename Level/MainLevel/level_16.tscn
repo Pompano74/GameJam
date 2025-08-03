@@ -31,7 +31,7 @@ scale = Vector2(3, 0.5)
 
 [node name="KillZone2" parent="room" instance=ExtResource("4_t8lcm")]
 position = Vector2(256, -48)
-scale = Vector2(3, 0.5)
+scale = Vector2(2, 0.5)
 
 [node name="KillZone5" parent="room" instance=ExtResource("4_t8lcm")]
 position = Vector2(-192, -496)
@@ -39,11 +39,19 @@ scale = Vector2(3, 0.5)
 
 [node name="KillZone6" parent="room" instance=ExtResource("4_t8lcm")]
 position = Vector2(128, -640)
-scale = Vector2(6, 0.5)
+scale = Vector2(1, 0.5)
+
+[node name="KillZone10" parent="room" instance=ExtResource("4_t8lcm")]
+position = Vector2(288, -640)
+scale = Vector2(1, 0.5)
+
+[node name="KillZone13" parent="room" instance=ExtResource("4_t8lcm")]
+position = Vector2(288, -688)
+scale = Vector2(3, 0.5)
 
 [node name="KillZone7" parent="room" instance=ExtResource("4_t8lcm")]
 position = Vector2(96, -688)
-scale = Vector2(9, 0.5)
+scale = Vector2(2, 0.5)
 
 [node name="KillZone41" parent="room" instance=ExtResource("4_t8lcm")]
 position = Vector2(480, -688)
@@ -72,44 +80,44 @@ rotation = -1.57079
 scale = Vector2(9, 0.5)
 
 [node name="KillZone19" parent="room" instance=ExtResource("4_t8lcm")]
-position = Vector2(808, -640)
+position = Vector2(812, -640)
 rotation = -1.57079
-scale = Vector2(8, 0.5)
+scale = Vector2(8, 0.25)
 
 [node name="KillZone43" parent="room" instance=ExtResource("4_t8lcm")]
-position = Vector2(808, -960)
+position = Vector2(812, -960)
 rotation = -1.57079
-scale = Vector2(3, 0.5)
+scale = Vector2(3, 0.25)
 
 [node name="KillZone44" parent="room" instance=ExtResource("4_t8lcm")]
-position = Vector2(840, -960)
+position = Vector2(844, -960)
 rotation = -1.57079
-scale = Vector2(3, 0.5)
+scale = Vector2(3, 0.25)
 
 [node name="KillZone45" parent="room" instance=ExtResource("4_t8lcm")]
-position = Vector2(872, -960)
+position = Vector2(876, -960)
 rotation = -1.57079
-scale = Vector2(3, 0.5)
+scale = Vector2(3, 0.25)
 
 [node name="KillZone46" parent="room" instance=ExtResource("4_t8lcm")]
-position = Vector2(904, -960)
+position = Vector2(908, -960)
 rotation = -1.57079
-scale = Vector2(3, 0.5)
+scale = Vector2(3, 0.25)
 
 [node name="KillZone20" parent="room" instance=ExtResource("4_t8lcm")]
-position = Vector2(840, -640)
+position = Vector2(844, -640)
 rotation = -1.57079
-scale = Vector2(8, 0.5)
+scale = Vector2(8, 0.25)
 
 [node name="KillZone21" parent="room" instance=ExtResource("4_t8lcm")]
-position = Vector2(872, -640)
+position = Vector2(876, -640)
 rotation = -1.57079
-scale = Vector2(8, 0.5)
+scale = Vector2(8, 0.25)
 
 [node name="KillZone22" parent="room" instance=ExtResource("4_t8lcm")]
-position = Vector2(904, -640)
+position = Vector2(908, -640)
 rotation = -1.57079
-scale = Vector2(8, 0.5)
+scale = Vector2(8, 0.25)
 
 [node name="KillZone23" parent="room" instance=ExtResource("4_t8lcm")]
 position = Vector2(704, -704)
@@ -207,6 +215,7 @@ rotation = -1.57079
 scale = Vector2(3, 0.5)
 
 [node name="Player" parent="." instance=ExtResource("3_0mmwp")]
+visible = false
 position = Vector2(0, 0)
 
 [node name="CharacterBody2D" parent="Player" index="0"]

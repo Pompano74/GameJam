@@ -11,7 +11,7 @@
 [node name="level_14" type="Node"]
 
 [node name="room" type="Node2D" parent="." groups=["room"]]
-position = Vector2(-1320, 320)
+position = Vector2(-1288, 320)
 
 [node name="NoiseMove" parent="room" instance=ExtResource("1_lwvxa")]
 position = Vector2(-80, -608)
@@ -25,180 +25,180 @@ layer_0/tile_data = PackedInt32Array(17, 262158, 1, 18, 131086, 1, 19, 131086, 1
 position = Vector2(3920, 912)
 
 [node name="KillZone" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(1900, -160)
-scale = Vector2(0.25, 4)
+position = Vector2(1896, -160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone2" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(1932, -160)
-scale = Vector2(0.25, 4)
+position = Vector2(1928, -160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone3" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(1964, -160)
-scale = Vector2(0.25, 4)
+position = Vector2(1960, -160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone4" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(1996, -160)
-scale = Vector2(0.25, 4)
+position = Vector2(1992, -160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone5" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2028, -160)
-scale = Vector2(0.25, 4)
+position = Vector2(2024, -160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone6" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2060, -160)
-scale = Vector2(0.25, 4)
+position = Vector2(2056, -160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone7" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2092, -160)
-scale = Vector2(0.25, 4)
+position = Vector2(2088, -160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone8" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2124, -160)
-scale = Vector2(0.25, 4)
+position = Vector2(2120, -160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone9" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2156, -160)
-scale = Vector2(0.25, 4)
+position = Vector2(2152, -160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone10" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2188, -160)
-scale = Vector2(0.25, 4)
+position = Vector2(2184, -160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone11" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2220, -160)
-scale = Vector2(0.25, 4)
+position = Vector2(2216, -160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone12" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2252, -160)
-scale = Vector2(0.25, 4)
+position = Vector2(2248, -160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone13" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2284, -160)
-scale = Vector2(0.25, 4)
+position = Vector2(2280, -160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone14" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2316, -160)
-scale = Vector2(0.25, 4)
+position = Vector2(2312, -160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone15" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2348, -160)
-scale = Vector2(0.25, 4)
+position = Vector2(2344, -160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone16" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2380, -160)
-scale = Vector2(0.25, 4)
+position = Vector2(2376, -160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone17" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2412, -160)
-scale = Vector2(0.25, 4)
+position = Vector2(2408, -160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone18" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2444, -160)
-scale = Vector2(0.25, 4)
+position = Vector2(2440, -160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone19" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2412, 0)
-scale = Vector2(0.25, 4)
+position = Vector2(2408, 0)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone20" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2444, 0)
-scale = Vector2(0.25, 4)
+position = Vector2(2440, 0)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone21" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2476, 0)
-scale = Vector2(0.25, 4)
+position = Vector2(2472, 0)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone22" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2508, 0)
-scale = Vector2(0.25, 4)
+position = Vector2(2504, 0)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone23" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2540, 0)
-scale = Vector2(0.25, 4)
+position = Vector2(2536, 0)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone24" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2572, 0)
-scale = Vector2(0.25, 4)
+position = Vector2(2568, 0)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone25" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2604, 0)
-scale = Vector2(0.25, 4)
+position = Vector2(2600, 0)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone143" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2476, -160)
-scale = Vector2(0.25, 4)
+position = Vector2(2472, -160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone144" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2508, -160)
-scale = Vector2(0.25, 4)
+position = Vector2(2504, -160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone145" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2540, -160)
-scale = Vector2(0.25, 4)
+position = Vector2(2536, -160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone146" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2572, -160)
-scale = Vector2(0.25, 4)
+position = Vector2(2568, -160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone147" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2604, -160)
-scale = Vector2(0.25, 4)
+position = Vector2(2600, -160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone148" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2636, -160)
-scale = Vector2(0.25, 4)
+position = Vector2(2632, -160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone149" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2668, -160)
-scale = Vector2(0.25, 4)
+position = Vector2(2664, -160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone150" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2188, 160)
-scale = Vector2(0.25, 4)
+position = Vector2(2184, 160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone151" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2220, 160)
-scale = Vector2(0.25, 4)
+position = Vector2(2216, 160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone152" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2252, 160)
-scale = Vector2(0.25, 4)
+position = Vector2(2248, 160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone153" parent="room" instance=ExtResource("4_kmr68")]
 position = Vector2(2672, 160)
 scale = Vector2(0.5, 4)
 
 [node name="KillZone154" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2988, 320)
-scale = Vector2(0.25, 4)
+position = Vector2(2984, 320)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone155" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(3020, 320)
-scale = Vector2(0.25, 4)
+position = Vector2(3016, 320)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone156" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(3052, 320)
-scale = Vector2(0.25, 4)
+position = Vector2(3048, 320)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone157" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(3084, 320)
-scale = Vector2(0.25, 4)
+position = Vector2(3080, 320)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone158" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(3084, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(3080, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone159" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(3052, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(3048, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone160" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2220, 480)
-scale = Vector2(0.25, 4)
+position = Vector2(2216, 480)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone161" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2188, 480)
-scale = Vector2(0.25, 4)
+position = Vector2(2184, 480)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone162" parent="room" instance=ExtResource("4_kmr68")]
 position = Vector2(1536, 0)
@@ -213,475 +213,474 @@ position = Vector2(3440, 320)
 scale = Vector2(0.5, 9)
 
 [node name="KillZone26" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2636, 0)
-scale = Vector2(0.25, 4)
+position = Vector2(2632, 0)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone27" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2668, 0)
-scale = Vector2(0.25, 4)
+position = Vector2(2664, 0)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone28" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2124, 0)
-scale = Vector2(0.25, 4)
+position = Vector2(2120, 0)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone29" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2156, 0)
-scale = Vector2(0.25, 4)
+position = Vector2(2152, 0)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone30" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2188, 0)
-scale = Vector2(0.25, 4)
+position = Vector2(2184, 0)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone136" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2092, 0)
-scale = Vector2(0.25, 4)
+position = Vector2(2088, 0)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone137" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2060, 0)
-scale = Vector2(0.25, 4)
+position = Vector2(2056, 0)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone138" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2028, 0)
-scale = Vector2(0.25, 4)
+position = Vector2(2024, 0)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone139" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(1996, 0)
-scale = Vector2(0.25, 4)
+position = Vector2(1992, 0)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone142" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(1900, 0)
-scale = Vector2(0.25, 4)
+position = Vector2(1896, 0)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone140" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(1964, 0)
-scale = Vector2(0.25, 4)
+position = Vector2(1960, 0)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone141" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(1932, 0)
-scale = Vector2(0.25, 4)
+position = Vector2(1928, 0)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone31" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2220, 0)
-scale = Vector2(0.25, 4)
+position = Vector2(2216, 0)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone32" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2252, 0)
-scale = Vector2(0.25, 4)
+position = Vector2(2248, 0)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone33" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2284, 0)
-scale = Vector2(0.25, 4)
+position = Vector2(2280, 0)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone34" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2316, 0)
-scale = Vector2(0.25, 4)
+position = Vector2(2312, 0)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone35" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2348, 0)
-scale = Vector2(0.25, 4)
+position = Vector2(2344, 0)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone36" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2380, 0)
-scale = Vector2(0.25, 4)
+position = Vector2(2376, 0)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone37" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(1900, 160)
-scale = Vector2(0.25, 4)
+position = Vector2(1896, 160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone38" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(1932, 160)
-scale = Vector2(0.25, 4)
+position = Vector2(1928, 160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone39" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(1964, 160)
-scale = Vector2(0.25, 4)
+position = Vector2(1960, 160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone40" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(1996, 160)
-scale = Vector2(0.25, 4)
+position = Vector2(1992, 160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone41" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2028, 160)
-scale = Vector2(0.25, 4)
+position = Vector2(2024, 160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone42" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2060, 160)
-scale = Vector2(0.25, 4)
+position = Vector2(2056, 160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone43" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2092, 160)
-scale = Vector2(0.25, 4)
+position = Vector2(2088, 160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone44" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2124, 160)
-scale = Vector2(0.25, 4)
+position = Vector2(2120, 160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone45" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2156, 160)
-scale = Vector2(0.25, 4)
+position = Vector2(2152, 160)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone46" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2412, 320)
-scale = Vector2(0.25, 4)
+position = Vector2(2408, 320)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone47" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2444, 320)
-scale = Vector2(0.25, 4)
+position = Vector2(2440, 320)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone48" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2476, 320)
-scale = Vector2(0.25, 4)
+position = Vector2(2472, 320)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone49" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2508, 320)
-scale = Vector2(0.25, 4)
+position = Vector2(2504, 320)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone50" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2540, 320)
-scale = Vector2(0.25, 4)
+position = Vector2(2536, 320)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone51" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2572, 320)
-scale = Vector2(0.25, 4)
+position = Vector2(2568, 320)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone52" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2604, 320)
-scale = Vector2(0.25, 4)
+position = Vector2(2600, 320)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone53" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2636, 320)
-scale = Vector2(0.25, 4)
+position = Vector2(2632, 320)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone54" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2668, 320)
-scale = Vector2(0.25, 4)
+position = Vector2(2664, 320)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone55" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2700, 320)
-scale = Vector2(0.25, 4)
+position = Vector2(2696, 320)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone56" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2732, 320)
-scale = Vector2(0.25, 4)
+position = Vector2(2728, 320)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone57" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2764, 320)
-scale = Vector2(0.25, 4)
+position = Vector2(2760, 320)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone58" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2796, 320)
-scale = Vector2(0.25, 4)
+position = Vector2(2792, 320)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone59" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2828, 320)
-scale = Vector2(0.25, 4)
+position = Vector2(2824, 320)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone60" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2860, 320)
-scale = Vector2(0.25, 4)
+position = Vector2(2856, 320)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone61" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2892, 320)
-scale = Vector2(0.25, 4)
+position = Vector2(2888, 320)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone62" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2924, 320)
-scale = Vector2(0.25, 4)
+position = Vector2(2920, 320)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone63" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2956, 320)
-scale = Vector2(0.25, 4)
+position = Vector2(2952, 320)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone64" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2828, 480)
-scale = Vector2(0.25, 4)
+position = Vector2(2824, 480)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone65" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2860, 480)
-scale = Vector2(0.25, 4)
+position = Vector2(2856, 480)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone66" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2892, 480)
-scale = Vector2(0.25, 4)
+position = Vector2(2888, 480)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone67" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2924, 480)
-scale = Vector2(0.25, 4)
+position = Vector2(2920, 480)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone68" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2956, 480)
-scale = Vector2(0.25, 4)
+position = Vector2(2952, 480)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone69" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2988, 480)
-scale = Vector2(0.25, 4)
+position = Vector2(2984, 480)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone70" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(3020, 480)
-scale = Vector2(0.25, 4)
+position = Vector2(3016, 480)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone71" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(3052, 480)
-scale = Vector2(0.25, 4)
+position = Vector2(3048, 480)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone72" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(3084, 480)
-scale = Vector2(0.25, 4)
+position = Vector2(3080, 480)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone73" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2540, 480)
-scale = Vector2(0.25, 4)
+position = Vector2(2536, 480)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone74" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2572, 480)
-scale = Vector2(0.25, 4)
+position = Vector2(2568, 480)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone75" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2604, 480)
-scale = Vector2(0.25, 4)
+position = Vector2(2600, 480)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone76" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2636, 480)
-scale = Vector2(0.25, 4)
+position = Vector2(2632, 480)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone77" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2668, 480)
-scale = Vector2(0.25, 4)
+position = Vector2(2664, 480)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone78" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2700, 480)
-scale = Vector2(0.25, 4)
+position = Vector2(2696, 480)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone79" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2732, 480)
-scale = Vector2(0.25, 4)
+position = Vector2(2728, 480)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone80" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2764, 480)
-scale = Vector2(0.25, 4)
+position = Vector2(2760, 480)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone81" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2796, 480)
-scale = Vector2(0.25, 4)
+position = Vector2(2792, 480)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone82" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2252, 480)
-scale = Vector2(0.25, 4)
+position = Vector2(2248, 480)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone83" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2284, 480)
-scale = Vector2(0.25, 4)
+position = Vector2(2280, 480)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone84" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2316, 480)
-scale = Vector2(0.25, 4)
+position = Vector2(2312, 480)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone85" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2348, 480)
-scale = Vector2(0.25, 4)
+position = Vector2(2344, 480)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone86" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2380, 480)
-scale = Vector2(0.25, 4)
+position = Vector2(2376, 480)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone87" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2412, 480)
-scale = Vector2(0.25, 4)
+position = Vector2(2408, 480)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone88" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2444, 480)
-scale = Vector2(0.25, 4)
+position = Vector2(2440, 480)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone89" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2476, 480)
-scale = Vector2(0.25, 4)
+position = Vector2(2472, 480)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone90" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2508, 480)
-scale = Vector2(0.25, 4)
+position = Vector2(2504, 480)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone91" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2188, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(2184, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone92" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2220, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(2216, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone93" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2252, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(2248, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone94" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2284, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(2280, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone95" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2316, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(2312, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone96" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2348, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(2344, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone97" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2380, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(2376, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone98" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2412, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(2408, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone99" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2444, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(2440, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone100" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2476, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(2472, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone101" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2508, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(2504, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone102" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2540, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(2536, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone103" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2572, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(2568, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone104" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2604, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(2600, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone105" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2636, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(2632, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone106" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2668, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(2664, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone107" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2700, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(2696, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone108" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2732, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(2728, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone109" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2764, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(2760, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone110" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2796, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(2792, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone111" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2828, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(2824, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone112" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2860, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(2856, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone113" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2892, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(2888, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone114" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2924, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(2920, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone115" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2956, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(2952, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone116" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(2988, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(2984, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone117" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(3020, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(3016, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone118" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(3308, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(3304, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone119" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(3340, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(3336, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone120" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(3372, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(3368, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone121" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(3404, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(3400, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone122" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(3436, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(3432, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone123" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(3468, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(3464, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone124" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(3500, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(3496, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone125" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(3532, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(3528, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone126" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(3564, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(3560, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone127" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(3596, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(3592, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone128" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(3628, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(3624, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone129" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(3660, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(3656, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone130" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(3692, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(3688, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone131" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(3724, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(3720, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone132" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(3756, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(3752, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone133" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(3788, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(3784, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone134" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(3820, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(3816, 640)
+scale = Vector2(0.5, 4)
 
 [node name="KillZone135" parent="room" instance=ExtResource("4_kmr68")]
-position = Vector2(3852, 640)
-scale = Vector2(0.25, 4)
+position = Vector2(3848, 640)
+scale = Vector2(0.5, 4)
 
 [node name="Player" parent="." instance=ExtResource("3_jp74y")]
-visible = false
 position = Vector2(0, 0)
 
 [node name="CharacterBody2D" parent="Player" index="0"]

@@ -79,6 +79,13 @@ func _ready():
 	cameraShakeNoise = FastNoiseLite.new()
 
 func _process(delta):
+	if is_dashing == true:
+		dash_timer -= delta
+	if dash_timer == 0:
+		is_dashing = false
+	print(is_in_killzone)
+			
+		
 	if rotating:
 		rotation_timer += delta
 		var t = clamp(rotation_timer / rotation_duration, 0, 1)
@@ -261,7 +268,7 @@ func on_killzone_exit():
 	print("body exited")
 
 func die():
-	if not is_dashing:
+	if not is_dashing && is_in_killzone == true:
 		is_dead = true
 		sequencer.restart_timer_stop()
 		player_sprite_2d.animation = "lose"
