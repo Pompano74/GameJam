@@ -10,7 +10,7 @@
 [node name="Level_5" type="Node"]
 
 [node name="room" type="Node2D" parent="." groups=["room"]]
-position = Vector2(-928, -656)
+position = Vector2(840, 112)
 
 [node name="TileMapBackground" parent="room" instance=ExtResource("1_137hr")]
 position = Vector2(-384, 176)
@@ -28,7 +28,7 @@ position = Vector2(-288, 160)
 scale = Vector2(21, 0.5)
 
 [node name="Player" parent="." instance=ExtResource("3_dhsi6")]
-position = Vector2(-1768, -768)
+position = Vector2(0, 0)
 
 [node name="CharacterBody2D" parent="Player" index="0"]
 maxJump = 0

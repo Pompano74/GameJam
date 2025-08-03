@@ -10,7 +10,7 @@
 [node name="level_9" type="Node"]
 
 [node name="room" type="Node2D" parent="." groups=["room"]]
-position = Vector2(-1136, -616)
+position = Vector2(456, 24)
 
 [node name="TileMapBackground" parent="room" instance=ExtResource("1_jn3p8")]
 position = Vector2(112, 104)
@@ -23,9 +23,37 @@ layer_0/tile_data = PackedInt32Array(393214, 0, 0, 393215, 0, 0, 327680, 0, 0, 3
 position = Vector2(0, -40)
 rotation = -1.57079
 
+[node name="KillZone" parent="room" instance=ExtResource("6_n0dcy")]
+position = Vector2(-144, 248)
+scale = Vector2(2, 0.5)
+
+[node name="KillZone2" parent="room" instance=ExtResource("6_n0dcy")]
+position = Vector2(-208, 8)
+scale = Vector2(2, 0.5)
+
+[node name="KillZone3" parent="room" instance=ExtResource("6_n0dcy")]
+position = Vector2(-336, -88)
+scale = Vector2(4, 0.5)
+
+[node name="KillZone4" parent="room" instance=ExtResource("6_n0dcy")]
+position = Vector2(-80, 8)
+scale = Vector2(3, 0.5)
+
+[node name="KillZone5" parent="room" instance=ExtResource("6_n0dcy")]
+position = Vector2(-80, -136)
+scale = Vector2(3, 0.5)
+
+[node name="KillZone6" parent="room" instance=ExtResource("6_n0dcy")]
+position = Vector2(64, -24)
+rotation = 1.57079
+scale = Vector2(2, 0.5)
+
+[node name="KillZone7" parent="room" instance=ExtResource("6_n0dcy")]
+position = Vector2(-144, -280)
+scale = Vector2(9, 0.5)
+
 [node name="Player" parent="." instance=ExtResource("3_76el7")]
-visible = false
-position = Vector2(-1592, -640)
+position = Vector2(0, 0)
 
 [node name="CharacterBody2D" parent="Player" index="0"]
 maxJump = 0
@@ -40,34 +68,5 @@ bpm = 240.0
 
 [node name="MusicPlayer" parent="Player/CharacterBody2D" index="9"]
 level_music = ExtResource("5_76el7")
-
-[node name="KillZone" parent="." instance=ExtResource("6_n0dcy")]
-position = Vector2(-1280, -368)
-scale = Vector2(2, 0.5)
-
-[node name="KillZone2" parent="." instance=ExtResource("6_n0dcy")]
-position = Vector2(-1344, -608)
-scale = Vector2(2, 0.5)
-
-[node name="KillZone3" parent="." instance=ExtResource("6_n0dcy")]
-position = Vector2(-1472, -704)
-scale = Vector2(4, 0.5)
-
-[node name="KillZone4" parent="." instance=ExtResource("6_n0dcy")]
-position = Vector2(-1216, -608)
-scale = Vector2(3, 0.5)
-
-[node name="KillZone5" parent="." instance=ExtResource("6_n0dcy")]
-position = Vector2(-1216, -752)
-scale = Vector2(3, 0.5)
-
-[node name="KillZone6" parent="." instance=ExtResource("6_n0dcy")]
-position = Vector2(-1072, -640)
-rotation = 1.57079
-scale = Vector2(2, 0.5)
-
-[node name="KillZone7" parent="." instance=ExtResource("6_n0dcy")]
-position = Vector2(-1280, -896)
-scale = Vector2(9, 0.5)
 
 [editable path="Player"]

@@ -10,7 +10,7 @@
 [node name="level_3" type="Node"]
 
 [node name="room" type="Node2D" parent="." groups=["room"]]
-position = Vector2(-512, -448)
+position = Vector2(632, 256)
 
 [node name="TileMapBackground" parent="room" instance=ExtResource("1_omchq")]
 visible = false
@@ -53,8 +53,7 @@ position = Vector2(-88, -64)
 scale = Vector2(0.5, 6)
 
 [node name="Player" parent="." instance=ExtResource("3_tri43")]
-visible = false
-position = Vector2(-1144, -704)
+position = Vector2(0, 0)
 
 [node name="CharacterBody2D" parent="Player" index="0"]
 maxGravity = 0

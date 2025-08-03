@@ -23,6 +23,6 @@ func _on_button_up() -> void:
 		is_on = true
 		print("off")
 
-func _process(delta: float) -> void:
-	if sequencer.player.sequence_is_playing == true:
-		sequencer.screenshot.visible = false
+#func _process(delta: float) -> void:
+	#if sequencer.player.sequence_is_playing == true:
+		#sequencer.screenshot.visible = false
