@@ -12,6 +12,7 @@ offset_bottom = 8.0
 icon = ExtResource("1_bwjc0")
 flat = true
 script = ExtResource("2_xw75y")
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="."]
 offset_left = 61.0
@@ -22,3 +23,4 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_offset_y = 2
 theme_override_fonts/font = ExtResource("3_myxpl")
 text = "XX"
+metadata/_edit_use_anchors_ = true
