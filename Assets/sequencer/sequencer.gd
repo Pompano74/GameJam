@@ -135,11 +135,19 @@ func button_call(body):
 		
 	
 func _on_timer_timeout():
-	# REMOVED the sequence_is_playing safety check that was causing problems
-	
 	if buttons.is_empty():
 		return
  
+	# Turn ON the current button's shader FIRST
+	buttons[sequence_loop].material.set_shader_parameter("shader_alpha", 1.0)
+	
+	# Turn OFF the previous button's shader
+	var previous_button = sequence_loop - 1
+	if previous_button < 0:
+		previous_button = buttons.size() - 1  # Wrap to last button
+	buttons[previous_button].material.set_shader_parameter("shader_alpha", 0.0)
+	
+	# Execute the action for current button
 	match button_states[sequence_loop]:
 		1:
 			player.jump()
@@ -153,15 +161,10 @@ func _on_timer_timeout():
 			metronom.play()
 			print("No action")
 	
-	buttons[sequence_loop].material.set_shader_parameter("shader_alpha", 1.0)
-	if sequence_loop > 0:
-		buttons[sequence_loop - 1].material.set_shader_parameter("shader_alpha", 0.0)
-	
+	# Move to next button
 	sequence_loop += 1
 	if sequence_loop >= buttons.size():
 		sequence_loop = 0
-		# Turn off the last button when wrapping around
-		buttons[buttons.size() - 1].material.set_shader_parameter("shader_alpha", 0.0)
 	
 	print("action: " + str(button_states[sequence_loop]))
 	
