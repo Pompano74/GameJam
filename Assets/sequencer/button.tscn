@@ -65,6 +65,8 @@ shader_parameter/shader_alpha = 1.0
 position = Vector2(27, 31)
 texture = ExtResource("2_cq1rj")
 
+[node name="Icon" type="Sprite2D" parent="." groups=["button_sprite"]]
+
 [node name="Button" type="Button" parent="." groups=["buttons"]]
 material = SubResource("ShaderMaterial_ge5sm")
 offset_left = -26.0
@@ -74,7 +76,5 @@ scale = Vector2(0.775, 1.775)
 text = "
 "
 script = ExtResource("1_3r3ib")
-
-[node name="Icon" type="Sprite2D" parent="." groups=["button_sprite"]]
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]
