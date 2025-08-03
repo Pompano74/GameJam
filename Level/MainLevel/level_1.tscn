@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c1ku2e8m1msts"]
+[gd_scene load_steps=6 format=3 uid="uid://c1ku2e8m1msts"]
 
 [ext_resource type="PackedScene" uid="uid://p2u7i0vjae6b" path="res://Level/Object/tile_map_background.tscn" id="1_8nk43"]
 [ext_resource type="PackedScene" uid="uid://cv1m0gtjpoqa7" path="res://Level/Object/tile_map.tscn" id="2_fw5vd"]
 [ext_resource type="PackedScene" uid="uid://pb0owfb37pgi" path="res://Level/Object/win.tscn" id="3_fo4jo"]
 [ext_resource type="PackedScene" uid="uid://dynw8drhp8bjg" path="res://Level/Player/Player.tscn" id="4_7vokk"]
+[ext_resource type="AudioStream" uid="uid://cyg1itnq4gyra" path="res://Assets/audio/music/Eolienne/Eolienne 120bpm.mp3" id="5_fw5vd"]
 
 [node name="Level_1" type="Node"]
 
@@ -33,5 +34,8 @@ modifyBpm = 120.0
 
 [node name="sequencer" parent="Player/CharacterBody2D/Camera2D" index="0"]
 MAX_CAPACITY_JUMP = 1
+
+[node name="MusicPlayer" parent="Player/CharacterBody2D" index="9"]
+level_music = ExtResource("5_fw5vd")
 
 [editable path="Player"]

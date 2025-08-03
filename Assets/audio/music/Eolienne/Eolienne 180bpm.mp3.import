@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b3ptuiym8at3m"
+path="res://.godot/imported/Eolienne 180bpm.mp3-fb8aec7c834b3404847b61ef010b6d12.mp3str"
+
+[deps]
+
+source_file="res://Assets/audio/music/Eolienne/Eolienne 180bpm.mp3"
+dest_files=["res://.godot/imported/Eolienne 180bpm.mp3-fb8aec7c834b3404847b61ef010b6d12.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

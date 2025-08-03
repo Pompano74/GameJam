@@ -98,6 +98,14 @@ func _process(delta):
 		gravity()
 
 func _physics_process(delta):
+	
+	if is_on_floor() and velocity != Vector2(0,0):
+		if not state_sounds[0].playing:
+			state_sounds[0].play()
+	else:
+		if state_sounds[0].playing:
+			state_sounds[0].stop()
+	print(state_sounds[0])
 	var direction = Input.get_axis("move_left", "move_right")
 
 	if Input.is_action_just_pressed("move_left"):

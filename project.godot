@@ -15,6 +15,10 @@ run/main_scene="uid://c1ku2e8m1msts"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+MusicPlayer="res://Level/music_player.tscn"
+
 [display]
 
 window/size/viewport_width=960
@@ -34,6 +38,8 @@ button_sprite=""
 UI_Label=""
 capacity_sounds=""
 state_sounds=""
+music=""
+win_script=""
 
 [input]
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://d32scr7lfh4bf"]
+[gd_scene load_steps=6 format=3 uid="uid://d32scr7lfh4bf"]
 
 [ext_resource type="Script" uid="uid://is4isgbint0h" path="res://Assets/sequencer/button.gd" id="1_3r3ib"]
 [ext_resource type="Texture2D" uid="uid://cfd1b87786ywu" path="res://Assets/Placeholder/Case_Capacites.png" id="2_cq1rj"]
+[ext_resource type="AudioStream" uid="uid://dk0hmxp78hmrq" path="res://Assets/audio/click.mp3" id="3_ge5sm"]
 
 [sub_resource type="Shader" id="Shader_cq1rj"]
 resource_local_to_scene = true
@@ -76,5 +77,9 @@ scale = Vector2(0.775, 1.775)
 text = "
 "
 script = ExtResource("1_3r3ib")
+
+[node name="click_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ge5sm")
+volume_db = 7.0
 
 [connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

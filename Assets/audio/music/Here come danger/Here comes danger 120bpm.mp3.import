@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bk18tc47k3ex3"
+path="res://.godot/imported/Here comes danger 120bpm.mp3-55d73e901bd7420ae5497235a9f08417.mp3str"
+
+[deps]
+
+source_file="res://Assets/audio/music/Here come danger/Here comes danger 120bpm.mp3"
+dest_files=["res://.godot/imported/Here comes danger 120bpm.mp3-55d73e901bd7420ae5497235a9f08417.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

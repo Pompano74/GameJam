@@ -4,6 +4,7 @@ extends Area2D
 @onready var color_rect: ColorRect = $CanvasLayer/ColorRect
 @onready var animation_player_2: AnimationPlayer = $CanvasLayer/AnimationPlayer
 @onready var sequencer = get_tree().get_first_node_in_group("button_manager")
+@onready var music_player = $"../../Player/CharacterBody2D/MusicPlayer"
 
 var current_scene_file
 var next_level_number
@@ -25,13 +26,10 @@ func _process(delta):
 	if level_finished == true:
 		sequencer.level_finish_paude()
 		finished_timer -= delta
-		print("next level")
-		print(finished_timer)
 		if finished_timer <= 0:
 			level_finished == false
 			next_level()
 			animation_player_2.play("fade_to_normal")
-			print("poop")
 			
 func next_level():
 	var current_scene_file = get_tree().current_scene.scene_file_path
