@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cnc6fa5hkys3b"
+path="res://.godot/imported/locked away 160bpm.mp3-9f0e843838ab236258d22e360e465c7b.mp3str"
+
+[deps]
+
+source_file="res://Assets/audio/music/Locked away/locked away 160bpm.mp3"
+dest_files=["res://.godot/imported/locked away 160bpm.mp3-9f0e843838ab236258d22e360e465c7b.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

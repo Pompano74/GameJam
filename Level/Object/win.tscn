@@ -157,7 +157,7 @@ _data = {
 &"RESET": SubResource("Animation_xcb1s")
 }
 
-[node name="Win" type="Area2D"]
+[node name="Win" type="Area2D" groups=["win_script"]]
 collision_mask = 6
 script = ExtResource("1_s1anb")
 

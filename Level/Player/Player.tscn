@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://dynw8drhp8bjg"]
+[gd_scene load_steps=17 format=3 uid="uid://dynw8drhp8bjg"]
 
 [ext_resource type="Script" uid="uid://dsytqkfnho75u" path="res://Level/Player/character_body_2d.gd" id="1_w7old"]
 [ext_resource type="Texture2D" uid="uid://b1raoryae4dvt" path="res://Assets/Placeholder/CharBase.png" id="2_xmy7u"]
@@ -9,6 +9,8 @@
 [ext_resource type="AudioStream" uid="uid://bylowyv7iu1q0" path="res://Assets/audio/sfx/gravity shift.wav" id="6_4a08e"]
 [ext_resource type="AudioStream" uid="uid://dhpj8hsh8v3vb" path="res://Assets/audio/sfx/menu scroll.wav" id="7_uv1qq"]
 [ext_resource type="AudioStream" uid="uid://hkkgmwohrgck" path="res://Assets/audio/sfx/808.wav" id="8_t8ja0"]
+[ext_resource type="AudioStream" uid="uid://gsi4t5dvyux7" path="res://Assets/audio/walk.mp3" id="9_uv1qq"]
+[ext_resource type="PackedScene" uid="uid://bq3x3ia72edan" path="res://Level/music_player.tscn" id="10_57mxj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4a08e"]
 size = Vector2(8, 14)
@@ -133,6 +135,10 @@ stream = ExtResource("8_t8ja0")
 [node name="state" type="Node2D" parent="CharacterBody2D/Sounds"]
 
 [node name="walk_sound" type="AudioStreamPlayer2D" parent="CharacterBody2D/Sounds/state" groups=["state_sounds"]]
+stream = ExtResource("9_uv1qq")
+volume_db = 5.0
 
 [node name="fail_sound" type="AudioStreamPlayer2D" parent="CharacterBody2D/Sounds/state" groups=["state_sounds"]]
 stream = ExtResource("6_4a08e")
+
+[node name="MusicPlayer" parent="CharacterBody2D" instance=ExtResource("10_57mxj")]

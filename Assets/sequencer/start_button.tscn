@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://46gsuqj43ym3"]
+[gd_scene load_steps=4 format=3 uid="uid://46gsuqj43ym3"]
 
 [ext_resource type="Script" uid="uid://dd0f3gqcfvrtt" path="res://Assets/sequencer/start_button.gd" id="1_2jedh"]
 [ext_resource type="Texture2D" uid="uid://corvde5dqo4ed" path="res://Assets/Placeholder/Case_Play.png" id="2_2jedh"]
+[ext_resource type="AudioStream" uid="uid://dk0hmxp78hmrq" path="res://Assets/audio/click.mp3" id="3_krl1o"]
 
 [node name="Sprite2D" type="Sprite2D"]
 position = Vector2(27, 31)
@@ -15,6 +16,10 @@ offset_right = 42.5
 offset_bottom = 1.0
 scale = Vector2(0.775, 1.775)
 script = ExtResource("1_2jedh")
+
+[node name="click_sound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_krl1o")
+volume_db = 7.0
 
 [connection signal="button_down" from="start_button" to="start_button" method="_on_button_down"]
 [connection signal="button_up" from="start_button" to="start_button" method="_on_button_up"]

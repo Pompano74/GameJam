@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dfjlb13ph14oo"
+path="res://.godot/imported/locked away 200bpm.mp3-b0252daae42e88f3bf08c73ea145b050.mp3str"
+
+[deps]
+
+source_file="res://Assets/audio/music/Locked away/locked away 200bpm.mp3"
+dest_files=["res://.godot/imported/locked away 200bpm.mp3-b0252daae42e88f3bf08c73ea145b050.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

@@ -34,4 +34,7 @@ maxGravity = 0
 maxRotate = 0
 modifyBpm = 120.0
 
+[node name="MusicPlayer" parent="Player/CharacterBody2D" index="9"]
+level_music = null
+
 [editable path="Player"]
