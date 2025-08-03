@@ -81,9 +81,8 @@ func _ready():
 func _process(delta):
 	if is_dashing == true:
 		dash_timer -= delta
-	if dash_timer == 0:
-		is_dashing = false
-	print(is_in_killzone)
+		if dash_timer <= 0:  # ← Changed from == 0 to <= 0
+			is_dashing = false
 			
 		
 	if rotating:
@@ -197,15 +196,30 @@ func _physics_process(delta):
 
 # Capacité joueur
 func jump():
+	print("=== JUMP CALLED ===")
+	print("disable_player_input:", disable_player_input)
+	print("is_dead:", is_dead)
+	print("sequence_is_playing:", sequence_is_playing)
+	print("gravity_direction:", gravity_direction)
+	print("jump_direction:", jump_direction)
+	
 	capacity_sounds[0].play()
 	if not disable_player_input:
+		print("JUMP EXECUTED - velocity.y set to:", player_jump_strength * jump_direction)
 		velocity.y = player_jump_strength * jump_direction
 	else:
-		pass
+		print("JUMP BLOCKED - disable_player_input is true")
 
+# Also add debug to other abilities for comparison:
+# Also add debug to other abilities for comparison:
 func dash():
+	print("=== DASH CALLED ===")
+	print("disable_player_input:", disable_player_input)
+	print("is_dead:", is_dead)
+	
 	capacity_sounds[1].play()
 	if not disable_player_input:
+		print("DASH EXECUTED")
 		particles.emitting = true
 		is_dashing = true
 		dash_timer = dash_duration
@@ -213,7 +227,7 @@ func dash():
 		velocity.x = dash_direction * dash_force
 		print("invicible")
 	else:
-		pass
+		print("DASH BLOCKED")
 
 func rotate_world():
 	capacity_sounds[3].play()
@@ -235,20 +249,27 @@ func start_rotation_step():
 	rotation_direction = 1
 
 func gravity():
+	print("=== GRAVITY CALLED ===")
+	print("disable_player_input:", disable_player_input)
+	print("is_dead:", is_dead)
+	print("current gravity_direction:", gravity_direction)
+	
 	capacity_sounds[2].play()
 	if not disable_player_input:
 		if gravity_direction == Vector2.DOWN:
+			print("GRAVITY EXECUTED - switching to UP")
 			velocity.y = player_jump_strength * jump_direction
 			gravity_direction = Vector2.UP
 			jump_direction = -1
 			print("GRAVITY UP")
 		else:
+			print("GRAVITY EXECUTED - switching to DOWN")
 			velocity.y = player_jump_strength * jump_direction
 			gravity_direction = Vector2.DOWN
 			jump_direction = 1
 			print("GRAVITY DOWN")
 	else:
-		pass
+		print("GRAVITY BLOCKED")
 
 func rotate_around(pivot: Vector2, point: Vector2, angle: float) -> Vector2:
 	var relative = point - pivot
@@ -283,28 +304,28 @@ func die():
 		await get_tree().create_timer(2.2).timeout
 		is_dead = false
 		global_position = original_position
-		velocity = Vector2.ZERO  # reset velocity as well
-		# Reset other states if needed
-		set_physics_process(true)  # ensure physics process is enabled if you disabled it on death
+		velocity = Vector2.ZERO
+		set_physics_process(true)
 		rotating = false
 		is_dashing = false
 		dash_timer = 0.0
 		disable_player_input = false
 		gravity_direction = Vector2.DOWN
-		origin_nodes[0].rotation =  0.0
+		jump_direction = 1  # ← ADD THIS LINE!
+		origin_nodes[0].rotation = 0.0
 		origin_nodes[0].position = room_original_position
 func game_restart():
 	print("hellloooooooooooooo")
 	global_position = original_position
-	velocity = Vector2.ZERO  # reset velocity as well
-	# Reset other states if needed
-	set_physics_process(true)  # ensure physics process is enabled if you disabled it on death
+	velocity = Vector2.ZERO
+	set_physics_process(true)
 	rotating = false
 	is_dashing = false
 	dash_timer = 0.0
 	disable_player_input = false
 	gravity_direction = Vector2.DOWN
-	origin_nodes[0].rotation =  0.0
+	jump_direction = 1  # ← ADD THIS LINE!
+	origin_nodes[0].rotation = 0.0
 	origin_nodes[0].position = room_original_position
 	
 func StartCameraShake(intensity: float):
