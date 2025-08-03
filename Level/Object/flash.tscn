@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://ca33w8c7c2cbm"]
+
+[ext_resource type="Material" uid="uid://y0tbwobrks0p" path="res://new_shader_material.tres" id="1_rllba"]
+[ext_resource type="Texture2D" uid="uid://c7cdq24qlakff" path="res://Assets/animation/PersonnageV69_HitWhite.png" id="2_kq4rr"]
+[ext_resource type="Script" uid="uid://cykkg7fw4c6j8" path="res://sprite_2d.gd" id="3_puofc"]
+
+[node name="flash" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = ExtResource("1_rllba")
+position = Vector2(496, 272)
+texture = ExtResource("2_kq4rr")
+script = ExtResource("3_puofc")

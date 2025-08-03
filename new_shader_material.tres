@@ -1,7 +1,15 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://y0tbwobrks0p"]
 
-[ext_resource type="Shader" uid="uid://dxqskygonlsuj" path="res://Assets/blink.gdshader" id="1_50bgh"]
+[ext_resource type="Shader" uid="uid://bde8ts051vy78" path="res://Assets/button_flash.gdshader" id="1_50bgh"]
 
 [resource]
 shader = ExtResource("1_50bgh")
-shader_parameter/alpha_color = 1.0
+shader_parameter/colour = Color(1, 1, 1, 1)
+shader_parameter/tint_factor = 1.0
+shader_parameter/fade = 1.0
+shader_parameter/border_fade_size = 0.324
+shader_parameter/pixel_size = 24.572
+shader_parameter/fade_origin = Vector2(0.5, 0.5)
+shader_parameter/fade_outer_limit = 0.45
+shader_parameter/corner_roundness = 0.73
+shader_parameter/shader_alpha = 1.0

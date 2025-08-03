@@ -67,6 +67,7 @@ position = Vector2(27, 31)
 texture = ExtResource("2_cq1rj")
 
 [node name="Icon" type="Sprite2D" parent="." groups=["button_sprite"]]
+position = Vector2(0, -7)
 
 [node name="Button" type="Button" parent="." groups=["buttons"]]
 material = SubResource("ShaderMaterial_ge5sm")

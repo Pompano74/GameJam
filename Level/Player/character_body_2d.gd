@@ -14,6 +14,7 @@ extends CharacterBody2D
 var original_position
 var room_original_position
 #sounds
+@onready var sequencer = get_tree().get_first_node_in_group("button_manager")
 @onready var capacity_sounds = get_tree().get_nodes_in_group("capacity_sounds")
 @onready var state_sounds = get_tree().get_nodes_in_group("state_sounds")
 var origin_initial_pos: Vector2
@@ -261,6 +262,7 @@ func on_killzone_exit():
 
 func die():
 	if not is_dashing:
+		sequencer.restart_timer_stop()
 		player_sprite_2d.animation = "lose"
 		print("die func called")
 		state_sounds[1].play()
@@ -283,6 +285,7 @@ func die():
 		origin_nodes[0].rotation =  0.0
 		origin_nodes[0].position = room_original_position
 func game_restart():
+	print("hellloooooooooooooo")
 	global_position = original_position
 	velocity = Vector2.ZERO  # reset velocity as well
 	# Reset other states if needed

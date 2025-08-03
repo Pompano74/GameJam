@@ -1,6 +1,7 @@
 extends Node2D
 
 #-----button var------#
+@onready var start_button_call = get_tree().get_first_node_in_group("start_button")
 @export var capacity_texture_list: Array[Texture2D] # Index: 0 = default, 1 = jump, 2 = dash, 3 = gravity, 4 = rotate
 @onready var buttons = get_tree().get_nodes_in_group("buttons")
 @onready var sprite = get_tree().get_nodes_in_group("button_sprite")
@@ -34,6 +35,7 @@ var button_states = []
 @onready var metronom = $metronom
 var sequence_loop = 0
 @onready var start_button = $start_button
+
 
 #-----Player-------#
 @onready var player = $"../.."
@@ -168,8 +170,16 @@ func timer_start():
 	timer.wait_time = 60 / bpm
 	timer.start()
 func timer_stop():
+	buttons[sequence_loop - 1].material.set_shader_parameter("shader_alpha", 0.0)
 	player.sequence_is_playing = false
+	sequence_loop = 0
 	player.game_restart()
+	timer.stop()
+func restart_timer_stop():
+	start_button_call.restart_button()
+	buttons[sequence_loop - 1].material.set_shader_parameter("shader_alpha", 0.0)
+	player.sequence_is_playing = false
+	sequence_loop = 0
 	timer.stop()
 func level_finish_paude():
 	var sprite = get_tree().get_nodes_in_group("button_sprite")

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://dywcppulqb053"]
 
-[ext_resource type="PackedScene" uid="uid://bpp2rt7jm6dj8" path="res://Level/noise_move.tscn" id="1_v344c"]
+[ext_resource type="PackedScene" uid="uid://bpp2rt7jm6dj8" path="res://Level/paralax/noise_move_bleu.tscn" id="1_v344c"]
 [ext_resource type="PackedScene" uid="uid://cv1m0gtjpoqa7" path="res://Level/Object/tile_map.tscn" id="2_ckac0"]
 [ext_resource type="PackedScene" uid="uid://pb0owfb37pgi" path="res://Level/Object/win.tscn" id="3_0hg2c"]
 [ext_resource type="PackedScene" uid="uid://7j41jpon30lu" path="res://Level/Object/kill_zone.tscn" id="3_v344c"]

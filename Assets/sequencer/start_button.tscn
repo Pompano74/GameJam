@@ -8,7 +8,7 @@
 position = Vector2(27, 31)
 texture = ExtResource("2_2jedh")
 
-[node name="start_button" type="Button" parent="."]
+[node name="start_button" type="Button" parent="." groups=["start_button"]]
 self_modulate = Color(1, 1, 1, 0)
 offset_left = -27.0
 offset_top = -31.0

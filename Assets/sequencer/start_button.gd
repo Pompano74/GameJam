@@ -27,7 +27,10 @@ func _on_button_up():
 	elif is_on == false:
 		is_on = true
 		print("off")
-
+func restart_button():
+	is_on = false
+	case_stop.visible = false
+	sequencer.as_pressed_play = false
 @export var min_brightness := 0.5  # 0.0 = full black, 1.0 = original brightness
 
 func _on_mouse_entered() -> void:

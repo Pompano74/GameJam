@@ -43,6 +43,7 @@ win_script=""
 level_1=""
 pause_button=""
 animatedspriteplayer=""
+start_button=""
 
 [input]
 

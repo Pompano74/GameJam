@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://pb0owfb37pgi"]
+[gd_scene load_steps=19 format=3 uid="uid://pb0owfb37pgi"]
 
 [ext_resource type="Texture2D" uid="uid://cv4id1n6wpbk3" path="res://Assets/Placeholder/Headphones-Sheet.png" id="1_bllmy"]
 [ext_resource type="Script" uid="uid://dd71ss4g2kwyc" path="res://Script/win.gd" id="1_s1anb"]
 [ext_resource type="AudioStream" uid="uid://cfkujm4wekoik" path="res://Assets/audio/sfx/menu select.wav" id="3_xcb1s"]
 [ext_resource type="AudioStream" uid="uid://c3g75humhbcbo" path="res://Assets/audio/Its a win.mp3" id="4_6185u"]
 [ext_resource type="PackedScene" uid="uid://b11dlomo3mdvf" path="res://fadeTransition.tscn" id="4_xcb1s"]
+[ext_resource type="PackedScene" uid="uid://ca33w8c7c2cbm" path="res://Level/Object/flash.tscn" id="5_ocu2j"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s1anb"]
 radius = 16.0
@@ -238,8 +239,12 @@ _data = {
 }
 
 [node name="Win" type="Area2D" groups=["win_script"]]
+position = Vector2(464, 288)
 collision_mask = 6
 script = ExtResource("1_s1anb")
+
+[node name="flash" parent="." instance=ExtResource("5_ocu2j")]
+position = Vector2(-480, -288)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(16, -16)
