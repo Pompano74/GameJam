@@ -9,7 +9,7 @@ extends CharacterBody2D
 @onready var player_sprite_2d = $Sprite2D
 @onready var particles = $GPUParticles2D
 @onready var death_particule: CPUParticles2D = $DeathParticule
-
+var original_position
 #sounds
 @onready var capacity_sounds = get_tree().get_nodes_in_group("capacity_sounds")
 @onready var state_sounds = get_tree().get_nodes_in_group("state_sounds")
@@ -57,6 +57,8 @@ var cameraShakeNoise: FastNoiseLite
 var remaining_rotations = 0
 
 func _ready():
+	var original_position = global_position
+	print(original_position)
 	var origin_nodes = get_tree().get_nodes_in_group("room")
 	if origin_nodes.size() > 0:
 		origin_point = origin_nodes[0] as Node2D
@@ -246,7 +248,7 @@ func die():
 		await get_tree().create_timer(2.2).timeout
 		get_tree().reload_current_scene()
 func game_restart():
-	get_tree().reload_current_scene()
+	print("text temporaire")
 func StartCameraShake(intensity: float):
 	var cameraOffset = cameraShakeNoise.get_noise_1d(Time.get_ticks_msec()) * intensity
 	player_cam.offset.x = cameraOffset

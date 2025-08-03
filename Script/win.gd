@@ -4,11 +4,11 @@ extends Area2D
 @onready var color_rect: ColorRect = $CanvasLayer/ColorRect
 @onready var animation_player_2: AnimationPlayer = $CanvasLayer/AnimationPlayer
 @onready var sequencer = get_tree().get_first_node_in_group("button_manager")
-@onready var music_player = $"../../Player/CharacterBody2D/MusicPlayer"
+@onready var music_player = $CharacterBody2D/MusicPlayer
 @onready var level_1 = get_tree().get_first_node_in_group("level_1")
 @onready var pickup_sound_last_level = $"pickup Sound last level"
 var last_level: bool
-@onready var music_player_final = $"../Player/CharacterBody2D/MusicPlayer"
+@onready var music_player_final = $"pickup Sound last level"
 
 var current_scene_file
 var next_level_number
