@@ -9,6 +9,7 @@ extends Area2D
 @onready var pickup_sound_last_level = $"pickup Sound last level"
 var last_level: bool
 @onready var music_player_final = $"pickup Sound last level"
+@onready var player = get_tree().get_first_node_in_group("player")
 
 var current_scene_file
 var next_level_number
@@ -20,9 +21,12 @@ var finished_timer = 4
 
 func _ready() -> void:
 	color_rect.visible = false
+	print(player)
 	
 
 func _on_body_entered(body):
+	player = player.get_child(0)
+	player.win_animation()
 	current_scene_file = get_tree().current_scene.scene_file_path
 	if current_scene_file == "res://Level/MainLevel/level_17.tscn":
 		finished_timer = 11

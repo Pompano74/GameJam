@@ -56,11 +56,15 @@ signal game_resume
 var player_cam_global_position: Vector2
 var player_cam_zoom: Vector2
 var cameraShakeNoise: FastNoiseLite
+var as_won
+
 
 # New: Counter to manage consecutive rotations
 var remaining_rotations = 0
 
 func _ready():
+	as_won = false
+	player_sprite_2d.animation = "win"
 	# ... your existing code ...
 	if origin_point != null:
 		origin_initial_pos = origin_point.global_position
@@ -115,9 +119,9 @@ func _physics_process(delta):
 		if state_sounds[0].playing:
 			state_sounds[0].stop()
 	var direction = Input.get_axis("move_left", "move_right")
-	if direction != 0 && velocity > Vector2(0.0,0.0) &&sequence_is_playing ==true:
+	if direction != 0 && sequence_is_playing ==true:
 		player_sprite_2d.animation = "walk"
-	else:
+	elif sequence_is_playing == true && as_won == false:
 		player_sprite_2d.animation = "idle"
 	
 	if Input.is_action_pressed("move_left") && sequence_is_playing ==true:
@@ -147,7 +151,7 @@ func _physics_process(delta):
 
 	if gravity_direction == Vector2.DOWN:
 		if not is_on_floor():
-			if sequence_is_playing == true:
+			if sequence_is_playing == true && as_won == false:
 				player_sprite_2d.animation = "jump"
 				jump_particule.emitting = true
 			velocity += get_gravity() * gravity_direction * delta * gravity_force
@@ -172,7 +176,6 @@ func _physics_process(delta):
 		dash_timer -= delta
 		player_sprite_2d.animation = "dash"
 		if dash_timer <= 0:
-			player_sprite_2d.animation = "idle"
 			particles.emitting = false
 			is_dashing = false
 			player_sprite_2d.modulate = Color(1,1,1,1)
@@ -247,11 +250,6 @@ func rotate_around(pivot: Vector2, point: Vector2, angle: float) -> Vector2:
 	)
 	return pivot + rotated
 
-# Ennemis
-func _on_area_2d_body_entered(body):
-	body.queue_free()
-	print("enemie killed")
-
 # Zone de mort
 func on_killzone_enter():
 	is_in_killzone = true
@@ -263,6 +261,7 @@ func on_killzone_exit():
 
 func die():
 	if not is_dashing:
+		player_sprite_2d.animation = "lose"
 		print("die func called")
 		state_sounds[1].play()
 		death_particule.restart()
@@ -300,3 +299,7 @@ func StartCameraShake(intensity: float):
 	var cameraOffset = cameraShakeNoise.get_noise_1d(Time.get_ticks_msec()) * intensity
 	player_cam.offset.x = cameraOffset
 	player_cam.offset.y = cameraOffset
+func win_animation():
+	as_won = true
+	player_sprite_2d.animation = "win"
+	print("win win win")

@@ -271,6 +271,7 @@ offset_top = 136.0
 offset_right = 260.0
 offset_bottom = 157.0
 scale = Vector2(24.13, 13.3494)
+color = Color(1, 1, 1, 1)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 

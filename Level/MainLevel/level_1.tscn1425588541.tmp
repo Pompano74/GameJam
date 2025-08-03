@@ -54,11 +54,9 @@ modulate = Color(1, 1, 1, 0)
 MAX_CAPACITY_JUMP = 1
 
 [node name="AnimatedSprite2D" parent="Player/CharacterBody2D" index="4"]
-autoplay = "win"
-frame_progress = 0.0631692
+autoplay = "idle"
 
 [node name="MusicPlayer" parent="Player/CharacterBody2D" index="12"]
 level_music = ExtResource("5_fw5vd")
 
 [editable path="Player"]
-[editable path="Player/CharacterBody2D/Camera2D/sequencer"]

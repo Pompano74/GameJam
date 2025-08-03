@@ -3,9 +3,11 @@ extends Button
 @onready var case_stop = get_tree().get_first_node_in_group("pause_button")
 @onready var sequencer = get_tree().get_first_node_in_group("button_manager")
 var is_on = false
+@onready var animation_player = get_tree().get_first_node_in_group("animatedspriteplayer")
 
 func _on_button_down():
 	click_sound.play()
+	
 	print("pressed")
 	if is_on == false:
 		case_stop.visible = true
@@ -13,6 +15,7 @@ func _on_button_down():
 		sequencer.timer_start()
 		print("timer_start")
 	if is_on == true:
+		animation_player.animation = "win"
 		case_stop.visible = false
 		sequencer.as_pressed_play = false
 		sequencer.timer_stop()

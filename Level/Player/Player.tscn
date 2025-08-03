@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dynw8drhp8bjg"]
+[gd_scene load_steps=45 format=3 uid="uid://dynw8drhp8bjg"]
 
 [ext_resource type="Script" uid="uid://dsytqkfnho75u" path="res://Level/Player/character_body_2d.gd" id="1_w7old"]
 [ext_resource type="PackedScene" uid="uid://753hfb0jp4xu" path="res://Assets/sequencer/sequencer.tscn" id="3_8op4e"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://hkkgmwohrgck" path="res://Assets/audio/sfx/808.wav" id="8_t8ja0"]
 [ext_resource type="AudioStream" uid="uid://gsi4t5dvyux7" path="res://Assets/audio/walk.mp3" id="9_uv1qq"]
 [ext_resource type="PackedScene" uid="uid://bq3x3ia72edan" path="res://Level/music_player.tscn" id="10_57mxj"]
+[ext_resource type="Texture2D" uid="uid://ctr0xuavo4l0e" path="res://Assets/animation/GreenishLevelsAnimations/PersonnageV69_DashSprite_greenishPal-mirror.png" id="10_g81rx"]
 [ext_resource type="Texture2D" uid="uid://cuq5r02reesbq" path="res://Assets/animation/DashEffect.png" id="16_aycq3"]
 [ext_resource type="Texture2D" uid="uid://do1ulogyngiix" path="res://Assets/animation/JumpEffect.png" id="17_kptdk"]
 
@@ -57,6 +58,14 @@ region = Rect2(192, 0, 32, 32)
 atlas = ExtResource("4_qx4tn")
 region = Rect2(0, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_xfdt3"]
+atlas = ExtResource("4_t8ja0")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3o1l6"]
+atlas = ExtResource("4_qx4tn")
+region = Rect2(0, 0, 32, 32)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ysui"]
 atlas = ExtResource("4_t8ja0")
 region = Rect2(0, 0, 32, 32)
@@ -80,6 +89,26 @@ region = Rect2(128, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_jh3j2"]
 atlas = ExtResource("4_t8ja0")
 region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycb80"]
+atlas = ExtResource("3_r27eg")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mre87"]
+atlas = ExtResource("3_t8ja0")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3a1in"]
+atlas = ExtResource("3_t8ja0")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5is6"]
+atlas = ExtResource("3_t8ja0")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g41m8"]
+atlas = ExtResource("10_g81rx")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_uv1qq"]
 animations = [{
@@ -126,6 +155,17 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_xfdt3")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_3o1l6")
+}],
+"loop": true,
+"name": &"lose",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 0.5,
 "texture": SubResource("AtlasTexture_4ysui")
 }, {
@@ -147,6 +187,35 @@ animations = [{
 "loop": true,
 "name": &"walk",
 "speed": 6.0
+}, {
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_ycb80")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mre87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3a1in")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5is6")
+}, {
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_g41m8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mre87")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3a1in")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5is6")
+}],
+"loop": true,
+"name": &"win",
+"speed": 5.0
 }]
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4wa72"]
@@ -199,12 +268,13 @@ position = Vector2(-480, -264)
 position = Vector2(8, -7)
 shape = SubResource("RectangleShape2D_4a08e")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" groups=["animatedspriteplayer"]]
 position = Vector2(8, -8)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_uv1qq")
-animation = &"dash"
-autoplay = "walk"
+animation = &"win"
+autoplay = "lose"
+frame_progress = 0.571558
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="CharacterBody2D"]
 modulate = Color(1, 1, 1, 0.454902)

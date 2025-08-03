@@ -32,7 +32,7 @@ modifyBpm = 170.0
 MAX_CAPACITY_ROTATE = 2
 bpm = 175.0
 
-[node name="MusicPlayer" parent="Player/CharacterBody2D" index="9"]
+[node name="MusicPlayer" parent="Player/CharacterBody2D" index="12"]
 level_music = ExtResource("5_w8klm")
 
 [editable path="Player"]
