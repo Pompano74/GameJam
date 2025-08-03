@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://bljmrma0vicl6"]
 
 [ext_resource type="PackedScene" uid="uid://cv1m0gtjpoqa7" path="res://Level/Object/tile_map.tscn" id="1_0k00u"]
-[ext_resource type="PackedScene" uid="uid://bpp2rt7jm6dj8" path="res://Level/paralax/noise_move_bleu.tscn" id="1_4q7dp"]
+[ext_resource type="PackedScene" uid="uid://dtiagg4y12vvt" path="res://Level/paralax/noise_move_vert.tscn" id="1_4q7dp"]
 [ext_resource type="PackedScene" uid="uid://dynw8drhp8bjg" path="res://Level/Player/Player.tscn" id="3_grjux"]
 [ext_resource type="PackedScene" uid="uid://pb0owfb37pgi" path="res://Level/Object/win.tscn" id="4_12wf5"]
 [ext_resource type="PackedScene" uid="uid://7j41jpon30lu" path="res://Level/Object/kill_zone.tscn" id="4_t4urw"]
@@ -13,8 +13,8 @@
 position = Vector2(1688, 952)
 
 [node name="NoiseMove" parent="room" instance=ExtResource("1_4q7dp")]
-position = Vector2(-1192, 192)
-rotation = -0.785397
+position = Vector2(-2208, -1304)
+scale = Vector2(1.5, 1.5)
 
 [node name="KillZone3" parent="room" instance=ExtResource("4_t4urw")]
 position = Vector2(320, -408)

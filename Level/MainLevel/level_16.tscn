@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://uy803fr8f4jj"]
 
 [ext_resource type="PackedScene" uid="uid://cv1m0gtjpoqa7" path="res://Level/Object/tile_map.tscn" id="1_p5b7s"]
-[ext_resource type="PackedScene" uid="uid://bpp2rt7jm6dj8" path="res://Level/paralax/noise_move_bleu.tscn" id="1_t8lcm"]
+[ext_resource type="PackedScene" uid="uid://d31hmta5exdhb" path="res://Level/paralax/noise_move_rouge.tscn" id="1_t8lcm"]
 [ext_resource type="PackedScene" uid="uid://dynw8drhp8bjg" path="res://Level/Player/Player.tscn" id="3_0mmwp"]
 [ext_resource type="PackedScene" uid="uid://7j41jpon30lu" path="res://Level/Object/kill_zone.tscn" id="4_t8lcm"]
 [ext_resource type="PackedScene" uid="uid://pb0owfb37pgi" path="res://Level/Object/win.tscn" id="4_w15dt"]
@@ -13,8 +13,8 @@
 position = Vector2(504, 320)
 
 [node name="NoiseMove" parent="room" instance=ExtResource("1_t8lcm")]
-position = Vector2(-2600, -1368)
-scale = Vector2(1.75, 1.75)
+position = Vector2(-2104, -1288)
+scale = Vector2(1.5, 1.5)
 
 [node name="TileMap" parent="room" instance=ExtResource("1_p5b7s")]
 position = Vector2(-96, -96)
@@ -23,7 +23,7 @@ layer_1/name = "Layer1"
 layer_1/tile_data = PackedInt32Array(-655332, 12, 1, -655329, 65548, 2, -655331, 65548, 1, -655330, 65548, 1, 31, 65548, 2, 65567, 65548, 2, 28, 12, 1, 65564, 12, 1, 29, 65548, 1, 30, 65548, 1, 65565, 65548, 1, 65566, 65548, 1)
 
 [node name="Win" parent="room" instance=ExtResource("4_w15dt")]
-position = Vector2(976, -656)
+position = Vector2(0, -32)
 
 [node name="KillZone" parent="room" instance=ExtResource("4_t8lcm")]
 position = Vector2(0, -16)

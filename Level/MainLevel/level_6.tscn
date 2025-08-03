@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://ds154vntdf5wf"]
 
-[ext_resource type="PackedScene" uid="uid://bpp2rt7jm6dj8" path="res://Level/paralax/noise_move_bleu.tscn" id="1_ogvl0"]
+[ext_resource type="PackedScene" uid="uid://dtiagg4y12vvt" path="res://Level/paralax/noise_move_vert.tscn" id="1_ogvl0"]
 [ext_resource type="PackedScene" uid="uid://cv1m0gtjpoqa7" path="res://Level/Object/tile_map.tscn" id="2_libbo"]
 [ext_resource type="PackedScene" uid="uid://pb0owfb37pgi" path="res://Level/Object/win.tscn" id="3_aiiyb"]
 [ext_resource type="PackedScene" uid="uid://7j41jpon30lu" path="res://Level/Object/kill_zone.tscn" id="4_aiiyb"]
@@ -13,7 +13,7 @@
 position = Vector2(904, 96)
 
 [node name="NoiseMove" parent="room" instance=ExtResource("1_ogvl0")]
-position = Vector2(-1520, -576)
+position = Vector2(-1608, -608)
 
 [node name="TileMap" parent="room" instance=ExtResource("2_libbo")]
 position = Vector2(-424, 256)

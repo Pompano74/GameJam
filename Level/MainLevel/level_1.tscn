@@ -13,7 +13,7 @@
 position = Vector2(1640, 512)
 
 [node name="NoiseMove" parent="room" instance=ExtResource("1_fo4jo")]
-position = Vector2(-1640, -512)
+position = Vector2(-1656, -504)
 
 [node name="TileMap" parent="room" instance=ExtResource("2_fw5vd")]
 position = Vector2(-352, 160)

@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://cjlcccl2le581"]
+
+[ext_resource type="Script" uid="uid://wa2d5vkgxofb" path="res://Level/MainLevel/noise_move.gd" id="1_pofla"]
+[ext_resource type="Texture2D" uid="uid://ci5nhx8kprma1" path="res://Assets/Gear_Background.png" id="2_qfem3"]
+[ext_resource type="Texture2D" uid="uid://dpc11bcaetuno" path="res://Assets/Gear_MiddleLayer.png" id="3_c3skb"]
+[ext_resource type="Texture2D" uid="uid://cmj0ccxpccqv5" path="res://Assets/Gear_FrontLayer.png" id="4_hbsxc"]
+[ext_resource type="Texture2D" uid="uid://d0mhkvfibcdhd" path="res://Assets/GearsBackground_V2_middle.png" id="5_lcrto"]
+[ext_resource type="Texture2D" uid="uid://qp72ro74tewn" path="res://Assets/GearsBackground_V2_lines.png" id="6_khtpr"]
+[ext_resource type="Texture2D" uid="uid://dw33f2hr4sm08" path="res://Assets/GearsBackground_V2_back.png" id="7_15fhk"]
+
+[node name="NoiseMove" type="Node2D"]
+script = ExtResource("1_pofla")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.978923, 0.4362, 0.613083, 1)
+position = Vector2(1665, 521.5)
+scale = Vector2(1.85, 1.85)
+texture = ExtResource("2_qfem3")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+modulate = Color(0.607664, 0.171743, 0.360726, 1)
+position = Vector2(1665, 521.5)
+scale = Vector2(1.85, 1.85)
+texture = ExtResource("3_c3skb")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+modulate = Color(0.195037, 0.531233, 0.670758, 1)
+position = Vector2(1665, 521.5)
+scale = Vector2(1.85, 1.85)
+texture = ExtResource("4_hbsxc")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+modulate = Color(0.868297, 0.399581, 0.619958, 1)
+position = Vector2(1665, 521.5)
+scale = Vector2(1.85, 1.85)
+texture = ExtResource("5_lcrto")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+modulate = Color(0.329531, 0.888962, 0.1059, 1)
+position = Vector2(1665, 521.5)
+scale = Vector2(1.85, 1.85)
+texture = ExtResource("6_khtpr")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+modulate = Color(0.482001, 0.830125, 0.279821, 1)
+position = Vector2(1665, 521.5)
+scale = Vector2(1.85, 1.85)
+texture = ExtResource("7_15fhk")
