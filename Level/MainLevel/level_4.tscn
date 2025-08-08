@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bp5uot72n1y1l"]
+[gd_scene load_steps=8 format=3 uid="uid://bp5uot72n1y1l"]
 
 [ext_resource type="PackedScene" uid="uid://cv1m0gtjpoqa7" path="res://Level/Object/tile_map.tscn" id="2_ea7pv"]
 [ext_resource type="PackedScene" uid="uid://pb0owfb37pgi" path="res://Level/Object/win.tscn" id="3_ea7pv"]
 [ext_resource type="PackedScene" uid="uid://dynw8drhp8bjg" path="res://Level/Player/Player.tscn" id="4_yc3u2"]
 [ext_resource type="PackedScene" uid="uid://7j41jpon30lu" path="res://Level/Object/kill_zone.tscn" id="5_1n4bi"]
+[ext_resource type="Texture2D" uid="uid://ft3b4k2wub85" path="res://Assets/Level_Screenshots/screenshot_lvl4.png" id="6_7c847"]
 [ext_resource type="AudioStream" uid="uid://m4hwpfngdi35" path="res://Assets/audio/music/Eolienne/Eolienne 140bpm.mp3" id="6_ir40u"]
 [ext_resource type="PackedScene" uid="uid://bpp2rt7jm6dj8" path="res://Level/paralax/noise_move_bleu.tscn" id="6_lc161"]
 
@@ -62,6 +63,7 @@ modifyBpm = 140.0
 [node name="sequencer" parent="Player/CharacterBody2D/Camera2D" index="0"]
 MAX_CAPACITY_JUMP = 2
 MAX_CAPACITY_DASH = 2
+lvl_screenshot = ExtResource("6_7c847")
 bpm = 140.0
 
 [node name="MusicPlayer" parent="Player/CharacterBody2D" index="12"]
