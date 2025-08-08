@@ -7,9 +7,9 @@ extends Button
 var locked_color = Color(0.4, 0.4, 0.4, 1.0)  # Darker color for locked state
 var unlocked_color = Color(1.0, 1.0, 1.0, 1.0)  # Normal color for unlocked state
 
-#func _ready():
+func _ready():
 	# Connect the button press signal
-	#pressed.connect(_on_button_pressed)
+	self.pressed.connect(_on_pressed)
 
 func lock_button():
 	is_unlocked = false
@@ -68,5 +68,13 @@ func _on_mouse_exited() -> void:
 
 
 func _on_pressed() -> void:
+	print("BUTTON PRESSED: is_unlocked=", is_unlocked, " path=", level_scene_path)
 	if is_unlocked and level_scene_path != "":
-		load_level_scene()
+		if not ResourceLoader.exists(level_scene_path):
+			print("SCENE MISSING: ", level_scene_path)
+			return
+		var err = get_tree().change_scene_to_file(level_scene_path)
+		if err != OK:
+			print("SCENE LOAD FAILED with error code: ", err)
+		else:
+			print("SCENE LOAD SUCCESS")

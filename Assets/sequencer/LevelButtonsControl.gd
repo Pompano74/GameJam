@@ -1,5 +1,23 @@
 extends Node2D
 
+#@onready var _dummy_level_1 := preload("res://level/MainLevel/level_1.tscn")
+#@onready var _dummy_level_2 := preload("res://Level/MainLevel/level_2.tscn")
+#@onready var _dummy_level_3 := preload("res://Level/MainLevel/level_3.tscn")
+#@onready var _dummy_level_4 := preload("res://Level/MainLevel/level_4.tscn")
+#@onready var _dummy_level_5 := preload("res://Level/MainLevel/level_5.tscn")
+#@onready var _dummy_level_6 := preload("res://Level/MainLevel/level_6.tscn")
+#@onready var _dummy_level_7 := preload("res://Level/MainLevel/level_7.tscn")
+#@onready var _dummy_level_8 := preload("res://Level/MainLevel/level_8.tscn")
+#@onready var _dummy_level_9 := preload("res://Level/MainLevel/level_9.tscn")
+#@onready var _dummy_level_10 := preload("res://Level/MainLevel/level_10.tscn")
+#@onready var _dummy_level_11 := preload("res://Level/MainLevel/level_11.tscn")
+#@onready var _dummy_level_12 := preload("res://Level/MainLevel/level_12.tscn")
+#@onready var _dummy_level_13 := preload("res://Level/MainLevel/level_13.tscn")
+#@onready var _dummy_level_14 := preload("res://Level/MainLevel/level_14.tscn")
+#@onready var _dummy_level_15 := preload("res://Level/MainLevel/level_15.tscn")
+#@onready var _dummy_level_16 := preload("res://Level/MainLevel/level_16.tscn")
+#@onready var _dummy_level_17 := preload("res://Level/MainLevel/level_17.tscn")
+
 var level_buttons: Array[Button] = []
 # Static variable to track unlocked levels across scene changes
 static var unlocked_levels: Array[int] = [1]  # Start with level 1 unlocked
@@ -32,7 +50,7 @@ func collect_level_buttons():
 			print("Found button ", child.name, " with level_number: ", level_num)
 			
 			# Set scene path dynamically for all levels
-			child.level_scene_path = "res://level/MainLevel/Level_%d.tscn" % level_num
+			child.level_scene_path = "res://Level/MainLevel/level_%d.tscn" % level_num
 			
 			# Set label text with zero-padded numbers (01, 02, 03, etc.)
 			var label = child.get_node_or_null("Label")
