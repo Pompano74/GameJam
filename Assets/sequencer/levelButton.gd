@@ -7,9 +7,9 @@ extends Button
 var locked_color = Color(0.4, 0.4, 0.4, 1.0)  # Darker color for locked state
 var unlocked_color = Color(1.0, 1.0, 1.0, 1.0)  # Normal color for unlocked state
 
-func _ready():
+#func _ready():
 	# Connect the button press signal
-	pressed.connect(_on_button_pressed)
+	#pressed.connect(_on_button_pressed)
 
 func lock_button():
 	is_unlocked = false
@@ -31,9 +31,9 @@ func unlock_button():
 	if label:
 		label.modulate = unlocked_color  # Restore normal label brightness
 
-func _on_button_pressed():
-	if is_unlocked and level_scene_path != "":
-		load_level_scene()
+#func _on_button_pressed():
+	#if is_unlocked and level_scene_path != "":
+	#	load_level_scene()
 
 func load_level_scene():
 	get_tree().change_scene_to_file(level_scene_path)
@@ -65,3 +65,8 @@ func _on_mouse_exited() -> void:
 	for button in parent.get_children():
 		var c = button.modulate
 		button.modulate = Color(1.0, 1.0, 1.0, c.a)
+
+
+func _on_pressed() -> void:
+	if is_unlocked and level_scene_path != "":
+		load_level_scene()
