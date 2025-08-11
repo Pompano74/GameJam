@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://pb0owfb37pgi" path="res://Level/Object/win.tscn" id="3_6kpl1"]
 [ext_resource type="PackedScene" uid="uid://7j41jpon30lu" path="res://Level/Object/kill_zone.tscn" id="4_3ponn"]
 [ext_resource type="AudioStream" uid="uid://c4tcj3cdu1l8t" path="res://Assets/audio/music/Locked away/locked away 140bpm.mp3" id="6_lahf8"]
-[ext_resource type="Texture2D" uid="uid://bqhmuqxri24d3" path="res://Assets/Level_Screenshots/screenshot_lvl13.png" id="6_vmdtv"]
+[ext_resource type="Texture2D" uid="uid://073uydlsffc1" path="res://Assets/Level_Screenshots/screenshot_lvl13.png" id="6_vmdtv"]
 
 [node name="level_13" type="Node"]
 
@@ -91,7 +91,7 @@ MAX_CAPACITY_ROTATE = 2
 lvl_screenshot = ExtResource("6_vmdtv")
 bpm = 140.0
 
-[node name="MusicPlayer" parent="Player/CharacterBody2D" index="12"]
+[node name="MusicPlayer" parent="Player/CharacterBody2D" index="10"]
 level_music = ExtResource("6_lahf8")
 
 [editable path="Player"]
