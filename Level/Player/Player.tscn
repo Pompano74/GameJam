@@ -1,7 +1,8 @@
-[gd_scene load_steps=45 format=3 uid="uid://dynw8drhp8bjg"]
+[gd_scene load_steps=44 format=3 uid="uid://dynw8drhp8bjg"]
 
 [ext_resource type="Script" uid="uid://dsytqkfnho75u" path="res://Level/Player/character_body_2d.gd" id="1_w7old"]
 [ext_resource type="PackedScene" uid="uid://753hfb0jp4xu" path="res://Assets/sequencer/sequencer.tscn" id="3_8op4e"]
+[ext_resource type="Texture2D" uid="uid://ceq4d4cpwk8bj" path="res://Assets/animation/PersonnageV69_Hitred.png" id="3_kptdk"]
 [ext_resource type="Texture2D" uid="uid://bo34n1fwcrwsg" path="res://Assets/animation/GreenishLevelsAnimations/PersonnageV69_DashSprite_greenishPal.png" id="3_r27eg"]
 [ext_resource type="Texture2D" uid="uid://5popx00k8qc4" path="res://Assets/animation/GreenishLevelsAnimations/PersonnageV69_IdleAnimation_greenishPal.png" id="3_t8ja0"]
 [ext_resource type="AudioStream" uid="uid://7gytyod0k7qm" path="res://Assets/Placeholder/son_tempo_placeholder.wav" id="4_4a08e"]
@@ -16,14 +17,12 @@
 [ext_resource type="AudioStream" uid="uid://gsi4t5dvyux7" path="res://Assets/audio/walk.mp3" id="9_uv1qq"]
 [ext_resource type="PackedScene" uid="uid://bq3x3ia72edan" path="res://Level/music_player.tscn" id="10_57mxj"]
 [ext_resource type="Texture2D" uid="uid://ctr0xuavo4l0e" path="res://Assets/animation/GreenishLevelsAnimations/PersonnageV69_DashSprite_greenishPal-mirror.png" id="10_g81rx"]
-[ext_resource type="Texture2D" uid="uid://cuq5r02reesbq" path="res://Assets/animation/DashEffect.png" id="16_aycq3"]
-[ext_resource type="Texture2D" uid="uid://do1ulogyngiix" path="res://Assets/animation/JumpEffect.png" id="17_kptdk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4a08e"]
 size = Vector2(8, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gsa31"]
-atlas = ExtResource("3_r27eg")
+atlas = ExtResource("3_kptdk")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qx4tn"]
@@ -239,19 +238,6 @@ disable_mode = 2
 collision_layer = 2
 script = ExtResource("1_w7old")
 
-[node name="dash_sprite" type="Sprite2D" parent="CharacterBody2D"]
-visible = false
-position = Vector2(-5.5, -6)
-rotation = 1.57079
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("16_aycq3")
-
-[node name="jump_sprite" type="Sprite2D" parent="CharacterBody2D"]
-visible = false
-position = Vector2(9, 7.5)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("17_kptdk")
-
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" groups=["camera"]]
 position = Vector2(0, 0.5)
 scale = Vector2(0.5, 0.5)
@@ -272,9 +258,8 @@ shape = SubResource("RectangleShape2D_4a08e")
 position = Vector2(0, 0.5)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_uv1qq")
-animation = &"win"
+animation = &"idle"
 autoplay = "lose"
-frame_progress = 0.571558
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="CharacterBody2D"]
 modulate = Color(1, 1, 1, 0.454902)

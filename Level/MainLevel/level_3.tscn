@@ -64,7 +64,7 @@ MAX_CAPACITY_JUMP = 1
 MAX_CAPACITY_DASH = 1
 lvl_screenshot = ExtResource("6_panwp")
 
-[node name="MusicPlayer" parent="Player/CharacterBody2D" index="12"]
+[node name="MusicPlayer" parent="Player/CharacterBody2D" index="10"]
 level_music = ExtResource("6_qknev")
 
 [editable path="Player"]
