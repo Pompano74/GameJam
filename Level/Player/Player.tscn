@@ -233,7 +233,7 @@ position = Vector2(-8, 0)
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(472, 288)
+position = Vector2(488, 269)
 scale = Vector2(2, 2)
 disable_mode = 2
 collision_layer = 2
@@ -253,7 +253,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("17_kptdk")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" groups=["camera"]]
-position = Vector2(8, -8)
+position = Vector2(0, 0.5)
 scale = Vector2(0.5, 0.5)
 limit_smoothed = true
 drag_left_margin = 0.05
@@ -265,11 +265,11 @@ drag_bottom_margin = 0.0
 position = Vector2(-480, -264)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(8, -7)
+position = Vector2(0, 1.5)
 shape = SubResource("RectangleShape2D_4a08e")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D" groups=["animatedspriteplayer"]]
-position = Vector2(8, -8)
+position = Vector2(0, 0.5)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_uv1qq")
 animation = &"win"
@@ -279,7 +279,7 @@ frame_progress = 0.571558
 [node name="GPUParticles2D" type="GPUParticles2D" parent="CharacterBody2D"]
 modulate = Color(1, 1, 1, 0.454902)
 show_behind_parent = true
-position = Vector2(8, -8)
+position = Vector2(0, 0.5)
 emitting = false
 amount = 25
 texture = ExtResource("7_4wa72")
@@ -289,7 +289,7 @@ process_material = SubResource("ParticleProcessMaterial_4wa72")
 [node name="GPUParticles2Djump" type="GPUParticles2D" parent="CharacterBody2D"]
 modulate = Color(1, 1, 1, 0.454902)
 show_behind_parent = true
-position = Vector2(8, -8)
+position = Vector2(0, 0.5)
 emitting = false
 amount = 25
 texture = ExtResource("7_4wa72")
@@ -297,23 +297,23 @@ interp_to_end = 0.231
 process_material = SubResource("ParticleProcessMaterial_4wa72")
 
 [node name="Label" type="Label" parent="CharacterBody2D"]
-offset_left = -16.0
-offset_top = -124.0
-offset_right = 24.0
-offset_bottom = -101.0
+offset_left = -24.0
+offset_top = -115.5
+offset_right = 16.0
+offset_bottom = -92.5
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="origin_point" type="Node2D" parent="CharacterBody2D"]
-position = Vector2(8, -8)
+position = Vector2(0, 0.5)
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="CharacterBody2D"]
-position = Vector2(8, -3.5)
+position = Vector2(0, 5)
 scale = Vector2(0.5, 0.5)
 stream = ExtResource("4_4a08e")
 
 [node name="DeathParticule" type="CPUParticles2D" parent="CharacterBody2D"]
-position = Vector2(8.5, -7)
+position = Vector2(0.5, 1.5)
 emitting = false
 amount = 60
 lifetime = 0.5
@@ -328,6 +328,7 @@ scale_amount_max = 4.0
 scale_amount_curve = SubResource("Curve_ngpfc")
 
 [node name="Sounds" type="Node2D" parent="CharacterBody2D"]
+position = Vector2(-8, 8.5)
 
 [node name="capacity" type="Node2D" parent="CharacterBody2D/Sounds"]
 
@@ -354,3 +355,4 @@ volume_db = 5.0
 stream = ExtResource("6_4a08e")
 
 [node name="MusicPlayer" parent="CharacterBody2D" instance=ExtResource("10_57mxj")]
+position = Vector2(-8, 8.5)

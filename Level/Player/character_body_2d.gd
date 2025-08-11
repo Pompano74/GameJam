@@ -11,6 +11,7 @@ extends CharacterBody2D
 @onready var death_particule: CPUParticles2D = $DeathParticule
 @onready var jump_particule = $GPUParticles2Djump
 @onready var origin_nodes = get_tree().get_nodes_in_group("room")
+@onready var start_button = get_tree().get_first_node_in_group("start_button")
 var original_position
 var room_original_position
 #sounds
@@ -291,6 +292,7 @@ func on_killzone_exit():
 func die():
 	if not is_dashing && is_in_killzone == true:
 		is_dead = true
+		start_button.disabled = true
 		sequencer.restart_timer_stop()
 		player_sprite_2d.animation = "lose"
 		print("die func called")
@@ -303,6 +305,7 @@ func die():
 		set_physics_process(false)
 		await get_tree().create_timer(2.2).timeout
 		is_dead = false
+		start_button.disabled = false
 		global_position = original_position
 		velocity = Vector2.ZERO
 		set_physics_process(true)
