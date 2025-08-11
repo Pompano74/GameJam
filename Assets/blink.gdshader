@@ -8,5 +8,3 @@ color.a = alpha_color;
 COLOR = color;
 
 }
-
-

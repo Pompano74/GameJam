@@ -24,7 +24,6 @@ position = Vector2(-120, -16)
 rotation = 1.57079
 
 [node name="Player" parent="." instance=ExtResource("3_cxc2x")]
-visible = false
 position = Vector2(0, 0)
 
 [node name="CharacterBody2D" parent="Player" index="0"]

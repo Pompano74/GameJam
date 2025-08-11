@@ -6,6 +6,7 @@ extends Node2D
 @onready var buttons = get_tree().get_nodes_in_group("buttons")
 @onready var sprite = get_tree().get_nodes_in_group("button_sprite")
 var as_pressed_play = false
+@onready var pause_screen = $PauseScreen
 # Capacity limits
 
 @export var MAX_CAPACITY_JUMP := 0
@@ -169,10 +170,12 @@ func _on_timer_timeout():
 	print("action: " + str(button_states[sequence_loop]))
 	
 func timer_start():
+	pause_screen.visible = false
 	player.sequence_is_playing = true
 	timer.wait_time = 60 / bpm
 	timer.start()
 func timer_stop():
+	pause_screen.visible = true
 	buttons[sequence_loop - 1].material.set_shader_parameter("shader_alpha", 0.0)
 	player.sequence_is_playing = false
 	sequence_loop = 0

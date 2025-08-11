@@ -28,7 +28,7 @@ func _on_body_entered(body):
 	player = player.get_child(0)
 	player.win_animation()
 	current_scene_file = get_tree().current_scene.scene_file_path
-	if current_scene_file == "res://Level/MainLevel/level_17.tscn":
+	if current_scene_file == "res://Level/MainLevel/level_16.tscn":
 		finished_timer = 11
 		color_rect.visible = true
 		animation_player.play("PickupSound_2")
