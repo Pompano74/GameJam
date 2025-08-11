@@ -80,6 +80,22 @@ func _ready():
 	cameraShakeNoise = FastNoiseLite.new()
 
 func _process(delta):
+	print(dash_timer)
+	if is_dashing:
+		dash_timer -= delta
+		player_sprite_2d.animation = "dash"
+	elif dash_timer <= 0:
+		print("dash finish")
+		particles.emitting = false
+		is_dashing = false
+		player_sprite_2d.modulate = Color(1,1,1,1)
+		print("vulnerable")
+		if is_in_killzone:
+			die()
+	if sequence_is_playing == true:
+		move_and_slide()
+	else:
+		pass
 	if is_dashing == true:
 		dash_timer -= delta
 		if dash_timer <= 0:  # ← Changed from == 0 to <= 0
@@ -180,20 +196,7 @@ func _physics_process(delta):
 	else:
 		velocity.x = lerp(velocity.x, direction * player_speed, 2 * delta)
 
-	if is_dashing:
-		dash_timer -= delta
-		player_sprite_2d.animation = "dash"
-		if dash_timer <= 0:
-			particles.emitting = false
-			is_dashing = false
-			player_sprite_2d.modulate = Color(1,1,1,1)
-			print("vulnerable")
-			if is_in_killzone:
-				die()
-	if sequence_is_playing == true:
-		move_and_slide()
-	else:
-		pass
+	
 
 # Capacité joueur
 func jump():
@@ -310,6 +313,7 @@ func die():
 		velocity = Vector2.ZERO
 		set_physics_process(true)
 		rotating = false
+		particles.emitting = false
 		is_dashing = false
 		dash_timer = 0.0
 		disable_player_input = false

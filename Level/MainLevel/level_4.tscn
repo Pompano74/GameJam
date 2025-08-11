@@ -66,7 +66,7 @@ MAX_CAPACITY_DASH = 2
 lvl_screenshot = ExtResource("6_7c847")
 bpm = 140.0
 
-[node name="MusicPlayer" parent="Player/CharacterBody2D" index="12"]
+[node name="MusicPlayer" parent="Player/CharacterBody2D" index="10"]
 level_music = ExtResource("6_ir40u")
 
 [editable path="Player"]
